@@ -38,6 +38,7 @@ public class StatSystem
     [SerializeField] public float _addSpeed = 0f;
     [SerializeField] public float _addDurationTime = 0f;
     [SerializeField] public float _addHP = 0;
+    [SerializeField] public float _addReflect = 0;
 
     [Header("MultiplyStat")]
     [SerializeField] public float _multyATK = 1f;
@@ -45,6 +46,7 @@ public class StatSystem
     [SerializeField] public float _multySpeed = 1f;
     [SerializeField] public float _multyDurationTime = 1f;
     [SerializeField] public float _multyHP = 1f;
+    [SerializeField] public float _multyReflect = 0;
 
     public float ResultATK(float origin = 0)
     {
@@ -72,6 +74,12 @@ public class StatSystem
         return (origin + _addHP) * _multyHP;
     }
     public void ResetHP() { _addHP = 0; _multyHP = 1f; }
+
+    public float ResultReflect (float origin = 0)
+    {
+        return (origin + _addHP) * _multyHP;
+    }
+    public void ResetReflect() { _addHP = 0; _multyHP = 1f; }
 
 }
 

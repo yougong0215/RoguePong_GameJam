@@ -10,5 +10,5 @@ public abstract class SkillAbility : Ability
         //throw new System.NotImplementedException();
     }
 
-    public abstract void SettingAction(ref Action<BallSystem> bss);
+    public abstract void SettingAction(ref Action<BallSystem> bss,ObjectSystem hit);
 }

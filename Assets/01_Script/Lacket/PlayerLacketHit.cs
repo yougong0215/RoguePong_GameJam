@@ -7,11 +7,14 @@ using UnityEngine;
 public class PlayerLacketHit : ObjectSystem, HitModule
 {
     [Header("LacketHP")]
-    [SerializeField] public float _lacketMaxHP = 1000;
+    [SerializeField] public float _lacketMaxHP = 10;
+    [SerializeField] public float _lacketCurHP = 10;
     [SerializeField] public float _laketReviveTime = 2f;
 
     [Header("Ability")]
-    [SerializeField] public List<SkillAbility> _skillAbility = new List<SkillAbility>();
+    [SerializeField] public List<SkillAbility> _lacketHitskillAbility = new List<SkillAbility>();
+    [SerializeField] public List<SkillAbility> _ballHitSkillAbility = new List<SkillAbility>();
+    [SerializeField] public List<SkillAbility> _ballUpdateSkillAbility = new List<SkillAbility>();
 
 
     bool _isParring =false;
@@ -53,7 +56,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
     IEnumerator LacketHPReturn()
     {
         yield return new WaitForSeconds(_laketReviveTime);
-        _originHP = _lacketMaxHP;
+        _lacketCurHP = _lacketMaxHP;
         _hpCoroutine = null;
     }
 
@@ -90,38 +93,48 @@ public class PlayerLacketHit : ObjectSystem, HitModule
 
             Action<BallSystem> bss = null;
 
-            foreach(var item in _skillAbility)
+            foreach(var item in _lacketHitskillAbility)
             {
-                item.SettingAction(ref bss);
+                item.SettingAction(ref bss, _ballStat);
             }
 
             bss?.Invoke(ball);
 
-            StartCoroutine(WaiterHit());
-            ball.Input(dir, (cols) =>
+            Action<BallSystem> bss1 = null;
+
+            foreach (var item in _lacketHitskillAbility)
             {
-                
-                if (cols.TryGetComponent<EnemyObject>(out EnemyObject ms))
-                {
-                    // °ü·Ã ±â¹Í
-                    
-                }
-            });
+                item.SettingAction(ref bss1, _ballStat);
+            }
+
+            Action<BallSystem> updateBall = null;
+
+            foreach (var item in _ballUpdateSkillAbility)
+            {
+                item.SettingAction(ref updateBall, _ballStat);
+            }
+
+            StartCoroutine(WaiterHit());
+            ball.Input(dir, (tls) =>
+            {
+                bss1?.Invoke(ball);
+            }, default, updateBall);
         }
         
 
     }
 
-    public void RefreshStat(ObjectSystem obj, ObjectSystem _ballStat, List<SkillAbility> Hiting)
+    public void RefreshStat(ObjectSystem obj, ObjectSystem _ballStat, List<SkillAbility> Hiting, List<SkillAbility> ball, List<SkillAbility> update)
     {
         _abilityStat = obj._abilityStat;
 
-        _lacketMaxHP = _originHP;
+        _lacketCurHP = _lacketMaxHP;
         this._ballStat = _ballStat;
 
 
-        _skillAbility = Hiting;
-
+        _lacketHitskillAbility = Hiting;
+        _ballHitSkillAbility = ball;
+        _ballUpdateSkillAbility = update;
         // °ªº¯È¯ ¾ë ±âº»°ª ³Ö¾îÁà¾ßµÊ
         transform.localScale = new Vector3(GetSizeValue(),1f, 1);
         //GetComponent<BoxColliderCast>()._box.size = transform.localScale;
@@ -130,7 +143,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
     IEnumerator WaiterHit()
     {
     
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.7f);
         GameObject.FindObjectOfType<BallSystem>().ResetCollision();
     }
 }

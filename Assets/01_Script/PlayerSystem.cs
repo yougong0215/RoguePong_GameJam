@@ -26,6 +26,8 @@ public class PlayerSystem : ObjectSystem, HitModule
 
     [Header("BallSkill")]
     [SerializeField] List<SkillAbility> _ballHitSkill = new();
+    [SerializeField] List<SkillAbility> _ballColisionSkill = new();
+    [SerializeField] List<SkillAbility> _ballUpdateSkill = new();
 
     [SerializeField] float _lastMaxHP = 0;
     [SerializeField] float _currentHP =0;
@@ -116,7 +118,7 @@ public class PlayerSystem : ObjectSystem, HitModule
         {
             ability.GetAbility(ref obj2);
         }
-        _lacket.RefreshStat(obj1, obj2, _ballHitSkill);
+        _lacket.RefreshStat(obj1, obj2, _ballHitSkill, _ballColisionSkill, _ballUpdateSkill);
 
         
 
@@ -174,8 +176,10 @@ public class PlayerSystem : ObjectSystem, HitModule
             {
                 hitPoint = ray.GetPoint(enter);
                 hitPoint.y = 0;
+                Vector3 tls = transform.position;
+                tls.y = 0;
                 //transform.LookAt(hitPoint);
-                hitPoint = (hitPoint - transform.position ).normalized;
+                hitPoint = (hitPoint - tls ).normalized;
 
                 forceDir = hitPoint * 128;
                 StartCoroutine(WaiterHit());
