@@ -29,9 +29,18 @@ public class BoxColliderCast : ColliderCast
 		}
 	}
 
-	// Update is called once per frame
+    private void Start()
+    {
+        if(Owner == null)
+		{
+			Owner = gameObject.transform;
+		}
+    }
+
+    // Update is called once per frame
     public override Collider[] ReturnColliders()
     {
+
 		if(_useScale)
 			return Physics.OverlapBox(transform.position, transform.localScale/2, Owner.rotation, Layer);
 		else

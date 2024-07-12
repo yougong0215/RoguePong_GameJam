@@ -64,6 +64,11 @@ public class BallSystem : ObjectSystem
         _cols.Now(transform, Collision, First);
     }
 
+    public void RefreshTime()
+    {
+        _curtime = 0;
+    }
+
     public bool IsCanBind()
     {
         return Mathf.Abs(GetSpeedValue()) > _originStat.ResultSpeed(_originSpeed);
@@ -72,6 +77,26 @@ public class BallSystem : ObjectSystem
     public float BallDamage()
     {
         return _curATK * _curSpeed;
+    }
+
+    public void WallCollisionItem(Collider col)
+    {
+        Vector3 closestPoint = col.ClosestPoint(transform.position);
+        Vector3 positionDifference = (closestPoint - transform.position);
+
+        positionDifference.y = 0;
+
+        Vector3 overlapDirection = positionDifference.normalized;
+
+        if (Mathf.Abs(overlapDirection.x) > 0.1f)
+        {
+            dir.x *= -1;
+        }
+
+        if (Mathf.Abs(overlapDirection.z) > 0.1f)
+        {
+            dir.z *= -1;
+        }
     }
 
     public void NormalRule(Collider col)
