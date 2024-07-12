@@ -106,7 +106,7 @@ public abstract class ColliderCast : MonoBehaviour
 		isFirst = false;
 
 		_quaternion = Owner.rotation;
-		CheckDic = new();
+		//CheckDic = new();
 
 		_attackAbleCount = attackAble;
 		if(StartSec > 0)
