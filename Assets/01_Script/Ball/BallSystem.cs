@@ -10,9 +10,14 @@ public class BallSystem : ObjectSystem
 {
 
     [SerializeField]
+    LayerMask _wallLayer;
+
+    [SerializeField]
     public float _randomRange = 0.3f;
 
 
+    Vector3 _endPoint;
+    
     ColliderCast _cols;
     public ColliderCast ColiderCast => _cols;
     Action<Collider> Collision = null;
@@ -28,6 +33,11 @@ public class BallSystem : ObjectSystem
     [Header("Time")]
     [SerializeField] float _curtime = 1f;
 
+    Vector3 predictPos;
+    RaycastHit hitPoint;
+
+    Coroutine _latePos;
+
     private void Start()
     {
         _cols = GetComponent<ColliderCast>();
@@ -41,13 +51,50 @@ public class BallSystem : ObjectSystem
         _curSpeed = Mathf.Lerp(GetSpeedValue(), _originStat.ResultSpeed(_originSpeed), _curtime);
         _curSize = Mathf.Lerp(GetSizeValue(), _originStat.ResultSize(_originSize), _curtime);
 
-        transform.position += _curSpeed * dir.normalized * Time.deltaTime;
+
+        predictPos = transform.position + (_curSpeed * dir.normalized * Time.deltaTime * 2);
+
+        if(IsWallBetweenPoints(transform.position, predictPos) == false)
+        {
+            transform.position += _curSpeed * dir.normalized * Time.deltaTime;
+        }
+        else
+        {
+            if(_latePos == null)
+                _latePos = StartCoroutine(LateTime());
+        }
+
+
+
+
         transform.localScale = Vector3.one * _curSize;
+
 
         if(_curtime > 1)
         {
             _abilityStat.ResetDuration();
         }
+    }
+
+    IEnumerator LateTime()
+    {
+        yield return new WaitForEndOfFrame();
+        transform.position = hitPoint.point + -dir * GetSizeValue()/2;
+        _latePos = null;
+
+    }
+
+    public bool IsWallBetweenPoints(Vector3 pointA, Vector3 pointB)
+    {
+        Vector3 direction = pointB - pointA;
+        float distance = direction.magnitude;
+
+        if (Physics.Raycast(pointA, direction, out hitPoint, distance, _wallLayer))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public void Input(Vector3 dir, Action<Collider> Collision = null, Action<Collider> First = null)
