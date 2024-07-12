@@ -8,10 +8,19 @@ public class TempEnemyAI : AISetter
     {
         Sequence NormalAttackSeq = new();
         WaitNode waitAttack = new WaitNode(2f);
-        //AttackNode
+        //AttackNode attackNode = new AttackNode(transform, )
         //
         //
         //
-        //rootNode.AddNode()
+        //
+        //rootNode.AddNode();
+    }
+
+
+    public bool TempAttackOne()
+    {
+
+
+        return true;
     }
 }
