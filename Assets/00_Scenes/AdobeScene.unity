@@ -261,7 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _originHP: 1000
   _originATK: 10
-  _originSize: 1
+  _originSize: 10
   _originSpeed: 10
   _originDurationTime: 3
   _originStat:
@@ -288,6 +288,7 @@ MonoBehaviour:
     _multyHP: 1
   _lacketMaxHP: 1000
   _laketReviveTime: 0
+  _skillAbility: []
 --- !u!1 &121239059
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +420,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3305930f61e8e484d89f343878c729a6, type: 2}
   _statAbility:
   - {fileID: 11400000, guid: d95060438106ede4a8adb8cf02c99a4f, type: 2}
+  _ballHitSkill: []
   _lastMaxHP: 0
   _currentHP: 0
   _isCanMove: 0
@@ -1016,6 +1018,7 @@ MonoBehaviour:
     _multySpeed: 1
     _multyDurationTime: 1
     _multyHP: 1
+  _isStart: 1
   _wallLayer:
     serializedVersion: 2
     m_Bits: 4096
