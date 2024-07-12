@@ -6,8 +6,8 @@ using UnityEngine;
 public class PlayerLacketHit : HitModule
 {
     [Header("LacketHP")]
-    [SerializeField] float _lacketHP = 1000;
-    [SerializeField] float _laketReviveTime = 2f;
+    [SerializeField] public float _lacketMaxHP = 1000;
+    [SerializeField] public float _laketReviveTime = 2f;
 
 
     bool _isParring =false;
@@ -16,6 +16,7 @@ public class PlayerLacketHit : HitModule
     float _parringContinusTime = 0.125f;
 
     Coroutine _co;
+
 
     public void Update()
     {
@@ -44,21 +45,21 @@ public class PlayerLacketHit : HitModule
     IEnumerator LacketHPReturn()
     {
         yield return new WaitForSeconds(_laketReviveTime);
-        _lacketHP = 1000;
+        _originHP = _lacketMaxHP;
         _co = null;
     }
 
     public override void HitBall(BallSystem ball)
     {
-        if(ball.IsCanBind() && _lacketHP > 0)
+        if(ball.IsCanBind() && _lacketMaxHP > 0)
         {
             if(_isParring == false)
-                _lacketHP -= ball.BallDamage();
+                _lacketMaxHP -= ball.BallDamage();
             Debug.Log(ball.BallDamage());
 
         }
 
-        if(_lacketHP > 0)
+        if(_lacketMaxHP > 0)
         {
             Vector3 dir = transform.forward;
             dir.y = 0;
@@ -78,5 +79,15 @@ public class PlayerLacketHit : HitModule
                 _co = StartCoroutine( LacketHPReturn());
         }
 
+    }
+
+    public void RefreshStat(ObjectSystem obj)
+    {
+        _abilityStat = obj._abilityStat;
+
+        _lacketMaxHP = _originHP;
+
+        // °ªº¯È¯ ¾ë ±âº»°ª ³Ö¾îÁà¾ßµÊ
+        transform.localScale = new Vector3(GetSizeValue() * 4.5f, GetSizeValue() * 1.3f, GetSizeValue() * 0.4f);
     }
 }

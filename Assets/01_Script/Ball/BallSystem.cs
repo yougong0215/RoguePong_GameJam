@@ -5,45 +5,6 @@ using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-[System.Serializable]
-public class BallStat
-{
-
-    [Header("AddStat")]
-    [SerializeField] float _addATK = 0f;
-    [SerializeField] float _addSize = 0f;
-    [SerializeField] float _addSpeed = 0f;
-    [SerializeField] float _addDurationTime = 0f;
-
-    [Header("MultiplyStat")]
-    [SerializeField] float _multyATK = 1f;
-    [SerializeField] float _multySize = 1f;
-    [SerializeField] float _multySpeed = 1f;
-    [SerializeField] float _multyDurationTime = 1f;
-
-    public float ResultATK(float origin = 0)
-    {
-        return (origin + _addATK) * _multyATK;
-    }
-    public void ResetATK() { _addATK = 0; _multyATK = 1f; }
-    public float ResultSize(float origin = 0)
-    {
-        return (origin + _addSize) * _multySize;
-    }
-    public void ResetSize() { _addSize = 0; _multySize = 1f; }
-    public float ResultSpeed(float origin = 0)
-    {
-        return (origin + _addSpeed) * _multySpeed;
-    }
-    public void ResetSpeed() { _addSpeed = 0; _multySpeed = 1f; }
-    public float ResultDuration(float origin = 0)
-    {
-        return (origin + _addDurationTime) * _multyDurationTime;
-    }
-    public void ResetDuration() { _addDurationTime = 0; _multyDurationTime = 1f; }
-
-}
-
 
 public class BallSystem : ObjectSystem
 {
@@ -53,6 +14,7 @@ public class BallSystem : ObjectSystem
 
 
     ColliderCast _cols;
+    public ColliderCast ColiderCast => _cols;
     Action<Collider> Collision = null;
     Action<Collider> First = null;
 
@@ -62,7 +24,9 @@ public class BallSystem : ObjectSystem
     [SerializeField] float _curATK = 1f;
     [SerializeField] float _curSize = 1f;
     [SerializeField] float _curSpeed = 1f;
-    [SerializeField] float _curtime = 0;
+
+    [Header("Time")]
+    [SerializeField] float _curtime = 1f;
 
     private void Start()
     {
@@ -73,12 +37,12 @@ public class BallSystem : ObjectSystem
     private void Update()
     {
         _curtime += Time.deltaTime / GetDurationValue();
-        _curATK = Mathf.Lerp(GetATKValue(), _ballStat.ResultATK(_originATK), _curtime);
-        _curSpeed = Mathf.Lerp(GetSpeedValue(), _ballStat.ResultSpeed(_originSpeed), _curtime);
-        _curSize = Mathf.Lerp(GetSizeValue(), _ballStat.ResultSize(), _curtime);
+        _curATK = Mathf.Lerp(GetATKValue(), _originStat.ResultATK(_originATK), _curtime);
+        _curSpeed = Mathf.Lerp(GetSpeedValue(), _originStat.ResultSpeed(_originSpeed), _curtime);
+        _curSize = Mathf.Lerp(GetSizeValue(), _originStat.ResultSize(_originSize), _curtime);
 
         transform.position += _curSpeed * dir.normalized * Time.deltaTime;
-        
+        transform.localScale = Vector3.one * _curSize;
 
         if(_curtime > 1)
         {
@@ -102,7 +66,7 @@ public class BallSystem : ObjectSystem
 
     public bool IsCanBind()
     {
-        return Mathf.Abs(GetSpeedValue()) > _ballStat.ResultSpeed(_originSpeed);
+        return Mathf.Abs(GetSpeedValue()) > _originStat.ResultSpeed(_originSpeed);
     }
 
     public float BallDamage()
@@ -154,7 +118,7 @@ public class BallSystem : ObjectSystem
 
     public void ResetCollision()
     {
-        First = null;
+        _cols.PlaeyrReset();
     }
 
 

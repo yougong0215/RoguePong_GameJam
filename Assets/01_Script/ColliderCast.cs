@@ -53,7 +53,6 @@ public abstract class ColliderCast : MonoBehaviour
 
 
 			if (CheckDic.ContainsKey(col))
-			
                 return;
 			
 			else
@@ -77,6 +76,20 @@ public abstract class ColliderCast : MonoBehaviour
 			
 			
 		}
+	}
+
+	public void PlaeyrReset()
+	{
+        foreach (var col in CheckDic)
+		{
+			if(col.Key.TryGetComponent<PlayerLacketHit>(out PlayerLacketHit hit))
+			{
+                CheckDic.Clear();
+				break;
+            }
+		}
+
+
 	}
 
 	private void OnDisable()
