@@ -48,6 +48,12 @@ public class BallSystem : ObjectSystem
         Input(new Vector3(UnityEngine.Random.Range(-1f,1f),0, UnityEngine.Random.Range(-1f, 1f)));
     }
 
+    public override void ResetPool()
+    {
+        base.ResetPool();
+        _cols.End();
+    }
+
     private void Update()
     {
         _curtime += Time.deltaTime / GetDurationValue();
@@ -101,15 +107,26 @@ public class BallSystem : ObjectSystem
         return false;
     }
 
-    public void Stoped()
+    public void Input(Vector3 dir, Action<Collider> Collision = null, Action<Collider> First = null, float timeLate = 0)
     {
-        _cols.End();
-    }
+        if(timeLate != 0)
+        {
+            dir.y = 0;
+            this.dir = dir.normalized;
+            _curtime = 0;
 
-    public void Input(Vector3 dir, Action<Collider> Collision = null, Action<Collider> First = null, float timeLate = 0.0f)
-    {
+            this.Collision = NormalRule;
 
-        StartCoroutine(StartLatetime( dir, timeLate));
+            Collision += this.Collision;
+            First += this.First;
+
+            _cols.Now(transform, Collision, First);
+        }
+        else
+        {
+            StartCoroutine(StartLatetime( dir, timeLate));
+        }
+
     }
 
     IEnumerator StartLatetime(Vector3 dir, float t)

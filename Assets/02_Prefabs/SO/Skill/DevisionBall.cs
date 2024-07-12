@@ -12,12 +12,10 @@ public class DevisionBall : SkillAbility
     {
         bss += (ab) => 
         {
-            BallSystem ballsys = Instantiate(ab);
-            ballsys.Stoped();
-            ballsys.name = ballsys.name.Replace("(Clone)","");
-
+            BallSystem ballsys = PoolManager.Instance.Pop("GameBall") as BallSystem;
+            ballsys.transform.position = ab.transform.position;
             Vector3 dir = ab.Dir;
-
+            
             Quaternion rotation = Quaternion.Euler(0, UnityEngine.Random.Range(-30f,30f), 0);
 
             dir = rotation * dir;
