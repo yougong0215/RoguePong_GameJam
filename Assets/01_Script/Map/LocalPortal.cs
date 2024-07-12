@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BounceGlobe : MonoBehaviour
+public class LocalPortal : MonoBehaviour
 {
+    public GameObject oppositePortal;
     private BoxColliderCast boxcast;
     // Start is called before the first frame update
     void Start()
@@ -22,13 +23,7 @@ public class BounceGlobe : MonoBehaviour
 
     private void TriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<BallSystem>(out BallSystem bss))
-        {
-            bss._abilityStat._addSpeed = Mathf.Clamp(bss._abilityStat._addSpeed + 1, 0, 120);
-            bss.SetttingDir(transform.forward);
-            Debug.Log(transform.forward);
-            //bss.WallCollisionItem(GetComponent<Collider>());
-            bss.RefreshTime();
-        }
+        print("AAAAAA");
+        other.gameObject.transform.parent.position = oppositePortal.transform.position;
     }
 }
