@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class PoolAble : MonoBehaviour
 {
-    public void Reset()
+    public virtual void ResetPool()
     {
         
     }
