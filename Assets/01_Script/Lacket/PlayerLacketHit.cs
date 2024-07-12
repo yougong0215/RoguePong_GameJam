@@ -105,7 +105,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
         _lacketMaxHP = _originHP;
         this._ballStat = _ballStat;
         // °ªº¯È¯ ¾ë ±âº»°ª ³Ö¾îÁà¾ßµÊ
-        transform.localScale = new Vector3(GetSizeValue() * 4.5f, 1.3f, 0.4f);
+        transform.localScale = new Vector3(GetSizeValue(),1f, 1);
         //GetComponent<BoxColliderCast>()._box.size = transform.localScale;
     }
 
