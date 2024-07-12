@@ -19,4 +19,9 @@ public class GameManager : Singleton<GameManager>
             return _player;
         }
     }
+
+    private void Start()
+    {
+        currentStage = 1;
+    }
 }
