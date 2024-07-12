@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8042329057611983574}
   - component: {fileID: 2813394381298597185}
   - component: {fileID: 3012784321463453077}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 9114720873739450539}
   - component: {fileID: 5716527277225173892}
   - component: {fileID: 1437816042393976153}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ShotGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5427744815800485189}
@@ -192,7 +192,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c474227b2c8e91042863f0c54c4c08ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 30
+  _originHP: 0
+  _originATK: 10
+  _originSize: 1
+  _originSpeed: 10
+  _originDurationTime: 3
+  _originStat:
+    _addATK: 0
+    _addSize: 0
+    _addSpeed: 0
+    _addDurationTime: 0
+    _addHP: 0
+    _multyATK: 1
+    _multySize: 1
+    _multySpeed: 1
+    _multyDurationTime: 1
+    _multyHP: 1
+  _abilityStat:
+    _addATK: 0
+    _addSize: 0
+    _addSpeed: 0
+    _addDurationTime: 0
+    _addHP: 0
+    _multyATK: 1
+    _multySize: 1
+    _multySpeed: 1
+    _multyDurationTime: 1
+    _multyHP: 1
 --- !u!1 &5858300105574334812
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +231,7 @@ GameObject:
   - component: {fileID: 8983802064227016713}
   - component: {fileID: 4773988649501851679}
   - component: {fileID: 1511598137941524609}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +247,7 @@ Transform:
   m_GameObject: {fileID: 5858300105574334812}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.549}
+  m_LocalPosition: {x: 0, y: 0, z: 0.536}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
