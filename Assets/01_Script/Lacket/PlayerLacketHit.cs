@@ -63,7 +63,14 @@ public class PlayerLacketHit : HitModule
                 if(_isParring == false)
                 {
                     _originHP -= ball.BallDamage();
-                    Debug.Log(ball.BallDamage());
+                    //Debug.Log(ball.BallDamage());
+
+                    if(_originHP < 0)
+                    {
+                        if (_hpCoroutine == null)
+                            _hpCoroutine = StartCoroutine(LacketHPReturn());
+                    }
+
                 }
                 else
                 {
@@ -87,11 +94,7 @@ public class PlayerLacketHit : HitModule
                 }
             });
         }
-        else
-        {
-            if (_hpCoroutine == null)
-                _hpCoroutine = StartCoroutine( LacketHPReturn());
-        }
+        
 
     }
 
