@@ -4,26 +4,39 @@ using UnityEngine;
 
 public class LocalPortal : MonoBehaviour
 {
-    public GameObject oppositePortal;
+    public LocalPortal oppositePortal;
     private BoxColliderCast boxcast;
     // Start is called before the first frame update
     void Start()
     {
         boxcast = GetComponent<BoxColliderCast>();
+        boxcast.Now(transform, (a) => { TriggerEnter(a); });
     }
+
+
+    public void PortalOff()
+    {
+        boxcast.End();
+        StartCoroutine(StartAgin());
+    }
+
 
     // Update is called once per frame
-    void Update()
-    {
-        if (boxcast.ReturnColliders().Length > 0)
-        {
-            TriggerEnter(boxcast.ReturnColliders()[0]);
-        }
-    }
-
     private void TriggerEnter(Collider other)
     {
-        print("AAAAAA");
-        other.gameObject.transform.parent.position = oppositePortal.transform.position;
+        PortalOff();
+        oppositePortal.PortalOff();
+        
+        Debug.LogError($"{other.gameObject.transform.position} / {oppositePortal.transform.position}");
+        
+        StartCoroutine(other.GetComponent<PlayerSystem>().FrameCharacterConoff());
+        other.gameObject.transform.position = oppositePortal.transform.position;
+
+    }
+
+    IEnumerator StartAgin()
+    {
+        yield return new WaitForSeconds(1f);
+        boxcast.Now(transform, (a) => { TriggerEnter(a); });
     }
 }
