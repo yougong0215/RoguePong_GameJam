@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
+
+
 public enum EAudioType
 {
     Master,
     SFX,
     BGM,
-    Environment,
-    CharacterVoice,
     None
 }
 
@@ -19,14 +19,15 @@ public struct AudioSet
     public float MasterVolume;
     public float SFXVolume;
     public float BGMVolume;
-    public float EnvironmentVolume;
-    public float CharacterVoiceVolume;
 }
 
 public class AudioSetting : MonoBehaviour
 {
     private AudioSet set;
     private AudioSet previousSet;
+
+    private const float minVolume = -40.0f;
+    private const float maxVolume = 0.0f;
 
     [SerializeField]
     private AudioMixer audioMixer;
@@ -35,7 +36,6 @@ public class AudioSetting : MonoBehaviour
     //UI
     private Slider masterSlider;
     private Slider sfxSlider;
-    private Slider environmentSlider;
     private Slider bgmSlider;
 
     private bool notSaved;
@@ -47,6 +47,13 @@ public class AudioSetting : MonoBehaviour
     private void OnEnable()
     {
         previousSet = set;
+    }
+
+    public void ApplyMixer(string parameterName, float value)
+    {
+        float inputValue = Mathf.Clamp(value, minVolume, maxVolume);
+        if (inputValue == minVolume) inputValue = -80.0f; //-40부터 -80은 생략
+        audioMixer.SetFloat(parameterName, inputValue);
     }
 
     public void Save()
@@ -64,8 +71,6 @@ public class AudioSetting : MonoBehaviour
             MasterVolume = set.MasterVolume;
             SFXVolume = set.SFXVolume;
             BGMVolume = set.BGMVolume;
-            EnvironmentVolume = set.EnvironmentVolume;
-            CharacterVoiceVolume = set.CharacterVoiceVolume;
         }
     }
 
@@ -81,6 +86,7 @@ public class AudioSetting : MonoBehaviour
                 masterSlider.value = value;
             }
 
+            ApplyMixer("Master", value);
             notSaved = true;
         }
     }
@@ -97,6 +103,7 @@ public class AudioSetting : MonoBehaviour
                 sfxSlider.value = value;
             }
 
+            ApplyMixer("SFX", value);
             notSaved = true;
         }
     }
@@ -113,36 +120,11 @@ public class AudioSetting : MonoBehaviour
                 bgmSlider.value = value;
             }
 
+            ApplyMixer("BGM", value);
             notSaved = true;
         }
     }
 
-    public float EnvironmentVolume
-    {
-        get { return set.EnvironmentVolume; }
-        set
-        {
-            set.EnvironmentVolume = value;
-
-            if (environmentSlider.value != value)
-            {
-                environmentSlider.value = value;
-            }
-
-            notSaved = true;
-        }
-    }
-
-    public float CharacterVoiceVolume
-    {
-        get { return set.CharacterVoiceVolume; }
-        set
-        {
-            set.CharacterVoiceVolume = value;
-
-            notSaved = true;
-        }
-    }
 
     public bool NotSaved => notSaved;
 }
