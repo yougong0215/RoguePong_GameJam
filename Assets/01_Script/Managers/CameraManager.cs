@@ -16,11 +16,14 @@ public class CameraManager : Singleton<CameraManager>
 
         if(VirtualCamera)
         {
-            VirtualCamera.Follow = GameManager.Instance.Player.transform;
+            PlayerCameraTarget target = GameObject.FindObjectOfType<PlayerCameraTarget>();
+
+            VirtualCamera.Follow = target.transform;
             GameObject obj = new GameObject("Zero Pos");
             obj.transform.parent = transform;
             obj.transform.position = Vector3.zero;
-            VirtualCamera.LookAt = obj.transform;
+            //VirtualCamera.LookAt = obj.transform;
+            VirtualCamera.LookAt = target.transform;
 
             m_MultiChannelPerlin = VirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
             Shake(false);
