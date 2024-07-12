@@ -22,6 +22,7 @@ public class ScreenEffectManager : Singleton<ScreenEffectManager>
         {
             chromaticAberration.active = true;
             chromaticAberration.intensity.Override(1);
+
         }
 
     }
