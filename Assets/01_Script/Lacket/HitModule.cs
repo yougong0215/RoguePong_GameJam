@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class HitModule : ObjectSystem
+public interface HitModule
 {
-    public abstract void HitBall(BallSystem ball);
+    public void HitBall(BallSystem ball);
 }

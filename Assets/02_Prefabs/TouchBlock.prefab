@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9114720873739450539}
   - component: {fileID: 5716527277225173892}
   - component: {fileID: 4486895362333270469}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TouchBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2026757187764367763}
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 7399123788813001741}
-  count: 0
+  count: 5
   moveTo: {x: 0, y: 0, z: 0}
 --- !u!1 &2064260904500198006
 GameObject:
@@ -101,8 +101,7 @@ GameObject:
   - component: {fileID: 3671187717444463637}
   - component: {fileID: 850052699680539432}
   - component: {fileID: 1398663316667181020}
-  - component: {fileID: 1350378319107988433}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,27 +173,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1350378319107988433
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2064260904500198006}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7626968149347353421
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +184,7 @@ GameObject:
   - component: {fileID: 2026757187764367763}
   - component: {fileID: 2603106760197022508}
   - component: {fileID: 7399123788813001741}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}

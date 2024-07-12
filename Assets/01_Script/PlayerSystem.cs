@@ -13,7 +13,7 @@ public enum PlayerEnum
 }
 
 
-public class PlayerSystem : HitModule
+public class PlayerSystem : ObjectSystem, HitModule
 {
 
     [Header("LacketAbility")]
@@ -197,7 +197,7 @@ public class PlayerSystem : HitModule
         _char.Move(vec);
     }
 
-    public override void HitBall(BallSystem ball)
+    public void HitBall(BallSystem ball)
     {
         _currentHP -= ball.BallDamage();
     }

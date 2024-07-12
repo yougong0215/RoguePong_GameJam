@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using static UnityEngine.UI.Image;
 
-public class TouchBlock : MonoBehaviour
+public class TouchBlock : ObjectSystem,HitModule
 {
     public TextMeshPro countText;
     public int count;
@@ -50,19 +50,32 @@ public class TouchBlock : MonoBehaviour
 
     private void TriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<BallSystem>(out BallSystem bss))
+        //if (other.TryGetComponent<BallSystem>(out BallSystem bss))
+        //{
+        //    if (canCollide)
+        //    {
+        //        if (count > 0)
+        //            --count;
+        //        if (count <= 0)
+        //            StartCoroutine(moveObject());
+        //        countText.text = count.ToString();
+        //        StartCoroutine(waitForSec(0.5f));
+        //    }
+        //    //bss.WallCollisionItem(GetComponent<Collider>());
+        //    //bss.RefreshTime();
+        //}
+    }
+
+    public void HitBall(BallSystem ball)
+    {
+        if (canCollide)
         {
-            if (canCollide)
-            {
-                if (count > 0)
-                    --count;
-                if (count <= 0)
-                    StartCoroutine(moveObject());
-                countText.text = count.ToString();
-                StartCoroutine(waitForSec(0.5f));
-            }
-            bss.WallCollisionItem(GetComponent<Collider>());
-            bss.RefreshTime();
+            if (count > 0)
+                --count;
+            if (count <= 0)
+                StartCoroutine(moveObject());
+            countText.text = count.ToString();
+            StartCoroutine(waitForSec(0.5f));
         }
     }
 }

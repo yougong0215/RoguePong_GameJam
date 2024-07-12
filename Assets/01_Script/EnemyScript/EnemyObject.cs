@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyObject : HitModule
+public class EnemyObject : ObjectSystem, HitModule
 {
     [Header("Info")]
     [SerializeField] float _currentHP;
@@ -12,7 +12,7 @@ public class EnemyObject : HitModule
         _currentHP = GetHPValue();
     }
 
-    public override void HitBall(BallSystem ball)
+    public void HitBall(BallSystem ball)
     {
         _currentHP -= ball.BallDamage();
     }

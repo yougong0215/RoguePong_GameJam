@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerLacketHit : HitModule
+public class PlayerLacketHit : ObjectSystem, HitModule
 {
     [Header("LacketHP")]
     [SerializeField] public float _lacketMaxHP = 1000;
@@ -53,7 +53,7 @@ public class PlayerLacketHit : HitModule
         _hpCoroutine = null;
     }
 
-    public override void HitBall(BallSystem ball)
+    public  void HitBall(BallSystem ball)
     {
 
         if(_originHP > 0)
