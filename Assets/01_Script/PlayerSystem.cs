@@ -7,7 +7,8 @@ using UnityEngine;
 public enum PlayerEnum
 {
     Player = 0,
-    Lacket = 1
+    Lacket = 1,
+    Ball,
 }
 
 
@@ -16,6 +17,7 @@ public class PlayerSystem : HitModule
 
     [Header("LacketAbility")]
     [SerializeField] List<Ability> _lacketAbility = new();
+    [SerializeField] List<Ability> _lacketHitStatAbility = new();
 
     [Header("PlayerAbility")]
     [SerializeField] List<Ability> _statAbility = new();
@@ -61,6 +63,11 @@ public class PlayerSystem : HitModule
                     _lacketAbility.Add(_ability);
                 }
                 break;
+            case PlayerEnum.Ball:
+                {
+                    _lacketHitStatAbility.Add(_ability);
+                }
+                break;
         }
 
         RefreshStat();
@@ -89,12 +96,17 @@ public class PlayerSystem : HitModule
         transform.localScale = new Vector3(GetSizeValue(), GetSizeValue(), GetSizeValue());
 
 
-        obj = new();
+        ObjectSystem obj1 = new();
+        ObjectSystem obj2 = new();
         foreach (var ability in _lacketAbility)
         {
-            ability.GetAbility(ref obj);
+            ability.GetAbility(ref obj1);
         }
-        _lacket.RefreshStat(obj);
+        foreach (var ability in _lacketHitStatAbility)
+        {
+            ability.GetAbility(ref obj2);
+        }
+        _lacket.RefreshStat(obj1, obj2);
 
         
 
