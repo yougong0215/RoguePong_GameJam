@@ -21,7 +21,7 @@ public class ScreenEffectManager : Singleton<ScreenEffectManager>
         if(GlobalVolume.profile.TryGet(out chromaticAberration))
         {
             chromaticAberration.active = true;
-            chromaticAberration.intensity.Override(1);
+            chromaticAberration.intensity.Override(0.2f);
         }
 
     }
