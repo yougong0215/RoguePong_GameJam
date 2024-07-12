@@ -8,21 +8,30 @@ using UnityEngine;
 public class DevisionBall : SkillAbility
 {
     [SerializeField] float _durationTime = 5f;
-    public override void SettingAction(ref Action<BallSystem> bss)
+    public override void SettingAction(ref Action<BallSystem> bss, ObjectSystem hit)
     {
+        
         bss += (ab) => 
         {
-            BallSystem ballsys = PoolManager.Instance.Pop("GameBall") as BallSystem;
-            ballsys.transform.position = ab.transform.position;
-            Vector3 dir = ab.Dir;
-            
-            Quaternion rotation = Quaternion.Euler(0, UnityEngine.Random.Range(-30f,30f), 0);
+            if(ab._isReal)
+            {
+                BallSystem ballsys = PoolManager.Instance.Pop("GameBall") as BallSystem;
+                ballsys.transform.position = ab.transform.position;
+                Vector3 dir = GameManager.Instance.Player.transform.forward;
+                Quaternion rotation = Quaternion.Euler(0, UnityEngine.Random.Range(-30f, 30f), 0);
 
-            dir = rotation * dir;
-            ballsys.Input(dir, default, default, 0.3f);
-            ballsys.TimeLimit(_durationTime);
+                ballsys._abilityStat = hit._abilityStat;
+                dir = rotation * dir;
+                ballsys.Input(dir, default, default, default, true, 0.2f);
+                ballsys.TimeLimit(_durationTime);
+            }
+
+            
+
 
         };
     }
+
+
 
 }

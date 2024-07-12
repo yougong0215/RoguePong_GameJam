@@ -2,13 +2,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+
+public enum BallEnum
+{
+    Normal =0,
+    Slime = 1,
+    Bomb = 2,
+    Balling =3,
+    Metho =4,
+    Lava = 5,
+    Ice = 6,
+    Fairy =7,
+    Giant = 8,
+    Dice = 10,
+}
 
 
 public class BallSystem : ObjectSystem
 {
     public bool _isStart = false;
+    public bool _isReal = false;
 
 
     [SerializeField]
@@ -25,6 +41,8 @@ public class BallSystem : ObjectSystem
     Action<Collider> Collision = null;
     Action<Collider> First = null;
 
+
+    Action<BallSystem> _updateInvoke = null;
     Vector3 dir;
     public Vector3 Dir => dir;
 
@@ -41,11 +59,86 @@ public class BallSystem : ObjectSystem
 
     Coroutine _latePos;
 
+    [Header("BallType")]
+    public BallEnum _ballEnum = BallEnum.Normal;
+
+
     private void Awake()
     {
         _cols = GetComponent<ColliderCast>();
         if(_isStart )
-        Input(new Vector3(UnityEngine.Random.Range(-1f,1f),0, UnityEngine.Random.Range(-1f, 1f)));
+        {
+            _isReal = true;
+            Input(new Vector3(UnityEngine.Random.Range(-1f,1f),0, UnityEngine.Random.Range(-1f, 1f)));
+        }
+    }
+
+    public void SettingBallType(BallEnum b)
+    {
+        _ballEnum = b;
+        _originStat = new();
+        switch (_ballEnum)
+        {
+            case BallEnum.Normal:
+                {
+
+                }
+                break;
+            case BallEnum.Slime:
+                {
+                    _originStat._multySpeed = 0.5f;
+                    _originStat._multySize = 1.15f;
+                }
+                break;
+            case BallEnum.Bomb:
+                {
+                    _originStat._multySpeed = 0.5f;
+                    _originStat._multySize = 1.15f;
+                }
+                break;
+            case BallEnum.Balling:
+                {
+                    _originStat._multySpeed = 0.3f;
+                    _originStat._multyATK = 2;
+                }
+                break;
+            case BallEnum.Metho:
+                {
+                    _originStat._multySpeed = 1.25f;
+                    _originStat._multyATK = 0.5f;
+                }
+                break;
+            case BallEnum.Lava:
+                {
+                    _originStat._multySpeed = 0.7f;
+                    _originStat._multySize = 0.75f;
+                    _originStat._multyATK = 0.3f;
+                }
+                break;
+            case BallEnum.Ice:
+                {
+                    _originStat._multySpeed = 1.3f;
+                    _originStat._multySize = 0.75f;
+                    _originStat._multyATK = 1.25f;
+                }
+                break;
+            case BallEnum.Fairy:
+                {
+                    _originStat._multySpeed = 1.7f;
+                    _originStat._multySize = 0.3f;
+                    _originStat._multyATK = 1.7f;
+                }
+                break;
+            case BallEnum.Giant:
+                {
+                    _originStat._multySize = 1.5f;
+                    _originStat._multyATK = 0.7f;
+                    _originStat._multySpeed = 0.7f;
+                }
+                break;
+            case BallEnum.Dice:
+                break;
+        }
     }
 
     public override void ResetPool()
@@ -53,6 +146,8 @@ public class BallSystem : ObjectSystem
         base.ResetPool();
         _cols.End();
     }
+
+    float ballGimik = 0f;
 
     private void Update()
     {
@@ -73,7 +168,33 @@ public class BallSystem : ObjectSystem
             if(_latePos == null)
                 _latePos = StartCoroutine(LateTime());
         }
+        
+        _updateInvoke?.Invoke(this);
 
+
+        switch (_ballEnum)
+        {
+            case BallEnum.Lava:
+                {
+                    ballGimik += Time.deltaTime;
+                    if(ballGimik >= 1f)
+                    {
+                        ballGimik = 0;
+                        Debug.LogError("여기다가 라바 추가해라");
+                    }
+                }
+                break;
+            case BallEnum.Ice:
+                {
+                    ballGimik += Time.deltaTime;
+                    if (ballGimik >= 1f)
+                    {
+                        ballGimik = 0;
+                        Debug.LogError("여기다가 얼음 추가해라");
+                    }
+                }
+                break;
+        }
 
 
 
@@ -107,39 +228,38 @@ public class BallSystem : ObjectSystem
         return false;
     }
 
-    public void Input(Vector3 dir, Action<Collider> Collision = null, Action<Collider> First = null, float timeLate = 0)
+    public void Input(Vector3 dir, Action<Collider> Collision = null, Action<Collider> First = null, Action<BallSystem> _udpateAct=null, bool b = false, float timeLate = 0)
     {
-        if(timeLate != 0)
+        Collision += NormalRule;
+        First += this.First;
+        _updateInvoke = _udpateAct;
+        Debug.Log($"기다리기전 {b}");
+        if (b == false)
         {
             dir.y = 0;
+            Quaternion quat = Quaternion.Euler(0, UnityEngine.Random.Range(-GetReflectValue(), GetReflectValue()), 0);
+            dir = quat *dir;
+
             this.dir = dir.normalized;
             _curtime = 0;
 
-            this.Collision = NormalRule;
-
-            Collision += this.Collision;
-            First += this.First;
 
             _cols.Now(transform, Collision, First);
         }
         else
         {
-            StartCoroutine(StartLatetime( dir, timeLate));
+            StartCoroutine(StartLatetime( dir, timeLate, Collision, First));
         }
 
     }
 
-    IEnumerator StartLatetime(Vector3 dir, float t)
+    IEnumerator StartLatetime(Vector3 dir, float t, Action<Collider> Collision = null, Action<Collider> First = null)
     {
+
+        Debug.Log($"기다리기전 333");
         dir.y = 0;
         this.dir = dir.normalized;
         _curtime = 0;
-
-        this.Collision = NormalRule;
-
-        Collision += this.Collision;
-        First += this.First;
-
         yield return new WaitForSeconds(t);
 
         _cols.Now(transform, Collision, First);
@@ -217,7 +337,48 @@ public class BallSystem : ObjectSystem
                 dir.z *= -1;
             }
         }
-        if(col.TryGetComponent<HitModule>(out HitModule hs))
+        else if(_ballEnum == BallEnum.Dice)
+        {
+            _abilityStat._multySize += UnityEngine.Random.Range(-1f, 1f);
+            _abilityStat._multyATK += UnityEngine.Random.Range(-1f, 1f);
+            _abilityStat._multySpeed += UnityEngine.Random.Range(-1f, 1f);
+            _abilityStat._addReflect += UnityEngine.Random.Range(-360f, 360f);
+            _abilityStat._addDurationTime += UnityEngine.Random.Range(-6f, 6f);
+
+        }
+
+        switch (_ballEnum)
+        {
+            case BallEnum.Slime:
+                {
+                    if(col.TryGetComponent<ObjectSystem>(out ObjectSystem os))
+                    {
+                        os.Debuff(StatEnum.SPEED, MathType.Multiply, 0.3f, 2f);
+                    }
+                }
+                break;
+            case BallEnum.Bomb:
+                {
+                    if (col.TryGetComponent<ObjectSystem>(out ObjectSystem os))
+                    {
+                        // 폭발 넣어라 알아서
+                        Debug.LogError("여기다가 폭발 추가해라");
+                    }
+                }
+                break;
+            case BallEnum.Metho:
+                {
+                    if (col.TryGetComponent<ObjectSystem>(out ObjectSystem os))
+                    {
+                        // 메테오 넣어라 알아서
+                        Debug.LogError("여기다가 메테오 추가해라");
+                    }
+                }
+                break;
+        }
+
+
+        if (col.TryGetComponent<HitModule>(out HitModule hs))
         {
             hs.HitBall(this);
         }
@@ -245,5 +406,5 @@ public class BallSystem : ObjectSystem
 
 
 
-    
+
 }

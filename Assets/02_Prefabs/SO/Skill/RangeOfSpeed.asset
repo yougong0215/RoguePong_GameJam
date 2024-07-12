@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af6d7c68aea3b274e92d4ea4277e5011, type: 3}
-  m_Name: BallStat
+  m_Script: {fileID: 11500000, guid: bd709f7456b4e834c89573f3606e8ecc, type: 3}
+  m_Name: RangeOfSpeed
   m_EditorClassIdentifier: 
   ItemName: "\uC774\uB984\uC774 \uC544\uC9C1 \uC5C6\uC2B5\uB2C8\uB2E4."
   Description: "\uC124\uBA85\uC774 \uD544\uC694\uD569\uB2C8\uB2E4."
   IconImg: {fileID: 0}
-  Ability:
-  - AbilityID: 1
-    MathType: 0
-    Value: 12
