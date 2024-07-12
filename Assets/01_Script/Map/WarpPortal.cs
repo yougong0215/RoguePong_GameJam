@@ -40,6 +40,8 @@ public class WarpPortal : MonoBehaviour
                 var map = Instantiate(mapData.mapList[stage - 1]);
                 map.name = "Map";
                 Destroy(GameObject.Find("Map"));
+                gameObject.gameObject.SetActive(false);
+                GameManager.Instance.isCleared = false;
             }
             else
             {

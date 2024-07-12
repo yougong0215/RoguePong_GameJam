@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentStage: 0
-  isCleared: 0
+  isCleared: 1
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,7 +580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   Owner: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
@@ -645,7 +645,7 @@ GameObject:
   - component: {fileID: 995642587}
   - component: {fileID: 995642586}
   - component: {fileID: 995642591}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
