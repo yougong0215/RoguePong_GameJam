@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -10,7 +11,9 @@ public class ScreenEffectManager : Singleton<ScreenEffectManager>
     public Volume GlobalVolume;
 
     private ChromaticAberration chromaticAberration;
-    
+
+    public bool renderFeature;
+
     void Start()
     {
         GlobalVolume = GetComponentInChildren<Volume>();
@@ -20,6 +23,11 @@ public class ScreenEffectManager : Singleton<ScreenEffectManager>
             chromaticAberration.active = true;
             chromaticAberration.intensity.Override(1);
         }
+
+    }
+
+    private void Update()
+    {
     }
 
     public void SetChromaticAberration(float Intensity, float Duration)
@@ -32,6 +40,7 @@ public class ScreenEffectManager : Singleton<ScreenEffectManager>
         {
             Debug.LogError("Chromatic Aberration ¾ø¾î¿ë!");
         }
+
     }
 
     private IEnumerator ChromaticAberration(float Intensity, float Duration)
@@ -40,4 +49,5 @@ public class ScreenEffectManager : Singleton<ScreenEffectManager>
         yield return new WaitForSeconds(Duration);
         chromaticAberration.intensity.Override(0.0f);
     }
+
 }
