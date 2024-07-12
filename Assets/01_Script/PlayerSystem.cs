@@ -207,4 +207,13 @@ public class PlayerSystem : ObjectSystem, HitModule
         _currentHP -= dmg;
         act?.Invoke(this);
     }
+
+
+    public IEnumerator FrameCharacterConoff()
+    {
+        _char.enabled = false;
+        yield return null;
+        _char.enabled = true;
+
+    }
 }

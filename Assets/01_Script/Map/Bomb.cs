@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bomb : MonoBehaviour
+public class Bomb : MonoBehaviour, HitModule
 {
     private BoxColliderCast boxcast;
     // Start is called before the first frame update
@@ -14,20 +14,14 @@ public class Bomb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (boxcast.ReturnColliders().Length > 0)
-        {
-            TriggerEnter(boxcast.ReturnColliders()[0]);
-        }
+
     }
 
-    private void TriggerEnter(Collider other)
+    public void HitBall(BallSystem bss)
     {
-        if(other.TryGetComponent<BallSystem>(out BallSystem bss))
-        {
-            bss._abilityStat._addSpeed += 10f;
-            bss.WallCollisionItem(GetComponent<Collider>());
-            bss.RefreshTime();
-            Destroy(gameObject);
-        }
+        bss._abilityStat._addSpeed += 10f;
+        bss.WallCollisionItem(GetComponent<Collider>());
+        bss.RefreshTime();
+        Destroy(gameObject);
     }
 }
