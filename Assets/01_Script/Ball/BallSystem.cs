@@ -64,6 +64,11 @@ public class BallSystem : ObjectSystem
         _cols.Now(transform, Collision, First);
     }
 
+    public void SetttingDir(Vector3 _dir)
+    {
+        dir = _dir;
+    }
+
     public void RefreshTime()
     {
         _curtime = 0;
