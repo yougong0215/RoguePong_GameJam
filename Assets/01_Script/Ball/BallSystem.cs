@@ -45,29 +45,12 @@ public class BallStat
 }
 
 
-public class BallSystem : MonoBehaviour
+public class BallSystem : ObjectSystem
 {
 
     [SerializeField]
     public float _randomRange = 0.3f;
-    //public float _speed = 10f;
 
-
-    [Header("OriginStat")]
-    [SerializeField] float _originATK = 0f;
-    [SerializeField] float _originSize = 0f;
-    [SerializeField] float _originSpeed = 0f;
-    [SerializeField] float _originDurationTime = 0f;
-
-    [Header("SystemStat")]
-    public BallStat _ballStat = new();
-
-    [Header("AbilityStat")]
-    public BallStat _abilityStat = new();
-
-
-    //[Header("Info")]
-    //[SerializeField] float _ballDamage = 10f;
 
     ColliderCast _cols;
     Action<Collider> Collision = null;
@@ -75,14 +58,11 @@ public class BallSystem : MonoBehaviour
 
     Vector3 dir;
 
-    [Header("Times")]
-    [SerializeField] float _curSpeed = 1;
+    [Header("CurrentInfo")]
+    [SerializeField] float _curATK = 1f;
+    [SerializeField] float _curSize = 1f;
+    [SerializeField] float _curSpeed = 1f;
     [SerializeField] float _curtime = 0;
-
-    public float GetATKValue() { return _abilityStat.ResultATK(_ballStat.ResultATK(_originATK)); }
-    public float GetSizeValue() { return _abilityStat.ResultSize(_ballStat.ResultSize(_originSize)); }
-    public float GetSpeedValue() { return _abilityStat.ResultSpeed(_ballStat.ResultSpeed(_originSpeed)); }
-    public float GetDurationValue() { return _abilityStat.ResultDuration(_ballStat.ResultDuration(_originDurationTime)); }
 
     private void Start()
     {
@@ -92,10 +72,13 @@ public class BallSystem : MonoBehaviour
 
     private void Update()
     {
-        _curtime += Time.deltaTime / 3;
+        _curtime += Time.deltaTime / GetDurationValue();
+        _curATK = Mathf.Lerp(GetATKValue(), _ballStat.ResultATK(_originATK), _curtime);
         _curSpeed = Mathf.Lerp(GetSpeedValue(), _ballStat.ResultSpeed(_originSpeed), _curtime);
+        _curSize = Mathf.Lerp(GetSizeValue(), _ballStat.ResultSize(), _curtime);
 
         transform.position += _curSpeed * dir.normalized * Time.deltaTime;
+        
 
         if(_curtime > 1)
         {
@@ -110,6 +93,7 @@ public class BallSystem : MonoBehaviour
         _curtime = 0;
 
         this.Collision = NormalRule;
+        
         Collision += this.Collision;
         First += this.First;
 
@@ -123,7 +107,7 @@ public class BallSystem : MonoBehaviour
 
     public float BallDamage()
     {
-        return GetATKValue() * _curSpeed * Mathf.Abs(GetSpeedValue());
+        return _curATK * _curSpeed;
     }
 
     public void NormalRule(Collider col)
