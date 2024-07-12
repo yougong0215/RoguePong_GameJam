@@ -5,11 +5,12 @@ using TMPro.EditorUtilities;
 using UnityEditor.Playables;
 using UnityEngine;
 
-public enum PlayerEnum
+public enum BallSkillEnum
 {
     Player = 0,
     Lacket = 1,
-    Ball,
+    Ball =2,
+    BallHit = 3,
 }
 
 
@@ -22,6 +23,9 @@ public class PlayerSystem : ObjectSystem, HitModule
 
     [Header("PlayerAbility")]
     [SerializeField] List<Ability> _statAbility = new();
+
+    [Header("BallSkill")]
+    [SerializeField] List<SkillAbility> _ballHitSkill = new();
 
     [SerializeField] float _lastMaxHP = 0;
     [SerializeField] float _currentHP =0;
@@ -50,23 +54,28 @@ public class PlayerSystem : ObjectSystem, HitModule
         RefreshStat();
     }
 
-    public void AddAbility(PlayerEnum _enum, Ability _ability)
+    public void AddAbility(BallSkillEnum _enum, Ability _ability)
     {
         switch (_enum)
         {
-            case PlayerEnum.Player:
+            case BallSkillEnum.Player:
                 {
                     _statAbility.Add(_ability);
                 }
                 break;
-            case PlayerEnum.Lacket:
+            case BallSkillEnum.Lacket:
                 {
                     _lacketAbility.Add(_ability);
                 }
                 break;
-            case PlayerEnum.Ball:
+            case BallSkillEnum.Ball:
                 {
                     _lacketHitStatAbility.Add(_ability);
+                }
+                break;
+            case BallSkillEnum.BallHit:
+                {
+                    _ballHitSkill.Add(_ability as SkillAbility);
                 }
                 break;
         }
@@ -107,7 +116,7 @@ public class PlayerSystem : ObjectSystem, HitModule
         {
             ability.GetAbility(ref obj2);
         }
-        _lacket.RefreshStat(obj1, obj2);
+        _lacket.RefreshStat(obj1, obj2, _ballHitSkill);
 
         
 

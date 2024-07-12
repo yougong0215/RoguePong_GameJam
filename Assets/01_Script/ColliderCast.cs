@@ -80,6 +80,7 @@ public abstract class ColliderCast : MonoBehaviour
 
 	public void PlaeyrReset()
 	{
+		if(CheckDic.Count >0)
         foreach (var col in CheckDic)
 		{
 			if(col.Key.TryGetComponent<PlayerLacketHit>(out PlayerLacketHit hit))

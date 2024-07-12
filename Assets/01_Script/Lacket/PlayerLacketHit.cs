@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,6 +9,9 @@ public class PlayerLacketHit : ObjectSystem, HitModule
     [Header("LacketHP")]
     [SerializeField] public float _lacketMaxHP = 1000;
     [SerializeField] public float _laketReviveTime = 2f;
+
+    [Header("Ability")]
+    [SerializeField] public List<SkillAbility> _skillAbility = new List<SkillAbility>();
 
 
     bool _isParring =false;
@@ -83,11 +87,21 @@ public class PlayerLacketHit : ObjectSystem, HitModule
 
             //ball._abilityStat = 
             ball._abilityStat = _ballStat._abilityStat;
+
+            Action<BallSystem> bss = null;
+
+            foreach(var item in _skillAbility)
+            {
+                item.SettingAction(ref bss);
+            }
+
+            bss?.Invoke(ball);
+
             StartCoroutine(WaiterHit());
             ball.Input(dir, (cols) =>
             {
                 
-                if (cols.TryGetComponent<HitModule>(out HitModule ms))
+                if (cols.TryGetComponent<EnemyObject>(out EnemyObject ms))
                 {
                     // °ü·Ã ±â¹Í
                     
@@ -98,14 +112,18 @@ public class PlayerLacketHit : ObjectSystem, HitModule
 
     }
 
-    public void RefreshStat(ObjectSystem obj, ObjectSystem _ballStat)
+    public void RefreshStat(ObjectSystem obj, ObjectSystem _ballStat, List<SkillAbility> Hiting)
     {
         _abilityStat = obj._abilityStat;
 
         _lacketMaxHP = _originHP;
         this._ballStat = _ballStat;
+
+
+        _skillAbility = Hiting;
+
         // °ªº¯È¯ ¾ë ±âº»°ª ³Ö¾îÁà¾ßµÊ
-        transform.localScale = new Vector3(GetSizeValue() * 4.5f, 1.3f, 0.4f);
+        transform.localScale = new Vector3(GetSizeValue(),1f, 1);
         //GetComponent<BoxColliderCast>()._box.size = transform.localScale;
     }
 

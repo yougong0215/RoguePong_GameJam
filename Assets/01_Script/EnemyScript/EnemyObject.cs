@@ -7,6 +7,9 @@ public class EnemyObject : ObjectSystem, HitModule
 {
     [Header("Info")]
     [SerializeField] float _currentHP;
+
+    public float GetCurrentHP => _currentHP;
+
     private void Start()
     {
         _currentHP = GetHPValue();

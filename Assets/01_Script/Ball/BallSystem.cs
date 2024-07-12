@@ -8,6 +8,8 @@ using UnityEngine.UIElements;
 
 public class BallSystem : ObjectSystem
 {
+    public bool _isStart = false;
+
 
     [SerializeField]
     LayerMask _wallLayer;
@@ -24,6 +26,7 @@ public class BallSystem : ObjectSystem
     Action<Collider> First = null;
 
     Vector3 dir;
+    public Vector3 Dir => dir;
 
     [Header("CurrentInfo")]
     [SerializeField] float _curATK = 1f;
@@ -38,9 +41,10 @@ public class BallSystem : ObjectSystem
 
     Coroutine _latePos;
 
-    private void Start()
+    private void Awake()
     {
         _cols = GetComponent<ColliderCast>();
+        if(_isStart )
         Input(new Vector3(UnityEngine.Random.Range(-1f,1f),0, UnityEngine.Random.Range(-1f, 1f)));
     }
 
@@ -97,18 +101,42 @@ public class BallSystem : ObjectSystem
         return false;
     }
 
-    public void Input(Vector3 dir, Action<Collider> Collision = null, Action<Collider> First = null)
+    public void Stoped()
+    {
+        _cols.End();
+    }
+
+    public void Input(Vector3 dir, Action<Collider> Collision = null, Action<Collider> First = null, float timeLate = 0.0f)
+    {
+
+        StartCoroutine(StartLatetime( dir, timeLate));
+    }
+
+    IEnumerator StartLatetime(Vector3 dir, float t)
     {
         dir.y = 0;
         this.dir = dir.normalized;
         _curtime = 0;
 
         this.Collision = NormalRule;
-        
+
         Collision += this.Collision;
         First += this.First;
 
+        yield return new WaitForSeconds(t);
+
         _cols.Now(transform, Collision, First);
+    }
+
+    public void TimeLimit(float t)
+    {
+        StartCoroutine(DieTime(t));
+    }
+
+    IEnumerator DieTime(float t)
+    {
+        yield return new WaitForSeconds(t);
+        PoolManager.Instance.Push(this);
     }
 
     public void SetttingDir(Vector3 _dir)
