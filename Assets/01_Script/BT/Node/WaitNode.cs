@@ -5,6 +5,7 @@ public class WaitNode : ActionNode
 {
     private float waitTime;
     private float startTime;
+    bool isStart = false;
 
     public WaitNode(float waitTime)
     {
@@ -13,8 +14,11 @@ public class WaitNode : ActionNode
 
     public override bool Execute()
     {
+        StartWait();
+
         if (Time.time - startTime >= waitTime)
         {
+            isStart = false;
             return true;
         }
         return false;
@@ -22,6 +26,10 @@ public class WaitNode : ActionNode
 
     public void StartWait()
     {
-        startTime = Time.time;
+        if(isStart == false)
+        { 
+            isStart = true;
+            startTime = Time.time;
+        }
     }
 }

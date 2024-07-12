@@ -53,16 +53,15 @@ public class PlayerLacketHit : HitModule
 
     public override void HitBall(BallSystem ball)
     {
-        if(ball.IsCanBind() && _lacketMaxHP > 0)
-        {
-            if(_isParring == false)
-                _lacketMaxHP -= ball.BallDamage();
-            Debug.Log(ball.BallDamage());
-
-        }
 
         if(_lacketMaxHP > 0)
         {
+            if(ball.IsCanBind() && _isParring == false)
+            {
+                _lacketMaxHP -= ball.BallDamage();
+                Debug.Log(ball.BallDamage());
+            }
+
             Vector3 dir = transform.forward;
             dir.y = 0;
 

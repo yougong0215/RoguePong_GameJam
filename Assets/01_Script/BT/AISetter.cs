@@ -4,14 +4,18 @@ using UnityEngine;
 
 public abstract class AISetter : MonoBehaviour
 {
-    protected Node rootNode = null;
+    protected Selector rootNode = null;
 
     public bool _isRunning = false;
 
     private void Awake()
     {
         _isRunning = false;
-        rootNode = new Sequence();
+        rootNode = new Selector();
+    }
+
+    private void Start()
+    {
         AISetting();
     }
 
