@@ -22,6 +22,7 @@ public class ScreenEffectManager : Singleton<ScreenEffectManager>
         {
             chromaticAberration.active = true;
             chromaticAberration.intensity.Override(0.2f);
+
         }
 
     }
@@ -38,7 +39,7 @@ public class ScreenEffectManager : Singleton<ScreenEffectManager>
         }
         else
         {
-            Debug.LogError("Chromatic Aberration ¾ø¾î¿ë!");
+            Debug.LogError("Chromatic Aberration ï¿½ï¿½ï¿½ï¿½ï¿½!");
         }
 
     }
