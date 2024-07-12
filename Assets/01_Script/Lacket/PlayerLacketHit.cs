@@ -17,6 +17,8 @@ public class PlayerLacketHit : HitModule
 
     Coroutine _co;
 
+    ObjectSystem _ballStat = new();
+
 
     public void Update()
     {
@@ -64,8 +66,12 @@ public class PlayerLacketHit : HitModule
             Vector3 dir = transform.forward;
             dir.y = 0;
 
+            //ball._abilityStat = 
+            ball._abilityStat = _ballStat._abilityStat;
+            StartCoroutine(WaiterHit());
             ball.Input(dir, (cols) =>
             {
+                
                 if (cols.TryGetComponent<HitModule>(out HitModule ms))
                 {
                     // °ü·Ã ±â¹Í
@@ -81,13 +87,21 @@ public class PlayerLacketHit : HitModule
 
     }
 
-    public void RefreshStat(ObjectSystem obj)
+    public void RefreshStat(ObjectSystem obj, ObjectSystem _ballStat)
     {
         _abilityStat = obj._abilityStat;
 
         _lacketMaxHP = _originHP;
-
+        this._ballStat = _ballStat;
         // °ªº¯È¯ ¾ë ±âº»°ª ³Ö¾îÁà¾ßµÊ
-        transform.localScale = new Vector3(GetSizeValue() * 4.5f, GetSizeValue() * 1.3f, GetSizeValue() * 0.4f);
+        transform.localScale = new Vector3(GetSizeValue() * 4.5f, 1.3f, 0.4f);
+        //GetComponent<BoxColliderCast>()._box.size = transform.localScale;
+    }
+
+    IEnumerator WaiterHit()
+    {
+    
+        yield return new WaitForSeconds(0.4f);
+        GameObject.FindObjectOfType<BallSystem>().ResetCollision();
     }
 }

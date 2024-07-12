@@ -6,8 +6,10 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class BoxColliderCast : ColliderCast
 {
-	
-	private BoxCollider _box;
+
+	public BoxCollider _box;
+	[Header("Info")]
+	public bool _useScale = false;
 	private void Awake()
 	{
 		try
@@ -30,7 +32,23 @@ public class BoxColliderCast : ColliderCast
 	// Update is called once per frame
     public override Collider[] ReturnColliders()
     {
-	    return Physics.OverlapBox(transform.position, _box.size, _quaternion, Layer);
+		if(_useScale)
+			return Physics.OverlapBox(transform.position, transform.localScale/2, Owner.rotation, Layer);
+		else
+        {
+            return Physics.OverlapBox(transform.position, _box.size /2, Owner.rotation, Layer);
+
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (_box == null) return;
+
+        Gizmos.color = Color.red;
+        Matrix4x4 rotationMatrix = Matrix4x4.TRS(transform.position, Owner.rotation, Vector3.one);
+        Gizmos.matrix = rotationMatrix;
+        Gizmos.DrawWireCube(Vector3.zero, _box.size);
     }
 
 }
