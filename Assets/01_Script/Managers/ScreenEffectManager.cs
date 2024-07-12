@@ -18,7 +18,7 @@ public class ScreenEffectManager : Singleton<ScreenEffectManager>
         if(GlobalVolume.profile.TryGet(out chromaticAberration))
         {
             chromaticAberration.active = true;
-            chromaticAberration.intensity = new ClampedFloatParameter(0.0f, chromaticAberration.intensity.min, chromaticAberration.intensity.max);
+            chromaticAberration.intensity.Override(1);
         }
     }
 
@@ -36,8 +36,8 @@ public class ScreenEffectManager : Singleton<ScreenEffectManager>
 
     private IEnumerator ChromaticAberration(float Intensity, float Duration)
     {
-        chromaticAberration.intensity = new ClampedFloatParameter(Intensity, chromaticAberration.intensity.min, chromaticAberration.intensity.max);
+        chromaticAberration.intensity.Override(Intensity);
         yield return new WaitForSeconds(Duration);
-        chromaticAberration.intensity = new ClampedFloatParameter(0.0f, chromaticAberration.intensity.min, chromaticAberration.intensity.max);
+        chromaticAberration.intensity.Override(0.0f);
     }
 }

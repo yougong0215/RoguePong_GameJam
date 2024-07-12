@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : Singleton<SoundManager>
 {
 
     public AudioSource Source;
     public SoundData SoundData;
+    public AudioMixer AudioMixer;
 
     private void Start()
     {
@@ -21,12 +23,13 @@ public class SoundManager : Singleton<SoundManager>
         }
     }
 
-    public void PlayGlobal(string clipName, bool Loop = false)
+    public void PlayGlobal(string clipName, bool Loop = false, EAudioType audioType = EAudioType.SFX)
     {
         SoundAsset asset = SoundData.soundAssets.Find(x=>x.name == clipName);
         if(asset != null)
         {
             Source.clip= asset.clip;
+            Source.outputAudioMixerGroup = AudioMixer.FindMatchingGroups(audioType.ToString())[0];
             Source.loop = Loop;
             Source.Play();
         }
