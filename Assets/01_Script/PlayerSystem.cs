@@ -202,9 +202,10 @@ public class PlayerSystem : ObjectSystem, HitModule
         _currentHP -= ball.BallDamage();
     }
 
-    public void HitEvent(Action<PlayerSystem> act)
+    public void HitEvent(float dmg, Action<PlayerSystem> act = null)
     {
-        act.Invoke(this);
+        _currentHP -= dmg;
+        act?.Invoke(this);
     }
 
 

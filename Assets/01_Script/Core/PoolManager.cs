@@ -49,7 +49,7 @@ public class PoolManager : MonoBehaviour
 
 
         PoolAble item = _pools[prefabName].Pop();
-        item.Reset();
+        item.ResetPool();
         return item;
     }
 

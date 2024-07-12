@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectSystem : MonoBehaviour
+public class ObjectSystem : PoolAble
 {
     [Header("HP")]
     [SerializeField] protected float _originHP = 0;

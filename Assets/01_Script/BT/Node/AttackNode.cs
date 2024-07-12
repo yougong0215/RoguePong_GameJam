@@ -6,10 +6,14 @@ using UnityEngine;
 public class AttackNode : ActionNode
 {
     Transform _my;
-    Func<bool> function;
+    Func<IEnumerator> function;
+
+    bool isStart =false;
+
+    Coroutine _co = null;
 
 
-    public AttackNode(Transform me, Func<bool> func = null)
+    public AttackNode(Transform me, Func<IEnumerator> func = null)
     {
         _my = me;
         function = func;
@@ -18,6 +22,17 @@ public class AttackNode : ActionNode
 
     public override bool Execute()
     {
-        return function();
+        if(isStart)
+        {
+            _co =_my.GetComponent<MonoBehaviour>().StartCoroutine(function());
+            isStart = false;
+        }
+
+        return _co == null;
+    }
+
+    public void StartInvoke()
+    {
+        isStart = true;
     }
 }
