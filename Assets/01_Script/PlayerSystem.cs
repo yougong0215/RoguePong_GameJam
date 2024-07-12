@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro.EditorUtilities;
@@ -199,5 +200,10 @@ public class PlayerSystem : HitModule
     public override void HitBall(BallSystem ball)
     {
         _currentHP -= ball.BallDamage();
+    }
+
+    public void HitEvent(Action<PlayerSystem> act)
+    {
+        act.Invoke(this);
     }
 }
