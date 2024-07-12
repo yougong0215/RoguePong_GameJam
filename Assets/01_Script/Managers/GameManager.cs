@@ -7,6 +7,7 @@ public class GameManager : Singleton<GameManager>
     private PlayerAbility _player;
     public int currentStage;
     public bool isCleared = true;
+
     public PlayerAbility Player
     {
         get
