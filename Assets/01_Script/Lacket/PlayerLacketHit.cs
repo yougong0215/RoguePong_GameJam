@@ -12,10 +12,11 @@ public class PlayerLacketHit : HitModule
 
     bool _isParring =false;
     float _currentParringCooldown = 0;
-    float _parringTime = 1f;
-    float _parringContinusTime = 0.125f;
+    float _parringTime = 3f;
+    float _parringContinusTime = 0.05f;
 
-    Coroutine _co;
+    Coroutine _hpCoroutine;
+    Coroutine _parringCoroutine;
 
     ObjectSystem _ballStat = new();
 
@@ -26,7 +27,7 @@ public class PlayerLacketHit : HitModule
         if(_currentParringCooldown <= 0)
         {
             if(Input.GetMouseButtonDown(0))
-                StartCoroutine(ParringTime(_parringContinusTime));
+                _parringCoroutine = StartCoroutine(ParringTime(_parringContinusTime));
         }
         else
         {
@@ -41,25 +42,33 @@ public class PlayerLacketHit : HitModule
         _isParring = true;
         yield return new WaitForSeconds(t);
         Debug.Log("Ãë¼Ò");
-        _isParring = false;        
+        _isParring = false;
+        _parringCoroutine = null;
     }
 
     IEnumerator LacketHPReturn()
     {
         yield return new WaitForSeconds(_laketReviveTime);
         _originHP = _lacketMaxHP;
-        _co = null;
+        _hpCoroutine = null;
     }
 
     public override void HitBall(BallSystem ball)
     {
 
-        if(_lacketMaxHP > 0)
+        if(_originHP > 0)
         {
-            if(ball.IsCanBind() && _isParring == false)
+            if(ball.IsCanBind())
             {
-                _lacketMaxHP -= ball.BallDamage();
-                Debug.Log(ball.BallDamage());
+                if(_isParring == false)
+                {
+                    _originHP -= ball.BallDamage();
+                    Debug.Log(ball.BallDamage());
+                }
+                else
+                {
+                    _currentParringCooldown = 0f; 
+                }
             }
 
             Vector3 dir = transform.forward;
@@ -80,8 +89,8 @@ public class PlayerLacketHit : HitModule
         }
         else
         {
-            if (_co == null)
-                _co = StartCoroutine( LacketHPReturn());
+            if (_hpCoroutine == null)
+                _hpCoroutine = StartCoroutine( LacketHPReturn());
         }
 
     }
