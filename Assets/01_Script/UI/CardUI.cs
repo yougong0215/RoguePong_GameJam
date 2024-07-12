@@ -11,16 +11,23 @@ public class CardUI : MonoBehaviour
     public Image IconImg;
     public TextMeshProUGUI NameTxt;
     public TextMeshProUGUI DescTxt;
-
+    public Image OutlineImg;
     // Start is called before the first frame update
     void Start()
     {
-
+        OutlineImg = transform.Find("BG/Outline").GetComponent<Image>();
+        IconImg = transform.Find("Contents/Icon/IconImg").GetComponent<Image>();
+        NameTxt = transform.Find("Contents/Name/NameTxt").GetComponent<TextMeshProUGUI>();
+        DescTxt = transform.Find("Contents/Desc/DescTxt").GetComponent<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void InitCard(Ability newAblity)
     {
-        
+        ablity = newAblity;
+
+        OutlineImg.color = ablity.OutlineColor;
+        IconImg.sprite = ablity.IconImg;
+        NameTxt.text = ablity.ItemName;
+        DescTxt.text = ablity.Description;
     }
 }

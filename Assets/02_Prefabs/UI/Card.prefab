@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5434617607413858208}
+  - component: {fileID: 2034202712362588229}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -37,6 +38,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 450, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2034202712362588229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791122247268619943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e3d078a5fc90a468e8e9d7e6c51caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ablity: {fileID: 0}
+  IconImg: {fileID: 0}
+  NameTxt: {fileID: 0}
+  DescTxt: {fileID: 0}
 --- !u!1 &1693920882696946834
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +179,7 @@ GameObject:
   - component: {fileID: 4484547011542263252}
   - component: {fileID: 398859358267653709}
   m_Layer: 5
-  m_Name: Desc Txt
+  m_Name: DescTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
