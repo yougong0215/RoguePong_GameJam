@@ -228,12 +228,14 @@ public class PlayerSystem : ObjectSystem, HitModule
     public void HitBall(BallSystem ball)
     {
         _currentHP -= 1;
+        GameManager.Instance.HUDCanvas.UpdateHeartUI();
     }
 
     public void HitEvent(float dmg, Action<PlayerSystem> act = null)
     {
         //_currentHP -= dmg;
         _currentHP = Mathf.Clamp(_currentHP-dmg, 0, GetHPValue());
+        GameManager.Instance.HUDCanvas.UpdateHeartUI();
         act?.Invoke(this);
     }
 

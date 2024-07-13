@@ -9,6 +9,20 @@ public class GameManager : Singleton<GameManager>
     public int currentFloor;
     public bool isCleared = true;
 
+    private HUD _hud;
+    public HUD HUDCanvas
+    {
+        get
+        {
+            if(_hud == null)
+            {
+                _hud = GameObject.FindObjectOfType<HUD>();
+            }
+
+            return _hud;
+        }
+    }
+
     public PlayerSystem Player
     {
         get
@@ -25,5 +39,6 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         currentStage = 1;
+
     }
 }
