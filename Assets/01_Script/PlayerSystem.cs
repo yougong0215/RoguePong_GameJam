@@ -224,7 +224,7 @@ public class PlayerSystem : ObjectSystem, HitModule
 
     public void HitEvent(float dmg, Action<PlayerSystem> act = null)
     {
-        _currentHP -= 1;
+        _currentHP -= dmg;
         act?.Invoke(this);
     }
 

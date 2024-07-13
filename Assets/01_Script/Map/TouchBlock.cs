@@ -7,6 +7,7 @@ using static UnityEngine.UI.Image;
 public class TouchBlock : ObjectSystem,HitModule
 {
     public TextMeshPro countText;
+    public GameObject cube;
     public int count;
     public Vector3 moveTo;
     private Vector3 origin;
@@ -15,6 +16,7 @@ public class TouchBlock : ObjectSystem,HitModule
     {
         origin = gameObject.transform.position;
         countText.text = count.ToString();
+        cube.transform.localScale = transform.parent.gameObject.GetComponent<BoxCollider>().size;
     }
 
     public IEnumerator moveObject()
