@@ -133,8 +133,6 @@ MonoBehaviour:
     _multyReflect: 1
   _lacketMaxHP: 1000
   _lacketCurHP: 1000
-  deathEffect: {fileID: 6656154812330177880, guid: f7da4487cf5c4e6449cef35ffbec039b,
-    type: 3}
 --- !u!1 &4217174592486361355
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,8 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 774cb3db116cf9f4a8553c346f303cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _originHP: 300
-  _originATK: 10
+  _originHP: 500
+  _originATK: 1
   _originSize: 1
   _originSpeed: 4
   _originDurationTime: 3
@@ -254,8 +252,6 @@ MonoBehaviour:
     _multyHP: 1
     _multyReflect: 0
   _currentHP: 0
-  deathEffect: {fileID: 6656154812330177880, guid: f7da4487cf5c4e6449cef35ffbec039b,
-    type: 3}
 --- !u!195 &5924919965524837864
 NavMeshAgent:
   m_ObjectHideFlags: 0
