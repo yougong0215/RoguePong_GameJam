@@ -7,6 +7,7 @@ public class EnemyObject : ObjectSystem, HitModule
 {
     [Header("Info")]
     [SerializeField] protected float _currentHP;
+    [SerializeField] protected int _dropGold;
 
     public float GetCurrentHP => _currentHP;
 
@@ -28,13 +29,15 @@ public class EnemyObject : ObjectSystem, HitModule
         if(_currentHP <= 0)
         {
             GameManager.Instance.AddDeath();
+            GameManager.Instance._gold += _dropGold;
             Destroy(this.gameObject);
             //PoolManager.Instance.Pop("Explosion 1 FX")
         }
     }
 
-    public void HitEvent(Action<EnemyObject> act)
+    public void HitEvent(float dmg, Action<EnemyObject> act=null)
     {
-        act.Invoke(this);
+        _currentHP -= dmg;
+        act?.Invoke(this);
     }
 }

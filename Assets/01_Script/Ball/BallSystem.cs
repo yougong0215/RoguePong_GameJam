@@ -342,9 +342,6 @@ public class BallSystem : ObjectSystem
 
     public float BallDamage()
     {
-
-        //CameraManager.Instance.Shake(_curATK * _curSpeed/10, 0.2f);
-
         return _curATK * _curSpeed;
     }
 
@@ -435,9 +432,9 @@ public class BallSystem : ObjectSystem
         }
 
 
-        if (col.TryGetComponent<HitModule>(out HitModule hs))
+        if (null != col.gameObject.GetComponent<HitModule>())
         {
-            hs.HitBall(this);
+            col.gameObject.GetComponent<HitModule>().HitBall(this);
         }
 
         //else if(col.gameObject.layer == LayerMask.NameToLayer("Lacket"))
@@ -458,7 +455,8 @@ public class BallSystem : ObjectSystem
 
     public void ResetCollision()
     {
-        _cols.PlaeyrReset();
+        if(_cols != null)
+            _cols.PlaeyrReset();
     }
 
 

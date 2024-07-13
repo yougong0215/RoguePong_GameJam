@@ -14,6 +14,19 @@ public class EnemyStandardLacket : ObjectSystem, HitModule
         _lacketCurHP = _originHP;
     }
 
+    public void HitEvent(float dmg)
+    {
+        _lacketCurHP -= dmg;
+
+        if (_lacketCurHP < 0)
+        {
+            EffectObject e = PoolManager.Instance.Pop("Explosion_1_FX") as EffectObject;
+            e.transform.position = transform.position;
+            Destroy(e, 2f);
+            Destroy(gameObject);
+        }
+    }
+
     public void HitBall(BallSystem ball)
     {
         if (_lacketCurHP > 0)

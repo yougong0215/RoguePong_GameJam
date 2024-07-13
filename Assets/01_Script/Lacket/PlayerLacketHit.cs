@@ -59,6 +59,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
     {
         yield return new WaitForSeconds(_laketReviveTime);
         _lacketCurHP = _lacketMaxHP;
+        _hpCoroutine = null;
     }
 
     public  void HitBall(BallSystem ball)
@@ -164,6 +165,11 @@ public class PlayerLacketHit : ObjectSystem, HitModule
                 _hpCoroutine = StartCoroutine(LacketHPReturn());
         }
 
+    }
+
+    public void HitEvent(float dmg)
+    {
+        _lacketCurHP -= dmg;
     }
 
     public void RefreshStat(ObjectSystem obj, ObjectSystem _ballStat, List<SkillAbility> Hiting, List<SkillAbility> ball, List<SkillAbility> update, List<SkillAbility> parring)
