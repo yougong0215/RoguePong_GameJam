@@ -48,4 +48,11 @@ public class SoundManager : Singleton<SoundManager>
         }
     }
 
+    IEnumerator CO(AudioSource s)
+    {
+        yield return new WaitUntil(()=> s.isPlaying == false);
+        Destroy(s.gameObject);
+
+    }
+
 }

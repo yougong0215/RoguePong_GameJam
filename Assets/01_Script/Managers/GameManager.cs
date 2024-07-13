@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -196,6 +197,19 @@ public class GameManager : Singleton<GameManager>
     {
         currentTime += Time.deltaTime;
         HUDCanvas.UpdateCurrentTimeText(currentTime);
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            foreach (var item in GameObject.FindObjectsOfType<BallSystem>())
+            {
+                item.DieObj();
+            }
+
+            var spw = GameObject.Find("SpawnPoint");
+            BallSystem bs = PoolManager.Instance.Pop("GameBall") as BallSystem;
+            bs.transform.position = spw.transform.position;
+            bs.Input(bs.transform.forward, BallOwner.Natural);
+        }
     }
 
     public void Dead()

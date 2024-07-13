@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -440,7 +441,7 @@ public class BallSystem : ObjectSystem
 
         if (null != col.gameObject.GetComponent<HitModule>())
         {
-            col.gameObject.GetComponent<HitModule>().HitBall(this);
+            col?.gameObject?.GetComponent<HitModule>()?.HitBall(this);
         }
 
         //else if(col.gameObject.layer == LayerMask.NameToLayer("Lacket"))
