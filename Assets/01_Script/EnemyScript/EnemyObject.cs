@@ -9,11 +9,14 @@ public class EnemyObject : ObjectSystem, HitModule
     [SerializeField] protected float _currentHP;
     [SerializeField] protected int _dropGold;
 
+    [SerializeField] GameObject pos;
+
     public float GetCurrentHP => _currentHP;
 
     private void Start()
     {
         _currentHP = GetHPValue();
+        if(pos == null) { pos = this.gameObject; }
     }
 
     public virtual void HitBall(BallSystem ball)
@@ -22,7 +25,7 @@ public class EnemyObject : ObjectSystem, HitModule
         {
 
             DamageText tm = PoolManager.Instance.Pop("DamageText") as DamageText;
-            tm.Show($"{(int)(ball.BallDamage())}", transform.position + new Vector3(0, 0, 2), Color.white);
+            tm.Show($"{(int)(ball.BallDamage())}", pos.transform.position, Color.white);
             _currentHP -= ball.BallDamage();    
         }
 
