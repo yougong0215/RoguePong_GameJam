@@ -9,6 +9,7 @@ public enum StatEnum
     SIZE = 2,
     DurationTime = 3,
     HP = 4,
+    Reflect =5,
     None,
 }
 
@@ -46,7 +47,7 @@ public class StatSystem
     [SerializeField] public float _multySpeed = 1f;
     [SerializeField] public float _multyDurationTime = 1f;
     [SerializeField] public float _multyHP = 1f;
-    [SerializeField] public float _multyReflect = 0;
+    [SerializeField] public float _multyReflect = 1f;
 
     public float ResultATK(float origin = 0)
     {
@@ -158,7 +159,20 @@ public class StatAbility : Ability
                 case StatEnum.None:
                     Debug.LogError("지정되지 않은 스텟");
                     break;
-
+                case StatEnum.Reflect:
+                    {
+                        if (stat.MathType == MathType.Plus)
+                        {
+                            ballStat._abilityStat._addReflect += stat.Value;
+                        }
+                        else if (stat.MathType == MathType.Multiply)
+                        {
+                            ballStat._abilityStat._multyReflect += stat.Value;
+                        }
+                    }
+                    break;
+                default:
+                    break;
             }
         }
     }

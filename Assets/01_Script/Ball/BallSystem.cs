@@ -73,6 +73,11 @@ public class BallSystem : ObjectSystem
         }
     }
 
+    private void Start()
+    {
+        SettingBallType( _ballEnum );
+    }
+
     public void SettingBallType(BallEnum b)
     {
         _ballEnum = b;

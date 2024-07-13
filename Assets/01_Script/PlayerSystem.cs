@@ -29,8 +29,8 @@ public class PlayerSystem : ObjectSystem, HitModule
     [SerializeField] List<SkillAbility> _ballColisionSkill = new();
     [SerializeField] List<SkillAbility> _ballUpdateSkill = new();
 
-    [SerializeField] float _lastMaxHP = 0;
-    [SerializeField] float _currentHP =0;
+    [SerializeField] float _lastMaxHP = 10;
+    [SerializeField] float _currentHP =10;
 
 
     CharacterController _char;
@@ -212,12 +212,12 @@ public class PlayerSystem : ObjectSystem, HitModule
 
     public void HitBall(BallSystem ball)
     {
-        _currentHP -= ball.BallDamage();
+        _currentHP -= 1;
     }
 
     public void HitEvent(float dmg, Action<PlayerSystem> act = null)
     {
-        _currentHP -= dmg;
+        _currentHP -= 1;
         act?.Invoke(this);
     }
 

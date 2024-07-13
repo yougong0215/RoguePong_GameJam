@@ -57,7 +57,6 @@ public class PlayerLacketHit : ObjectSystem, HitModule
     {
         yield return new WaitForSeconds(_laketReviveTime);
         _lacketCurHP = _lacketMaxHP;
-        _hpCoroutine = null;
     }
 
     public  void HitBall(BallSystem ball)
@@ -69,14 +68,9 @@ public class PlayerLacketHit : ObjectSystem, HitModule
             {
                 if(_isParring == false)
                 {
-                    _originHP -= ball.BallDamage();
+                    _lacketCurHP -= 1;
                     //Debug.Log(ball.BallDamage());
 
-                    if(_originHP < 0)
-                    {
-                        if (_hpCoroutine == null)
-                            _hpCoroutine = StartCoroutine(LacketHPReturn());
-                    }
 
                 }
                 else
@@ -102,7 +96,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
 
             Action<BallSystem> bss1 = null;
 
-            foreach (var item in _lacketHitskillAbility)
+            foreach (var item in _ballHitSkillAbility)
             {
                 item.SettingAction(ref bss1, _ballStat);
             }
@@ -120,7 +114,13 @@ public class PlayerLacketHit : ObjectSystem, HitModule
                 bss1?.Invoke(ball);
             }, default, updateBall);
         }
-        
+
+
+        if (_originHP < 0)
+        {
+            if (_hpCoroutine == null)
+                _hpCoroutine = StartCoroutine(LacketHPReturn());
+        }
 
     }
 
@@ -143,7 +143,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
     IEnumerator WaiterHit()
     {
     
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.3f);
         GameObject.FindObjectOfType<BallSystem>().ResetCollision();
     }
 }
