@@ -35,7 +35,7 @@ public class WarpPortal : MonoBehaviour
         if(GameManager.Instance.isCleared)
         {
             GameManager.Instance.isInSpeicalRoom = false;
-            if (mapData.mapList.Count > GameManager.Instance.currentStage)
+            if (mapData.mapList.Count > GameManager.Instance.CurrentStage)
             {
                 GameManager.Instance.CurrentStage++;
                 print("Next Stage: " + GameManager.Instance.CurrentStage);
