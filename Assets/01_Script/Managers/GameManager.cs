@@ -87,6 +87,7 @@ public class GameManager : Singleton<GameManager>
         {
             isCleared = true;
             warpPortal.SetActive(true);
+            specialWarpPortal.SetActive(true);
         }
     }
 

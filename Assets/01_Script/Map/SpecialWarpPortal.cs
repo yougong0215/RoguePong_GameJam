@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpecialWarpPortal : WarpPortal
@@ -14,7 +15,15 @@ public class SpecialWarpPortal : WarpPortal
     {
         if (GameManager.Instance.isCleared)
         {
-
+            var map = Instantiate(mapData.SpecialMapList[Random.Range(0, mapData.SpecialMapList.Count)]);
+            print("Ω∫∆‰º» ∆˜≈ª ¿‘¿Â: " + map.name);
+            map.name = "Map";
+            Destroy(GameObject.Find("Map"));
+            var spw = GameObject.Find("SpawnPoint");
+            StartCoroutine(GameManager.Instance.Player.FrameCharacterConoff());
+            GameManager.Instance.Player.gameObject.transform.position = spw.transform.position;
+            GameManager.Instance.isCleared = false;
+            GameManager.Instance.ResetCnt();
         }
     }
 
