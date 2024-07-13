@@ -1912,7 +1912,7 @@ PrefabInstance:
     - target: {fileID: 3007179561468800177, guid: a41f1926d804b0c48b6501e0577979fe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3007179561468800177, guid: a41f1926d804b0c48b6501e0577979fe,
         type: 3}
@@ -1922,7 +1922,7 @@ PrefabInstance:
     - target: {fileID: 3007179561468800177, guid: a41f1926d804b0c48b6501e0577979fe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3007179561468800177, guid: a41f1926d804b0c48b6501e0577979fe,
         type: 3}
@@ -2337,6 +2337,7 @@ MonoBehaviour:
   _lacketHitStatAbility: []
   _statAbility:
   - {fileID: 11400000, guid: d95060438106ede4a8adb8cf02c99a4f, type: 2}
+  _parringAbility: []
   _ballHitSkill: []
   _ballColisionSkill: []
   _ballUpdateSkill: []
@@ -2888,6 +2889,11 @@ MonoBehaviour:
   _curSpeed: 1
   _curtime: 1
   _ballEnum: 0
+  explodeEffect: {fileID: 0}
+  methoEffect: {fileID: 0}
+  lavaFloorTrail: {fileID: 0}
+  iceFloorTrail: {fileID: 0}
+  ballData: {fileID: 0}
 --- !u!114 &1067711439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5447,6 +5453,7 @@ MonoBehaviour:
   _lacketHitskillAbility: []
   _ballHitSkillAbility: []
   _ballUpdateSkillAbility: []
+  _parringSkillAbility: []
 --- !u!114 &2010385648
 MonoBehaviour:
   m_ObjectHideFlags: 0

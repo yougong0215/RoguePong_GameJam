@@ -7,4 +7,5 @@ using UnityEngine;
 public class MapData : ScriptableObject
 {
     public List<GameObject> mapList;
+    public List<GameObject> SpecialMapList;
 }
