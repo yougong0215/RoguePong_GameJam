@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DivisionBallHit
   m_EditorClassIdentifier: 
   ItemName: "\uC30D\uB465\uC774 \uBC29\uD328"
-  Description: "\uD328\uB9C1 \uC131\uACF5 \uC2DC, \uBD84\uC2E0 \uACF5\uC744 \uC18C\uD658\uD569\uB2C8\uB2E4.
-    (\uAC1C\uBC1C\uC911)"
+  Description: "\uD328\uB9C1 \uC131\uACF5 \uC2DC, \n\uBD88\uC644\uC804\uD55C \uBD84\uC2E0
+    \uACF5\uC744 \uC18C\uD658\uD569\uB2C8\uB2E4."
   IconImg: {fileID: 0}
   OutlineColor: {r: 1, g: 1, b: 1, a: 1}
   _durationTime: 5
