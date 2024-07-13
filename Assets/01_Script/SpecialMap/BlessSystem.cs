@@ -36,8 +36,12 @@ public class BlessSystem : SpecialMap
             }
         }
 
+
+
         Debug.LogError(list[result].name);
         Debug.LogError(list[result].Value);
         list[result].BlessDoing(list[result].Value);
+
+        GameManager.Instance.Player.RefreshStat();
     }
 }

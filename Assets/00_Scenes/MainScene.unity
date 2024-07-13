@@ -518,6 +518,44 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4540448872803747419, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
+      propertyPath: _ballHitSkill.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540448872803747419, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
+      propertyPath: _parringAbility.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540448872803747419, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
+      propertyPath: _ballHitSkill.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: f9416288777884f46a0344177a05b5fc,
+        type: 2}
+    - target: {fileID: 4540448872803747419, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
+      propertyPath: _ballHitSkill.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: f9416288777884f46a0344177a05b5fc,
+        type: 2}
+    - target: {fileID: 4540448872803747419, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
+      propertyPath: _ballUpdateSkill.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540448872803747419, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
+      propertyPath: _ballColisionSkill.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540448872803747419, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
+      propertyPath: _parringAbility.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: e22034adfbcefb04891c03ee8f673f2d,
+        type: 2}
     - target: {fileID: 4716960142688902195, guid: e058136bf903de44286b8f7e9db9d398,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -781,6 +819,21 @@ PrefabInstance:
     - target: {fileID: 6718282630580155184, guid: e058136bf903de44286b8f7e9db9d398,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6775851177346811600, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6775851177346811600, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6775851177346811600, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7142968232905024823, guid: e058136bf903de44286b8f7e9db9d398,

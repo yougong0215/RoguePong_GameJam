@@ -54,6 +54,7 @@ public class GameManager : Singleton<GameManager>
         AllCnt = 0;
         CurCnt = 0;
         warpPortal = null;
+        specialWarpPortal = null;
         navMeshSurface.BuildNavMesh();
     }
 
@@ -87,7 +88,8 @@ public class GameManager : Singleton<GameManager>
         {
             isCleared = true;
             warpPortal.SetActive(true);
-            specialWarpPortal.SetActive(true);
+            if(specialWarpPortal)
+                specialWarpPortal.SetActive(true);
         }
     }
 
