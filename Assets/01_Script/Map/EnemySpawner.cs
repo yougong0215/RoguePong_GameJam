@@ -25,13 +25,6 @@ public class EnemySpawner : MonoBehaviour
             }
             yield return new WaitForSeconds(SpawnTerm);
         }
-        print("ASDf");
         Destroy(gameObject);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

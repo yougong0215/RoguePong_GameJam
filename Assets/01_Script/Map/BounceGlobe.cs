@@ -11,12 +11,6 @@ public class BounceGlobe : MonoBehaviour, HitModule
         animator = gameObject.GetComponentInChildren<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void HitBall(BallSystem bss)
     {
         animator.SetTrigger("Piston");
