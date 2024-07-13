@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b803922fdd940ba43b50b2fcc8758670, type: 3}
   m_Name: RestData
   m_EditorClassIdentifier: 
-  restAssets: []
+  restAssets:
+  - recoveryRatio: 0.5
+    Probability: 20
+  - recoveryRatio: 1
+    Probability: 50
+  - recoveryRatio: 1.5
+    Probability: 15
+  - recoveryRatio: 2
+    Probability: 7.5
+  - recoveryRatio: 2.5
+    Probability: 5
+  - recoveryRatio: 3
+    Probability: 2.5

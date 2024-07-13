@@ -74,6 +74,8 @@ public class GameManager : Singleton<GameManager>
 
 
     private GameObject warpPortal;
+    private GameObject specialWarpPortal;
+    public bool isInSpeicalRoom;
 
     public PlayerSystem Player
     {
@@ -93,14 +95,27 @@ public class GameManager : Singleton<GameManager>
         AllCnt = 0;
         CurCnt = 0;
         warpPortal = null;
+        specialWarpPortal = null;
         navMeshSurface.BuildNavMesh();
     }
 
     public void AssignPortal(GameObject o)
     {
-        warpPortal = o;
+        if (!isInSpeicalRoom)
+        {
+            warpPortal = o;
+            o.SetActive(false);
+        }
+        else
+            isCleared = true;
+    }
+
+    public void AssignSpeicalPortal(GameObject o)
+    {
+        specialWarpPortal = o;
         o.SetActive(false);
     }
+
 
     public void AssignSpawner(int cnt)
     {
@@ -114,6 +129,8 @@ public class GameManager : Singleton<GameManager>
         {
             isCleared = true;
             warpPortal.SetActive(true);
+            if(specialWarpPortal)
+                specialWarpPortal.SetActive(true);
         }
     }
 

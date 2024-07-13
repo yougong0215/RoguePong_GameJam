@@ -8,14 +8,14 @@ public class WarpPortal : MonoBehaviour
     [SerializeField]
     protected MapData mapData;
 
-    private BoxColliderCast colliderCast;
+    public BoxColliderCast colliderCast;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         colliderCast = GetComponent<BoxColliderCast>();
         GameManager.Instance.AssignPortal(gameObject);
-        Debug.LogError("µî·ÏµÊ");
+        Debug.LogError("ï¿½ï¿½Ïµï¿½");
     }
 
     // Update is called once per frame
@@ -34,12 +34,14 @@ public class WarpPortal : MonoBehaviour
     {
         if(GameManager.Instance.isCleared)
         {
-            if (mapData.mapList.Count > GameManager.Instance.CurrentStage)
+            GameManager.Instance.isInSpeicalRoom = false;
+            if (mapData.mapList.Count > GameManager.Instance.currentStage)
             {
                 GameManager.Instance.CurrentStage++;
                 print("Next Stage: " + GameManager.Instance.CurrentStage);
                 var map = Instantiate(mapData.mapList[GameManager.Instance.CurrentStage]);
                 map.name = "Map";
+                map.transform.position = Vector3.zero;
                 Destroy(GameObject.Find("Map"));
                 var spw = GameObject.Find("SpawnPoint");
                 StartCoroutine(GameManager.Instance.Player.FrameCharacterConoff());
