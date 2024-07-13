@@ -2389,6 +2389,44 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5296726784915046352, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
+      propertyPath: _PoolList.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296726784915046352, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
+      propertyPath: _PoolList.Array.data[4]
+      value: 
+      objectReference: {fileID: 3853982625881240712, guid: f7da4487cf5c4e6449cef35ffbec039b,
+        type: 3}
+    - target: {fileID: 5296726784915046352, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
+      propertyPath: _PoolList.Array.data[5]
+      value: 
+      objectReference: {fileID: -1491299383342595683, guid: 5979ade1644ab124880395721d9e15c8,
+        type: 3}
+    - target: {fileID: 5296726784915046352, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
+      propertyPath: _PoolList.Array.data[6]
+      value: 
+      objectReference: {fileID: 5499040196190386641, guid: 927c3c911bdfeb94895347ce393f193f,
+        type: 3}
+    - target: {fileID: 5361281907366130331, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5361281907366130331, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 36.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 5361281907366130331, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15
+      objectReference: {fileID: 0}
     - target: {fileID: 5423231225886231251, guid: e058136bf903de44286b8f7e9db9d398,
         type: 3}
       propertyPath: m_Name
@@ -2398,11 +2436,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7754906049937814541, guid: e058136bf903de44286b8f7e9db9d398,
-        type: 3}
-      propertyPath: m_LayerMask.m_Bits
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

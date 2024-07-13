@@ -133,6 +133,8 @@ MonoBehaviour:
     _multyReflect: 1
   _lacketMaxHP: 1000
   _lacketCurHP: 1000
+  deathEffect: {fileID: 6656154812330177880, guid: f7da4487cf5c4e6449cef35ffbec039b,
+    type: 3}
 --- !u!1 &1050887317583982385
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +255,8 @@ MonoBehaviour:
     _multyHP: 1
     _multyReflect: 0
   _currentHP: 0
+  deathEffect: {fileID: 6656154812330177880, guid: f7da4487cf5c4e6449cef35ffbec039b,
+    type: 3}
 --- !u!195 &4137852990184622833
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -641,6 +645,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9039392404150756441, guid: 14b476647269ba24fa8882613f1ba7f1,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
