@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5918047763955495459}
   - component: {fileID: 2550061028179216019}
   - component: {fileID: 9114720873739450539}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d54a464ac4e884e840e10c9230dba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bombEffect: {fileID: 6656154812330177880, guid: f7da4487cf5c4e6449cef35ffbec039b,
+    type: 3}
 --- !u!65 &9114720873739450539
 BoxCollider:
   m_ObjectHideFlags: 0

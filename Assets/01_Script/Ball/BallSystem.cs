@@ -62,6 +62,11 @@ public class BallSystem : ObjectSystem
     [Header("BallType")]
     public BallEnum _ballEnum = BallEnum.Normal;
 
+    public GameObject explodeEffect;
+    public GameObject methoEffect;
+    public GameObject lavaFloorTrail;
+    public GameObject iceFloorTrail;
+
 
     private void Awake()
     {
@@ -185,7 +190,9 @@ public class BallSystem : ObjectSystem
                     if(ballGimik >= 1f)
                     {
                         ballGimik = 0;
-                        Debug.LogError("여기다가 라바 추가해라");
+                        var o = Instantiate(lavaFloorTrail);
+                        o.transform.position = transform.position;
+                        Destroy(o, 1f);
                     }
                 }
                 break;
@@ -195,7 +202,9 @@ public class BallSystem : ObjectSystem
                     if (ballGimik >= 1f)
                     {
                         ballGimik = 0;
-                        Debug.LogError("여기다가 얼음 추가해라");
+                        var o = Instantiate(iceFloorTrail);
+                        o.transform.position = transform.position;
+                        Destroy(o, 1f);
                     }
                 }
                 break;
@@ -366,8 +375,10 @@ public class BallSystem : ObjectSystem
                 {
                     if (col.TryGetComponent<ObjectSystem>(out ObjectSystem os))
                     {
-                        // 폭발 넣어라 알아서
-                        Debug.LogError("여기다가 폭발 추가해라");
+                        // 폭발 넣어라 알아서 / 냉
+                        var eff = Instantiate(explodeEffect);
+                        eff.transform.position = gameObject.transform.position;
+                        Destroy(eff, 2f);
                     }
                 }
                 break;
@@ -375,8 +386,10 @@ public class BallSystem : ObjectSystem
                 {
                     if (col.TryGetComponent<ObjectSystem>(out ObjectSystem os))
                     {
-                        // 메테오 넣어라 알아서
-                        Debug.LogError("여기다가 메테오 추가해라");
+                        // 메테오 넣어라 알아서 ?? 이펙트 구현을 유초루가 안함
+                        var eff = Instantiate(methoEffect);
+                        eff.transform.position = gameObject.transform.position;
+                        Destroy(eff, 2f);
                     }
                 }
                 break;

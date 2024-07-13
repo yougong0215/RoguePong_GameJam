@@ -2293,32 +2293,53 @@ MonoBehaviour:
   _originSize: 1
   _originSpeed: 8
   _originDurationTime: 0
+  _originReflectRange: 15
   _originStat:
     _addATK: 0
     _addSize: 0
     _addSpeed: 0
     _addDurationTime: 0
     _addHP: 0
+    _addReflect: 0
     _multyATK: 1
     _multySize: 1
     _multySpeed: 1
     _multyDurationTime: 1
     _multyHP: 1
+    _multyReflect: 1
   _abilityStat:
     _addATK: 0
     _addSize: 0
     _addSpeed: 0
     _addDurationTime: 0
     _addHP: 0
+    _addReflect: 0
     _multyATK: 1
     _multySize: 1
     _multySpeed: 1
     _multyDurationTime: 1
     _multyHP: 1
+    _multyReflect: 1
+  _DebuffStat:
+    _addATK: 0
+    _addSize: 0
+    _addSpeed: 0
+    _addDurationTime: 0
+    _addHP: 0
+    _addReflect: 0
+    _multyATK: 1
+    _multySize: 1
+    _multySpeed: 1
+    _multyDurationTime: 1
+    _multyHP: 1
+    _multyReflect: 1
   _lacketAbility: []
   _lacketHitStatAbility: []
   _statAbility:
   - {fileID: 11400000, guid: d95060438106ede4a8adb8cf02c99a4f, type: 2}
+  _ballHitSkill: []
+  _ballColisionSkill: []
+  _ballUpdateSkill: []
   _lastMaxHP: 0
   _currentHP: 0
   _isCanMove: 0
@@ -2414,6 +2435,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 887435070}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &950003863
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1053981770953302460, guid: f6b480226eb2b844eb331f0885f4ef97,
+        type: 3}
+      propertyPath: m_Name
+      value: ShotGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 5918047763955495459, guid: f6b480226eb2b844eb331f0885f4ef97,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.2168255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5918047763955495459, guid: f6b480226eb2b844eb331f0885f4ef97,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5918047763955495459, guid: f6b480226eb2b844eb331f0885f4ef97,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 17.853058
+      objectReference: {fileID: 0}
+    - target: {fileID: 5918047763955495459, guid: f6b480226eb2b844eb331f0885f4ef97,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5918047763955495459, guid: f6b480226eb2b844eb331f0885f4ef97,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5918047763955495459, guid: f6b480226eb2b844eb331f0885f4ef97,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5918047763955495459, guid: f6b480226eb2b844eb331f0885f4ef97,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5918047763955495459, guid: f6b480226eb2b844eb331f0885f4ef97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5918047763955495459, guid: f6b480226eb2b844eb331f0885f4ef97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5918047763955495459, guid: f6b480226eb2b844eb331f0885f4ef97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f6b480226eb2b844eb331f0885f4ef97, type: 3}
 --- !u!1001 &989860954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2748,28 +2837,48 @@ MonoBehaviour:
   _originSize: 1
   _originSpeed: 10
   _originDurationTime: 3
+  _originReflectRange: 15
   _originStat:
     _addATK: 0
     _addSize: 0
     _addSpeed: 0
     _addDurationTime: 0
     _addHP: 0
+    _addReflect: 0
     _multyATK: 1
     _multySize: 1
     _multySpeed: 1
     _multyDurationTime: 1
     _multyHP: 1
+    _multyReflect: 1
   _abilityStat:
     _addATK: 0
     _addSize: 0
     _addSpeed: 0
     _addDurationTime: 0
     _addHP: 0
+    _addReflect: 0
     _multyATK: 1
     _multySize: 1
     _multySpeed: 1
     _multyDurationTime: 1
     _multyHP: 1
+    _multyReflect: 1
+  _DebuffStat:
+    _addATK: 0
+    _addSize: 0
+    _addSpeed: 0
+    _addDurationTime: 0
+    _addHP: 0
+    _addReflect: 0
+    _multyATK: 1
+    _multySize: 1
+    _multySpeed: 1
+    _multyDurationTime: 1
+    _multyHP: 1
+    _multyReflect: 1
+  _isStart: 0
+  _isReal: 0
   _wallLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -2778,6 +2887,7 @@ MonoBehaviour:
   _curSize: 1
   _curSpeed: 1
   _curtime: 1
+  _ballEnum: 0
 --- !u!114 &1067711439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5019,6 +5129,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1855975379}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1891904938
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 72ad574582cc4444c9b957e3ed226e99,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.703749
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 72ad574582cc4444c9b957e3ed226e99,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 72ad574582cc4444c9b957e3ed226e99,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.033798695
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 72ad574582cc4444c9b957e3ed226e99,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 72ad574582cc4444c9b957e3ed226e99,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 72ad574582cc4444c9b957e3ed226e99,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 72ad574582cc4444c9b957e3ed226e99,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 72ad574582cc4444c9b957e3ed226e99,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 72ad574582cc4444c9b957e3ed226e99,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 72ad574582cc4444c9b957e3ed226e99,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 72ad574582cc4444c9b957e3ed226e99,
+        type: 3}
+      propertyPath: m_Name
+      value: Golem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72ad574582cc4444c9b957e3ed226e99, type: 3}
 --- !u!1001 &1911124133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5223,30 +5401,52 @@ MonoBehaviour:
   _originSize: 1
   _originSpeed: 10
   _originDurationTime: 3
+  _originReflectRange: 15
   _originStat:
     _addATK: 0
     _addSize: 0
     _addSpeed: 0
     _addDurationTime: 0
     _addHP: 0
+    _addReflect: 0
     _multyATK: 1
     _multySize: 1
     _multySpeed: 1
     _multyDurationTime: 1
     _multyHP: 1
+    _multyReflect: 1
   _abilityStat:
     _addATK: 0
     _addSize: 0
     _addSpeed: 0
     _addDurationTime: 0
     _addHP: 0
+    _addReflect: 0
     _multyATK: 1
     _multySize: 1
     _multySpeed: 1
     _multyDurationTime: 1
     _multyHP: 1
+    _multyReflect: 1
+  _DebuffStat:
+    _addATK: 0
+    _addSize: 0
+    _addSpeed: 0
+    _addDurationTime: 0
+    _addHP: 0
+    _addReflect: 0
+    _multyATK: 1
+    _multySize: 1
+    _multySpeed: 1
+    _multyDurationTime: 1
+    _multyHP: 1
+    _multyReflect: 1
   _lacketMaxHP: 1000
+  _lacketCurHP: 10
   _laketReviveTime: 2
+  _lacketHitskillAbility: []
+  _ballHitSkillAbility: []
+  _ballUpdateSkillAbility: []
 --- !u!114 &2010385648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6022,3 +6222,5 @@ SceneRoots:
   - {fileID: 644985390}
   - {fileID: 751057309}
   - {fileID: 536459499342031852}
+  - {fileID: 1891904938}
+  - {fileID: 950003863}
