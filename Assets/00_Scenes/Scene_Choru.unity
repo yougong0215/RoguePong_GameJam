@@ -2880,6 +2880,7 @@ MonoBehaviour:
     _multyReflect: 1
   _isStart: 0
   _isReal: 0
+  _matGlow: {fileID: 0}
   _wallLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -2894,6 +2895,7 @@ MonoBehaviour:
   lavaFloorTrail: {fileID: 0}
   iceFloorTrail: {fileID: 0}
   ballData: {fileID: 0}
+  _ownerEnum: 2
 --- !u!114 &1067711439
 MonoBehaviour:
   m_ObjectHideFlags: 0
