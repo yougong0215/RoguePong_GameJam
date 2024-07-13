@@ -66,6 +66,9 @@ public class TempEnemyAI : AISetter
 
     public override void UpdateInvoke()
     {
-        transform.LookAt( GameManager.Instance.Player.transform);
+        Vector3 v = GameManager.Instance.Player.transform.position;
+
+        v.y = 0;
+        transform.rotation = Quaternion.LookRotation(v);
     }
 }
