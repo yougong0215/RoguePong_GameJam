@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: a7400b279896d9b44bf254014495bc12, type: 3}
   m_Name: GiantBall
-  m_EditorClassIdentifier: Assembly-CSharp::BallAsset
+  m_EditorClassIdentifier: 
   ItemName: "\uAC70\uC778\uC758 \uACF5"
-  Description: "\uACF5 \uD06C\uAE30 \uB300\uD3ED \uC99D\uAC00\n\uACF5 \uD53C\uD574\uB7C9
-    \uAC10\uC18C\n\uACF5 \uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
+  Description: "\uACF5 \uD06C\uAE30 \uC99D\uAC00\n\uACF5 \uD53C\uD574\uB7C9 \uAC10\uC18C\n\uACF5
+    \uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
   IconImg: {fileID: 0}
   OutlineColor: {r: 1, g: 1, b: 1, a: 1}
-  BallType: 0
+  BallType: 8
   BallMesh: {fileID: 2753074299554934588, guid: 6d4968764b253bb42a50edc1212dd444,
     type: 3}
-  MultySpeed: 0.2
-  MultySize: 1.9
+  MultySpeed: 0.7
+  MultySize: 1.7
   MultyATK: 1.5
