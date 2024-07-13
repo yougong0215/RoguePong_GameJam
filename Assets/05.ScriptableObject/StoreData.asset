@@ -145,7 +145,7 @@ MonoBehaviour:
     ballSkillEnum: 4
     minPrice: 300
     maxPrice: 1000
-  - ability: {fileID: 11400000, guid: 4feb5d2b4964e9d449d98a076c5bb5ad, type: 2}
+  - ability: {fileID: 11400000, guid: 4f8011b29843c334299855929184bf88, type: 2}
     ballSkillEnum: 4
     minPrice: 300
     maxPrice: 1000

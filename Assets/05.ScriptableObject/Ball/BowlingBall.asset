@@ -9,18 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: a7400b279896d9b44bf254014495bc12, type: 3}
   m_Name: BowlingBall
-  m_EditorClassIdentifier: Assembly-CSharp::BallAsset
+  m_EditorClassIdentifier: 
   ItemName: "\uBCFC\uB9C1\uACF5"
-  Description: "\uB290\uB9AC\uACE0 \uAC15\uB825\uD55C \uACF5\uC785\uB2C8\uB2E4.\n\uACF5
-    \uC774\uB3D9\uC18D\uB3C4 \uB300\uD3ED \uAC10\uC18C\n\uACF5 \uD53C\uD574\uB7C9
-    \uB300\uD3ED \uC99D\uAC00"
+  Description: "\uACF5 \uC774\uB3D9\uC18D\uB3C4 \uB300\uD3ED \uAC10\uC18C\n\uACF5
+    \uD53C\uD574\uB7C9 \uB300\uD3ED \uC99D\uAC00"
   IconImg: {fileID: 0}
   OutlineColor: {r: 1, g: 1, b: 1, a: 1}
-  BallType: 0
+  BallType: 3
   BallMesh: {fileID: 3185843347157893302, guid: 2bc35fae2b73e0548af17279fdf44911,
     type: 3}
-  MultySpeed: 0.4
-  MultySize: 1.5
-  MultyATK: 2
+  MultySpeed: 0.3
+  MultySize: 1.15
+  MultyATK: 1.8
