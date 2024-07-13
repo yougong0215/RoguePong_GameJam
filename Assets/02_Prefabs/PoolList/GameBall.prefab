@@ -130,8 +130,9 @@ MonoBehaviour:
     _multyDurationTime: 1
     _multyHP: 1
     _multyReflect: 0
-  _isStart: 1
+  _isStart: 0
   _isReal: 0
+  _matGlow: {fileID: 2100000, guid: cfa3c87c6faf29148961e42ebc00d2c1, type: 2}
   _wallLayer:
     serializedVersion: 2
     m_Bits: 4096
@@ -146,3 +147,4 @@ MonoBehaviour:
   lavaFloorTrail: {fileID: 0}
   iceFloorTrail: {fileID: 0}
   ballData: {fileID: 11400000, guid: 2e4e03a6acd120442b454db9eb67c5ac, type: 2}
+  _ownerEnum: 2

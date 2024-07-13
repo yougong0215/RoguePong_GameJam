@@ -17,7 +17,8 @@ public class EnemyObject : ObjectSystem, HitModule
 
     public void HitBall(BallSystem ball)
     {
-        _currentHP -= ball.BallDamage();
+        if(ball.IsCanBind() && ball._ownerEnum != BallOwner.Enemy)
+            _currentHP -= ball.BallDamage();
     }
 
     public void HitEvent(Action<EnemyObject> act)
