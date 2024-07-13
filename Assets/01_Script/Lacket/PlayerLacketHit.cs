@@ -49,7 +49,16 @@ public class PlayerLacketHit : ObjectSystem, HitModule
         Debug.Log("패링!!");
         _currentParringCooldown = _parringTime;
         _isParring = true;
-        yield return new WaitForSeconds(t);
+
+        float ct = 0.0f;
+        while(ct <= t)
+        {   
+            ct += Time.deltaTime;
+            GameManager.Instance.HUDCanvas.UpdateParyingCoolUI(ct / t);
+            yield return null;
+        }
+        GameManager.Instance.HUDCanvas.UpdateParyingCoolUI(1.0f);
+
         Debug.Log("취소");
         _isParring = false;
         _parringCoroutine = null;
@@ -164,12 +173,13 @@ public class PlayerLacketHit : ObjectSystem, HitModule
             if (_hpCoroutine == null)
                 _hpCoroutine = StartCoroutine(LacketHPReturn());
         }
-
+        GameManager.Instance.HUDCanvas.UpdateShieldUI();
     }
 
     public void HitEvent(float dmg)
     {
         _lacketCurHP -= dmg;
+        GameManager.Instance.HUDCanvas.UpdateShieldUI();
     }
 
     public void RefreshStat(ObjectSystem obj, ObjectSystem _ballStat, List<SkillAbility> Hiting, List<SkillAbility> ball, List<SkillAbility> update, List<SkillAbility> parring)

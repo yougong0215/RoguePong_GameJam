@@ -15,7 +15,7 @@ public class WarpPortal : MonoBehaviour
     {
         colliderCast = GetComponent<BoxColliderCast>();
         GameManager.Instance.AssignPortal(gameObject);
-        Debug.LogError("µî·ÏµÊ");
+        Debug.LogError("ï¿½ï¿½Ïµï¿½");
     }
 
     // Update is called once per frame
@@ -37,9 +37,9 @@ public class WarpPortal : MonoBehaviour
             GameManager.Instance.isInSpeicalRoom = false;
             if (mapData.mapList.Count > GameManager.Instance.currentStage)
             {
-                GameManager.Instance.currentStage++;
-                print("Next Stage: " + GameManager.Instance.currentStage);
-                var map = Instantiate(mapData.mapList[GameManager.Instance.currentStage]);
+                GameManager.Instance.CurrentStage++;
+                print("Next Stage: " + GameManager.Instance.CurrentStage);
+                var map = Instantiate(mapData.mapList[GameManager.Instance.CurrentStage]);
                 map.name = "Map";
                 map.transform.position = Vector3.zero;
                 Destroy(GameObject.Find("Map"));
