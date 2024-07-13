@@ -267,11 +267,7 @@ public class BallSystem : ObjectSystem
         Debug.Log($"기다리기전 {b}");
         if (b == false)
         {
-            dir.y = 0;
-            Quaternion quat = Quaternion.Euler(0, UnityEngine.Random.Range(-GetReflectValue(), GetReflectValue()), 0);
-            dir = quat *dir;
-
-            this.dir = dir.normalized;
+            this.dir = dir;
             _curtime = 0;
 
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -15,12 +16,13 @@ public class PlayerLacketHit : ObjectSystem, HitModule
     [SerializeField] public List<SkillAbility> _lacketHitskillAbility = new List<SkillAbility>();
     [SerializeField] public List<SkillAbility> _ballHitSkillAbility = new List<SkillAbility>();
     [SerializeField] public List<SkillAbility> _ballUpdateSkillAbility = new List<SkillAbility>();
+    [SerializeField] public List<SkillAbility> _parringSkillAbility = new List<SkillAbility>();
 
 
     bool _isParring =false;
     float _currentParringCooldown = 0;
     float _parringTime = 3f;
-    float _parringContinusTime = 0.05f;
+    float _parringContinusTime = 0.2f;
 
     Coroutine _hpCoroutine;
     Coroutine _parringCoroutine;
@@ -64,26 +66,59 @@ public class PlayerLacketHit : ObjectSystem, HitModule
 
         if(_originHP > 0)
         {
-            if(ball.IsCanBind())
+
+            ball._abilityStat = _ballStat._abilityStat;
+
+            Vector3 dir = transform.forward;
+            Quaternion quat = Quaternion.Euler(0, UnityEngine.Random.Range(-ball.GetReflectValue(), ball.GetReflectValue()), 0);
+            dir.y = 0;
+            dir = quat * dir;
+
+            if (ball.IsCanBind())
             {
-                if(_isParring == false)
+                if (_isParring == false)
                 {
                     _lacketCurHP -= 1;
                     //Debug.Log(ball.BallDamage());
-
-
+                    CameraManager.Instance.Shake(12, 0.12f);
+                    ScreenEffectManager.Instance.SetChromaticAberration(1, 0.12f);
+                    //_currentParringCooldown = 0f;
                 }
                 else
                 {
-                    _currentParringCooldown = 0f; 
+                    //// 1. 내 위치 가져오기
+                    //Vector3 myPosition = transform.position;
+                    //
+                    //// 2. 모든 EnemyObject 가져오기
+                    //List<EnemyObject> enemies = FindObjectsByType<EnemyObject>(FindObjectsSortMode.None).OrderBy(enemy => Vector3.Distance(myPosition, enemy.transform.position)).ToList();
+                    //
+                    //dir = (enemies[0].transform.position - transform.position).normalized;
+                    //dir.y = 0;
+                    //Debug.Log(dir);
+                    //ball.Debuff(StatEnum.SPEED, MathType.Plus, -30, 0.9f);
+                    Action<BallSystem> parring = null;
+
+                    foreach (var item in _parringSkillAbility)
+                    {
+                        item.SettingAction(ref parring, _ballStat);
+                    }
+
+                    parring?.Invoke(ball);
+
+                    
+
+                    _currentParringCooldown = 0f;
+                    ScreenEffectManager.Instance.SetChromaticAberration(6, 0.12f);
+                    CameraManager.Instance.Shake(7, 0.12f);
                 }
             }
+            else
+                CameraManager.Instance.Shake(1, 0.09f);
 
-            Vector3 dir = transform.forward;
-            dir.y = 0;
+
+
 
             //ball._abilityStat = 
-            ball._abilityStat = _ballStat._abilityStat;
 
             Action<BallSystem> bss = null;
 
@@ -124,7 +159,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
 
     }
 
-    public void RefreshStat(ObjectSystem obj, ObjectSystem _ballStat, List<SkillAbility> Hiting, List<SkillAbility> ball, List<SkillAbility> update)
+    public void RefreshStat(ObjectSystem obj, ObjectSystem _ballStat, List<SkillAbility> Hiting, List<SkillAbility> ball, List<SkillAbility> update, List<SkillAbility> parring)
     {
         _abilityStat = obj._abilityStat;
 
@@ -135,6 +170,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
         _lacketHitskillAbility = Hiting;
         _ballHitSkillAbility = ball;
         _ballUpdateSkillAbility = update;
+        _parringSkillAbility = parring;
         // 값변환 얜 기본값 넣어줘야됨
         transform.localScale = new Vector3(GetSizeValue(),1f, 1);
         //GetComponent<BoxColliderCast>()._box.size = transform.localScale;
