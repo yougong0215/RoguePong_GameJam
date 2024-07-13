@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum StatEnum
@@ -32,6 +33,26 @@ public class StatSO
 [System.Serializable]
 public class StatSystem
 {
+
+    public static StatSystem operator *(StatSystem st, float t)
+    {
+        st._addATK *= t;
+        st._addSize *= t;
+        st._addSpeed *= t;
+        st._addDurationTime *= t;
+        st._addHP *= t;
+        st._addReflect *= t;
+
+        st._multyATK = 1f;
+        st._multySize *= t;
+        st._multySpeed *= t;
+        st._multyDurationTime *= t;
+        st._multyHP *= t;
+        st._multyReflect *= t;
+
+        return st;
+    }
+
 
     [Header("AddStat")]
     [SerializeField] public float _addATK = 0f;
