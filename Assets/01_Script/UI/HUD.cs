@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
-using Unity.VisualScripting;
 
 public class HUD : MonoBehaviour
 {
@@ -18,21 +17,28 @@ public class HUD : MonoBehaviour
     private TextMeshProUGUI currentStageTxt;
     private TextMeshProUGUI currentTimeTxt;
 
+    private Image DashCool;
+    private Image ParyingCool;
+
     void Start()
     {
-        hearts = transform.Find("Contents/Vertical Layout/HP").GetComponentsInChildren<Image>().ToList();
-        shileds = transform.Find("Contents/Vertical Layout/Shield").GetComponentsInChildren<Image>().ToList();
+        hearts = transform.Find("Under/Contents/Vertical Layout/HP").GetComponentsInChildren<Image>().ToList();
+        shileds = transform.Find("Under/Contents/Vertical Layout/Shield").GetComponentsInChildren<Image>().ToList();
 
-        goldTxt = transform.Find("Contents/Gold").GetComponentInChildren<TextMeshProUGUI>();
-        shieldTxt = transform.Find("Contents/Shield").GetComponentInChildren<TextMeshProUGUI>();
-        swordTxt = transform.Find("Contents/Sword").GetComponentInChildren<TextMeshProUGUI>();
-        lastTxt = transform.Find("Contents/Last").GetComponentInChildren<TextMeshProUGUI>();
-        currentStageTxt = transform.Find("Contents/CurrentStage").GetComponentInChildren<TextMeshProUGUI>();
-        currentTimeTxt = transform.Find("Contents/CurrentTime").GetComponentInChildren<TextMeshProUGUI>();
+        goldTxt = transform.Find("Under/Contents/Gold").GetComponentInChildren<TextMeshProUGUI>();
+        shieldTxt = transform.Find("Under/Contents/Shield").GetComponentInChildren<TextMeshProUGUI>();
+        swordTxt = transform.Find("Under/Contents/Sword").GetComponentInChildren<TextMeshProUGUI>();
+        lastTxt = transform.Find("Under/Contents/Last").GetComponentInChildren<TextMeshProUGUI>();
+        currentStageTxt = transform.Find("Under/Contents/CurrentStage").GetComponentInChildren<TextMeshProUGUI>();
+        currentTimeTxt = transform.Find("Under/Contents/CurrentTime").GetComponentInChildren<TextMeshProUGUI>();
+
+        DashCool = transform.Find("Right/DashCool/Loading").GetComponent<Image>();
+        ParyingCool = transform.Find("Right/ParyingCool/Loading").GetComponent<Image>();
 
         UpdateHeartUI();
         UpdateShieldUI();
         UpdateGoldText(0);
+        UpdateShieldText("Normal");
     }
 
 
@@ -85,10 +91,10 @@ public class HUD : MonoBehaviour
 
     public void UpdateGoldText(int newValue)
     {
-        goldTxt.text = ": " + newValue.ToString();
+        goldTxt.text = $": {newValue}";
     }
 
-    public void UpdateShiledText(string newValue)
+    public void UpdateShieldText(string newValue)
     {
         shieldTxt.text = newValue;
     }
@@ -100,16 +106,26 @@ public class HUD : MonoBehaviour
 
     public void UpdateLastEnemyText(int newValue)
     {
-        lastTxt.text = ": " + newValue.ToString();
+        lastTxt.text = $": {newValue}";
     }
 
-    public void UpdateCurrentStageText(int newValue)
+    public void UpdateCurrentStageText(int stage, int floor = 0)
     {
-        currentStageTxt.text = ": " + newValue.ToString();
+        currentStageTxt.text = $": {stage}";
     }
 
-    public void UpdateCurrentTimeText(int newValue)
+    public void UpdateCurrentTimeText(float newValue)
     {
-        currentTimeTxt.text = ": " + string.Format("{0:D2}:{1:D2}", newValue/60, newValue%60); ;
+        currentTimeTxt.text = ": " + string.Format("{0:D2}:{1:D2}", (int)newValue/60, (int)newValue%60); ;
+    }
+
+    public void UpdateDashCoolUI(float newValue)
+    {
+        DashCool.fillAmount = newValue;
+    }
+
+    public void UpdateParyingCoolUI(float newValue)
+    {
+        ParyingCool.fillAmount = newValue;
     }
 }

@@ -115,6 +115,9 @@ public class BallSystem : ObjectSystem
             ballMesh = null;
         }
         ballMesh = Instantiate(asset.BallMesh, transform.position, Quaternion.identity, transform);
+
+        GameManager.Instance.HUDCanvas.UpdateSwordText(b.ToString());
+
         /*
         switch (_ballEnum)
         {

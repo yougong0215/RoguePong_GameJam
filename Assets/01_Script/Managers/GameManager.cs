@@ -7,10 +7,22 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     private PlayerSystem _player;
-    public int currentStage = 1;
+    private int _currentStage = 1;
+    public int CurrentStage
+    {
+        get => _currentStage;
+        set
+        {
+            _currentStage = value;
+            HUDCanvas.UpdateCurrentStageText(_currentStage + 1);
+        }
+    }
+
     public int currentFloor;
     public bool isCleared;
     public MapData mapData;
+
+    private float currentTime = 0.0f;
 
     private int _gold = 0;
     public int Gold
@@ -38,8 +50,28 @@ public class GameManager : Singleton<GameManager>
     }
     private NavMeshSurface navMeshSurface;
 
-    private int AllCnt;
-    private int CurCnt;
+    private int allCnt;
+    public int AllCnt
+    {
+        get=> allCnt;
+        set
+        {
+            allCnt = value;
+            HUDCanvas.UpdateLastEnemyText(AllCnt - curCnt);
+        }
+    }
+    private int curCnt;
+
+    public int CurCnt
+    {
+        get => curCnt;
+        set
+        {
+            curCnt = value;
+            HUDCanvas.UpdateLastEnemyText(AllCnt - curCnt);
+        }
+    }
+
 
     private GameObject warpPortal;
 
@@ -87,8 +119,8 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        currentStage = 0;
-        var map = Instantiate(mapData.mapList[currentStage]);
+        CurrentStage = 0;
+        var map = Instantiate(mapData.mapList[CurrentStage]);
         map.name = "Map";
         var spw = GameObject.Find("SpawnPoint");
         StartCoroutine(Player.FrameCharacterConoff());
@@ -96,5 +128,11 @@ public class GameManager : Singleton<GameManager>
         navMeshSurface = GetComponent<NavMeshSurface>();
 
         navMeshSurface.BuildNavMesh();
+    }
+
+    private void Update()
+    {
+        currentTime += Time.deltaTime;
+        HUDCanvas.UpdateCurrentTimeText(currentTime);
     }
 }

@@ -49,7 +49,16 @@ public class PlayerLacketHit : ObjectSystem, HitModule
         Debug.Log("패링!!");
         _currentParringCooldown = _parringTime;
         _isParring = true;
-        yield return new WaitForSeconds(t);
+
+        float ct = 0.0f;
+        while(ct <= t)
+        {   
+            ct += Time.deltaTime;
+            GameManager.Instance.HUDCanvas.UpdateParyingCoolUI(ct / t);
+            yield return null;
+        }
+        GameManager.Instance.HUDCanvas.UpdateParyingCoolUI(1.0f);
+
         Debug.Log("취소");
         _isParring = false;
         _parringCoroutine = null;
