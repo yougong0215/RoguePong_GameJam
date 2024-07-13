@@ -30,7 +30,7 @@ public class GameManager : Singleton<GameManager>
     private int AllCnt;
     private int CurCnt;
 
-    private List<GameObject> warpPortalList = new List<GameObject>();
+    private GameObject warpPortal;
 
     public PlayerSystem Player
     {
@@ -49,13 +49,13 @@ public class GameManager : Singleton<GameManager>
     {
         AllCnt = 0;
         CurCnt = 0;
-        warpPortalList.Clear();
+        warpPortal = null;
         navMeshSurface.BuildNavMesh();
     }
 
     public void AssignPortal(GameObject o)
     {
-        warpPortalList.Add(o);
+        warpPortal = o;
         o.SetActive(false);
     }
 
@@ -70,11 +70,7 @@ public class GameManager : Singleton<GameManager>
         if(CurCnt >= AllCnt)
         {
             isCleared = true;
-            print("COMPLETE");
-            foreach(var w in warpPortalList)
-            {
-                w.SetActive(true);
-            }
+            warpPortal.SetActive(true);
         }
     }
 
@@ -87,5 +83,7 @@ public class GameManager : Singleton<GameManager>
         StartCoroutine(Player.FrameCharacterConoff());
         Player.gameObject.transform.position = spw.transform.position;
         navMeshSurface = GetComponent<NavMeshSurface>();
+
+        navMeshSurface.BuildNavMesh();
     }
 }
