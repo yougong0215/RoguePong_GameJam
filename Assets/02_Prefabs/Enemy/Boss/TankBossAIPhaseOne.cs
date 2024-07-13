@@ -20,7 +20,7 @@ public class TankBossAIPhaseOne : AISetter
     {
         Sequence Lazer = new();
         AttackNode Lazeratk = new AttackNode(transform, SummonLazer);
-        WaitNode LazerWait = new WaitNode(5f, () => { Lazeratk.StartInvoke(); StopExamine(); });
+        WaitNode LazerWait = new WaitNode(8f, () => { Lazeratk.StartInvoke(); StopExamine(); });
 
         Lazer.AddNode(LazerWait);
         Lazer.AddNode(Lazeratk);
@@ -29,7 +29,7 @@ public class TankBossAIPhaseOne : AISetter
 
         Sequence SummonPatton = new();
         AttackNode _summonEnemy = new AttackNode(transform, SummonEnemy);
-        WaitNode SommonWait = new WaitNode(3f, () => { _summonEnemy.StartInvoke(); });
+        WaitNode SommonWait = new WaitNode(30f, () => { _summonEnemy.StartInvoke(); });
 
         SummonPatton.AddNode(SommonWait);
         SummonPatton.AddNode(_summonEnemy);

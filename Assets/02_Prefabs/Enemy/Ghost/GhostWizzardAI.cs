@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GhostWizzardAI : AISetter
 {
+
+    public float _shootSpeed = 10f;
     protected override void AISetting()
     {
 
@@ -47,7 +49,7 @@ public class GhostWizzardAI : AISetter
                 Vector3 forward = transform.forward;
                // Quaternion rotation = Quaternion.Euler(0, to[j], 0);
                // Vector3 dir = rotation * forward;
-                bs.Shoot(forward, self);
+                bs.Shoot(forward, self, _shootSpeed);
 
             
 
