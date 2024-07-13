@@ -441,7 +441,7 @@ public class BallSystem : ObjectSystem
 
         if (null != col.gameObject.GetComponent<HitModule>())
         {
-            col.gameObject.GetComponent<HitModule>().HitBall(this);
+            col?.gameObject?.GetComponent<HitModule>()?.HitBall(this);
         }
 
         //else if(col.gameObject.layer == LayerMask.NameToLayer("Lacket"))

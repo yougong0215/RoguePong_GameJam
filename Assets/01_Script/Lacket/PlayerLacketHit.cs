@@ -145,6 +145,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
 
             foreach(var item in _lacketHitskillAbility)
             {
+                if(item != null)
                 item.SettingAction(ref bss, _ballStat);
             }
 
@@ -154,14 +155,16 @@ public class PlayerLacketHit : ObjectSystem, HitModule
 
             foreach (var item in _ballHitSkillAbility)
             {
-                item.SettingAction(ref bss1, _ballStat);
+                if (item != null)
+                    item.SettingAction(ref bss1, _ballStat);
             }
 
             Action<BallSystem> updateBall = null;
 
             foreach (var item in _ballUpdateSkillAbility)
             {
-                item.SettingAction(ref updateBall, _ballStat);
+                if (item != null)
+                    item.SettingAction(ref updateBall, _ballStat);
             }
 
             StartCoroutine(WaiterHit());
