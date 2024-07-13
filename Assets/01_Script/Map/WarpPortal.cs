@@ -12,8 +12,8 @@ public class WarpPortal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //gameObject.gameObject.SetActive(false);
         colliderCast = GetComponent<BoxColliderCast>();
+        GameManager.Instance.AssignPortal(gameObject);
     }
 
     // Update is called once per frame
