@@ -142,9 +142,13 @@ MonoBehaviour:
   _curSpeed: 1
   _curtime: 1
   _ballEnum: 0
-  explodeEffect: {fileID: 0}
-  methoEffect: {fileID: 0}
-  lavaFloorTrail: {fileID: 0}
-  iceFloorTrail: {fileID: 0}
+  explodeEffect: {fileID: 6656154812330177880, guid: f7da4487cf5c4e6449cef35ffbec039b,
+    type: 3}
+  methoEffect: {fileID: 1134178529048783953, guid: 927c3c911bdfeb94895347ce393f193f,
+    type: 3}
+  lavaFloorTrail: {fileID: 6524905434355175441, guid: 188271900309eaf41bfeabe0912c5526,
+    type: 3}
+  iceFloorTrail: {fileID: 6524905434355175441, guid: 75a21c15e3a4b1d48b10d9ccf3001d1a,
+    type: 3}
   ballData: {fileID: 11400000, guid: 2e4e03a6acd120442b454db9eb67c5ac, type: 2}
   _ownerEnum: 2

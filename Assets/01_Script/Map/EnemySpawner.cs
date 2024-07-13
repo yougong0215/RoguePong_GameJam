@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    public int SpawnCount;
-    [SerializeField]
-    public string Spawns;
-    [SerializeField]
+    public string[] Spawns;
     public float SpawnTerm;
     // Start is called before the first frame update
     void Start()
@@ -18,9 +14,9 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator doWork()
     {
-        for (int i = 0; i > SpawnCount; ++i)
+        for (int i = 0; i > Spawns.Length; ++i)
         {
-            //Spawns Enemy??
+
             yield return new WaitForSeconds(SpawnTerm);
         }
         Destroy(gameObject);
