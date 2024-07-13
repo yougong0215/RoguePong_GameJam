@@ -90,12 +90,31 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public void Chk()
+    {
+        var spw = GameObject.Find("SpawnPoint");
+        StartCoroutine(GameManager.Instance.Player.FrameCharacterConoff());
+        GameManager.Instance.Player.gameObject.transform.position = spw.transform.position;
+        print("move " + GameManager.Instance.Player.gameObject.transform.position);
+        BallSystem bs = PoolManager.Instance.Pop("GameBall") as BallSystem;
+        bs.transform.position = spw.transform.position + new Vector3(0, 0, 5f);
+        bs.Input(bs.transform.forward, BallOwner.Natural);
+    }
+
     public void ResetCnt()
     {
         AllCnt = 0;
         CurCnt = 0;
         warpPortal = null;
         specialWarpPortal = null;
+
+        StartCoroutine(BakeNavMesh());
+    }
+
+    IEnumerator BakeNavMesh()
+    {
+        yield return null;
+        yield return null;
         navMeshSurface.BuildNavMesh();
     }
 

@@ -39,13 +39,10 @@ public class WarpPortal : MonoBehaviour
             {
                 GameManager.Instance.CurrentStage++;
                 print("Next Stage: " + GameManager.Instance.CurrentStage);
+                Destroy(GameObject.Find("Map"));
                 var map = Instantiate(mapData.mapList[GameManager.Instance.CurrentStage]);
                 map.name = "Map";
                 map.transform.position = Vector3.zero;
-                Destroy(GameObject.Find("Map"));
-                var spw = GameObject.Find("SpawnPoint");
-                StartCoroutine(GameManager.Instance.Player.FrameCharacterConoff());
-                GameManager.Instance.Player.gameObject.transform.position = spw.transform.position;
                 GameManager.Instance.isCleared = false;
                 GameManager.Instance.ResetCnt();
 
@@ -54,9 +51,8 @@ public class WarpPortal : MonoBehaviour
                 {
                     item.DieObj();
                 }
-                BallSystem bs = PoolManager.Instance.Pop("GameBall") as BallSystem;
-                bs.transform.position = spw.transform.position + new Vector3(0, 0, 5f);
-                bs.Input(bs.transform.forward, BallOwner.Natural);
+
+                GameManager.Instance.Chk();
 
                 gameObject.gameObject.SetActive(false);
             }

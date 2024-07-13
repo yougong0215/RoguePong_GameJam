@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8559488812988553190}
   - component: {fileID: 240513117742908671}
   - component: {fileID: 690879520578506552}
-  m_Layer: 12
+  m_Layer: 18
   m_Name: Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3007179561468800177}
   - component: {fileID: 1612098355580490302}
-  m_Layer: 12
+  m_Layer: 18
   m_Name: Spinner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
