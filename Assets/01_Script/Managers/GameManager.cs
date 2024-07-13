@@ -49,6 +49,7 @@ public class GameManager : Singleton<GameManager>
     {
         AllCnt = 0;
         CurCnt = 0;
+        warpPortalList.Clear();
         navMeshSurface.BuildNavMesh();
     }
 

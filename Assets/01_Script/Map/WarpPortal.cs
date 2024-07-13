@@ -15,6 +15,7 @@ public class WarpPortal : MonoBehaviour
     {
         colliderCast = GetComponent<BoxColliderCast>();
         GameManager.Instance.AssignPortal(gameObject);
+        Debug.LogError("µî·ÏµÊ");
     }
 
     // Update is called once per frame
@@ -46,6 +47,11 @@ public class WarpPortal : MonoBehaviour
                 GameManager.Instance.isCleared = false;
                 GameManager.Instance.ResetCnt();
 
+
+                foreach (var item in GameObject.FindObjectsOfType<BallSystem>())
+                {
+                    item.DieObj();
+                }
                 BallSystem bs = PoolManager.Instance.Pop("GameBall") as BallSystem;
                 bs.transform.position = spw.transform.position + new Vector3(0, 0, 5f);
                 bs.Input(bs.transform.forward, BallOwner.Natural);

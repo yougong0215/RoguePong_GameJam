@@ -462,6 +462,9 @@ public class BallSystem : ObjectSystem
     }
 
 
-
+    public void DieObj()
+    {
+        PoolManager.Instance.Push(this);
+    }
 
 }
