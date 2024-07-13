@@ -12,7 +12,7 @@ public class HUD : MonoBehaviour
     private List<Image> shileds = new List<Image>();
 
     private TextMeshProUGUI goldTxt;
-    private TextMeshProUGUI shiledTxt;
+    private TextMeshProUGUI shieldTxt;
     private TextMeshProUGUI swordTxt;
     private TextMeshProUGUI lastTxt;
     private TextMeshProUGUI currentStageTxt;
@@ -21,14 +21,14 @@ public class HUD : MonoBehaviour
     void Start()
     {
         hearts = transform.Find("Contents/Vertical Layout/HP").GetComponentsInChildren<Image>().ToList();
-        shileds = transform.Find("Contents/Vertical Layout/Shiled").GetComponentsInChildren<Image>().ToList();
+        shileds = transform.Find("Contents/Vertical Layout/Shield").GetComponentsInChildren<Image>().ToList();
 
-        goldTxt = transform.Find("Contents/Vertical Layout/Gold").GetComponentInChildren<TextMeshProUGUI>();
-        shiledTxt = transform.Find("Contents/Vertical Layout/Shiled").GetComponentInChildren<TextMeshProUGUI>();
-        swordTxt = transform.Find("Contents/Vertical Layout/Sword").GetComponentInChildren<TextMeshProUGUI>();
-        lastTxt = transform.Find("Contents/Vertical Layout/Last").GetComponentInChildren<TextMeshProUGUI>();
-        currentStageTxt = transform.Find("Contents/Vertical Layout/CurrentStage").GetComponentInChildren<TextMeshProUGUI>();
-        currentTimeTxt = transform.Find("Contents/Vertical Layout/CurrentTime").GetComponentInChildren<TextMeshProUGUI>();
+        goldTxt = transform.Find("Contents/Gold").GetComponentInChildren<TextMeshProUGUI>();
+        shieldTxt = transform.Find("Contents/Shield").GetComponentInChildren<TextMeshProUGUI>();
+        swordTxt = transform.Find("Contents/Sword").GetComponentInChildren<TextMeshProUGUI>();
+        lastTxt = transform.Find("Contents/Last").GetComponentInChildren<TextMeshProUGUI>();
+        currentStageTxt = transform.Find("Contents/CurrentStage").GetComponentInChildren<TextMeshProUGUI>();
+        currentTimeTxt = transform.Find("Contents/CurrentTime").GetComponentInChildren<TextMeshProUGUI>();
     }
 
     // Update is called once per frame

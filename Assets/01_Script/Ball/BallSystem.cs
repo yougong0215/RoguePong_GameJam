@@ -415,7 +415,8 @@ public class BallSystem : ObjectSystem
                     if (col.TryGetComponent<ObjectSystem>(out ObjectSystem os))
                     {
                         // 폭발 넣어라 알아서 / 냉
-                        var eff = Instantiate(explodeEffect);
+                        var eff = PoolManager.Instance.Pop("Explosion_1_FX");
+
                         eff.transform.position = gameObject.transform.position;
                         Destroy(eff, 2f);
                     }
@@ -426,7 +427,7 @@ public class BallSystem : ObjectSystem
                     if (col.TryGetComponent<ObjectSystem>(out ObjectSystem os))
                     {
                         // 메테오 넣어라 알아서 ?? 이펙트 구현을 유초루가 안함 / 넣었는데 쓰라고
-                        var eff = Instantiate(methoEffect);
+                        var eff = PoolManager.Instance.Pop("Explosion_3_FX");
                         eff.transform.position = gameObject.transform.position;
                         Destroy(eff, 2f);
                     }
