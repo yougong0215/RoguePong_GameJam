@@ -117,3 +117,7 @@ MonoBehaviour:
     ballSkillEnum: 5
     minPrice: 50
     maxPrice: 200
+  - ability: {fileID: 11400000, guid: 520eb4bacc6dcc846b58b1c2649f29a2, type: 2}
+    ballSkillEnum: 5
+    minPrice: 50
+    maxPrice: 200

@@ -589,6 +589,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f9416288777884f46a0344177a05b5fc, type: 2}
   _ballColisionSkill: []
   _ballUpdateSkill: []
+  _dachCooTime: 2
   _lastMaxHP: 10
   _currentHP: 10
   _isCanMove: 0
@@ -6500,17 +6501,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 748893939264562591, guid: ab74efca3891b544a8d5c7d369b946cc,
-        type: 3}
-      propertyPath: _PoolList.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 748893939264562591, guid: ab74efca3891b544a8d5c7d369b946cc,
-        type: 3}
-      propertyPath: _PoolList.Array.data[4]
-      value: 
-      objectReference: {fileID: 8716267814337469490, guid: 37ac2a2331499af41baa0e26e6ba295b,
-        type: 3}
     - target: {fileID: 2156647379817569439, guid: ab74efca3891b544a8d5c7d369b946cc,
         type: 3}
       propertyPath: m_LocalPosition.x
