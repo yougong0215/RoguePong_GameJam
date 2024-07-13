@@ -1,29 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpecialWarpPortal : WarpPortal
 {
-
+    protected override void Start()
+    {
+        colliderCast = GetComponent<BoxColliderCast>();
+        GameManager.Instance.AssignSpeicalPortal(gameObject);
+        Debug.LogError("Ω∫∆‰º» ∆˜≈ª µÓ∑œµ ");
+    }
     protected override void ChangeMap()
     {
-        print("ASDF");
         if (GameManager.Instance.isCleared)
         {
-            var stage = GameManager.Instance.currentStage;
-            if (mapData.SpecialMapList.Count > stage)
-            {
-                print("Next Stage: " + stage);
-                var map = Instantiate(mapData.SpecialMapList[stage - 1]);
-                map.name = "Map";
-                Destroy(GameObject.Find("Map"));
-                gameObject.gameObject.SetActive(false);
-                GameManager.Instance.isCleared = false;
-            }
-            else
-            {
-                print("Mapdata not exists (out of range)");
-            }
+            var map = Instantiate(mapData.SpecialMapList[Random.Range(0, mapData.SpecialMapList.Count)]);
+            print("Ω∫∆‰º» ∆˜≈ª ¿‘¿Â: " + map.name);
+            map.name = "Map";
+            Destroy(GameObject.Find("Map"));
+            var spw = GameObject.Find("SpawnPoint");
+            StartCoroutine(GameManager.Instance.Player.FrameCharacterConoff());
+            GameManager.Instance.Player.gameObject.transform.position = spw.transform.position;
+            GameManager.Instance.isCleared = false;
+            GameManager.Instance.ResetCnt();
+            GameManager.Instance.isInSpeicalRoom = true;
         }
     }
 

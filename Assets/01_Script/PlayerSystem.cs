@@ -175,6 +175,7 @@ public class PlayerSystem : ObjectSystem, HitModule
     {
         Vector3 vec = Vector3.zero;
         _curDashTime += Time.deltaTime;
+        GameManager.Instance.HUDCanvas.UpdateDashCoolUI(_curDashTime / _dachCooTime);
 
         if (Input.GetMouseButton(1) && Input.GetKeyDown(KeyCode.LeftShift) && _curDashTime > _dachCooTime)
         {
