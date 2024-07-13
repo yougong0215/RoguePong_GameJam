@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] AudioClip _audio;
     private void OnEnable()
     {
-        SoundManager.Instance.PlayGlobal(_audio.ToString(), true, EAudioType.BGM);
+        SoundManager.Instance.PlayGlobal(_audio, true, EAudioType.BGM);
     }
 
 
