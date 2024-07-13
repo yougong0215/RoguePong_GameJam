@@ -1173,7 +1173,15 @@ MonoBehaviour:
   _curSize: 1
   _curSpeed: 1
   _curtime: 1
-  _ballEnum: 0
+  _ballEnum: 6
+  explodeEffect: {fileID: 6656154812330177880, guid: f7da4487cf5c4e6449cef35ffbec039b,
+    type: 3}
+  methoEffect: {fileID: 6656154812330177880, guid: f7da4487cf5c4e6449cef35ffbec039b,
+    type: 3}
+  lavaFloorTrail: {fileID: 6524905434355175441, guid: 188271900309eaf41bfeabe0912c5526,
+    type: 3}
+  iceFloorTrail: {fileID: 6524905434355175441, guid: 75a21c15e3a4b1d48b10d9ccf3001d1a,
+    type: 3}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
