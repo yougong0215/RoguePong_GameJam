@@ -343,8 +343,9 @@ public class BallSystem : ObjectSystem
     public float BallDamage()
     {
 
-        CameraManager.Instance.Shake(_curATK * _curSpeed/10, 0.2f);
-
+        //CameraManager.Instance.Shake(_curATK * _curSpeed/10, 0.2f);
+        DamageText tm = PoolManager.Instance.Pop("DamageText") as DamageText;
+        tm.Show($"{(int)(_curATK * _curSpeed)}", transform.position + new Vector3(0, 0, 2), Color.white);
         return _curATK * _curSpeed;
     }
 

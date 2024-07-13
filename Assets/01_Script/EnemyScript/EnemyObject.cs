@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyObject : ObjectSystem, HitModule
 {
     [Header("Info")]
-    [SerializeField] float _currentHP;
+    [SerializeField] protected float _currentHP;
 
     public float GetCurrentHP => _currentHP;
 
@@ -15,7 +15,7 @@ public class EnemyObject : ObjectSystem, HitModule
         _currentHP = GetHPValue();
     }
 
-    public void HitBall(BallSystem ball)
+    public virtual void HitBall(BallSystem ball)
     {
         if(ball.IsCanBind() && ball._ownerEnum != BallOwner.Enemy)
             _currentHP -= ball.BallDamage();

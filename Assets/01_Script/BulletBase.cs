@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class BulletBase : ObjectSystem, HitModule
     Vector3 _dir;
 
     float _myHP;
+    Action _dieEvent;
 
     public override void ResetPool()
     {
@@ -20,17 +22,20 @@ public class BulletBase : ObjectSystem, HitModule
     public void HitBall(BallSystem ball)
     {
         _myHP -= ball.BallDamage();
-
-        if(_myHP <=0 && isDestroy)
+        Debug.Log($"Ball HP {_myHP}");
+        if(_myHP <=0 || isDestroy)
         {
+            _dieEvent?.Invoke();
             PoolManager.Instance.Push(this);
         }
     }
 
-    public void Shoot(Vector3 dir, ObjectSystem obj)
+    public void Shoot(Vector3 dir, ObjectSystem obj, float Speed =1, float HP = 10, Action t = null,Action DieEvent = null)
     {
-        _dir = dir;
-        obj._abilityStat = _abilityStat;
+        _dir = dir * Speed;
+        _dieEvent = DieEvent;
+        _myHP = HP;
+
         if(TryGetComponent<ColliderCast>(out ColliderCast cols))
         {
             cols.Now(transform, (module) => 
@@ -39,6 +44,8 @@ public class BulletBase : ObjectSystem, HitModule
                 {
                     ps.HitEvent(GetATKValue());
                 }
+
+                t?.Invoke();
             });
         }
     }
