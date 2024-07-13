@@ -34,8 +34,8 @@ public class PlayerSystem : ObjectSystem, HitModule
     [SerializeField] List<SkillAbility> _ballColisionSkill = new();
     [SerializeField] List<SkillAbility> _ballUpdateSkill = new();
 
-    [SerializeField] float _lastMaxHP = 10;
-    [SerializeField] float _currentHP =10;
+    [SerializeField] public float _lastMaxHP = 10;
+    [SerializeField] public float _currentHP =10;
 
 
     CharacterController _char;

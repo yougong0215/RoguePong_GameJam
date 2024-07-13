@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 72ad574582cc4444c9b957e3ed226e99
+guid: 1b7bce0241e03d246b8582baa6f2ded8
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Helmet
-    second: {fileID: 2100000, guid: ec43f5a50b1b74c4d8dff940ad167d2e, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
