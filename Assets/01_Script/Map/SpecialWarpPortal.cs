@@ -10,7 +10,7 @@ public class SpecialWarpPortal : WarpPortal
         print("ASDF");
         if (GameManager.Instance.isCleared)
         {
-            var stage = GameManager.Instance.currentStage;
+            var stage = GameManager.Instance.CurrentStage;
             if (mapData.SpecialMapList.Count > stage)
             {
                 print("Next Stage: " + stage);

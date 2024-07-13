@@ -34,11 +34,11 @@ public class WarpPortal : MonoBehaviour
     {
         if(GameManager.Instance.isCleared)
         {
-            if (mapData.mapList.Count > GameManager.Instance.currentStage)
+            if (mapData.mapList.Count > GameManager.Instance.CurrentStage)
             {
-                GameManager.Instance.currentStage++;
-                print("Next Stage: " + GameManager.Instance.currentStage);
-                var map = Instantiate(mapData.mapList[GameManager.Instance.currentStage]);
+                GameManager.Instance.CurrentStage++;
+                print("Next Stage: " + GameManager.Instance.CurrentStage);
+                var map = Instantiate(mapData.mapList[GameManager.Instance.CurrentStage]);
                 map.name = "Map";
                 Destroy(GameObject.Find("Map"));
                 var spw = GameObject.Find("SpawnPoint");
