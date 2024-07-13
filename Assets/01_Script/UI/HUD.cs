@@ -29,6 +29,8 @@ public class HUD : MonoBehaviour
         lastTxt = transform.Find("Contents/Last").GetComponentInChildren<TextMeshProUGUI>();
         currentStageTxt = transform.Find("Contents/CurrentStage").GetComponentInChildren<TextMeshProUGUI>();
         currentTimeTxt = transform.Find("Contents/CurrentTime").GetComponentInChildren<TextMeshProUGUI>();
+
+        UpdateHeartUI();
     }
 
     // Update is called once per frame
@@ -39,35 +41,24 @@ public class HUD : MonoBehaviour
 
     public void UpdateHeartUI()
     {
-        int currentHP = (int)GameManager.Instance.Player._currentHP;
-        int maxHP = (int)GameManager.Instance.Player.GetHPValue();
-
-        for (int i = 0; i < hearts.Count; i++)
+        float currentHP = GameManager.Instance.Player._currentHP;
+        float maxHP = GameManager.Instance.Player.GetHPValue();
+        int i = 0;
+        
+        for (i = 0; i < hearts.Count; i++)
         {
-            if (i >= maxHP)
-            {
-                hearts[i].color = new Color(1, 1, 1, 0);
-                hearts[i].fillAmount = 0f;
-            }
-            else
-            {
-                hearts[i].color = Color.white;
-
-                if (i < currentHP / 2)
-                {
-                    hearts[i].fillAmount = 1f;
-                }
-                else if (i == currentHP / 2)
-                {
-                    hearts[i].fillAmount = (currentHP % 2 == 0) ? 1f : 0.5f;
-                }
-                else
-                {
-                    hearts[i].fillAmount = 0f;
-                }
-            }
-
-            Debug.Log($"Heart {i}: color = {hearts[i].color}, fillAmount = {hearts[i].fillAmount}");
+            hearts[i].fillAmount = 0.0f;
         }
+
+        for(i = 0; i< currentHP/2 - 1; i++)
+        {
+            hearts[i].fillAmount = 1.0f;
+        }
+
+        if (currentHP % 2 == 1)
+        {
+            hearts[i].fillAmount = 0.5f;
+        }
+        else hearts[i].fillAmount = 1.0f;
     }
 }

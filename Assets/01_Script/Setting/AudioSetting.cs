@@ -24,7 +24,6 @@ public struct AudioSet
 public class AudioSetting : MonoBehaviour
 {
     private AudioSet set;
-    private AudioSet previousSet;
 
     private const float minVolume = -40.0f;
     private const float maxVolume = 0.0f;
@@ -48,11 +47,6 @@ public class AudioSetting : MonoBehaviour
         bgmSlider.onValueChanged.AddListener(x=>BGMVolume = x);
     }
 
-    private void OnEnable()
-    {
-        previousSet = set;
-    }
-
     public void ApplyMixer(string parameterName, float value)
     {
         float inputValue = Mathf.Clamp(value, minVolume, maxVolume);
@@ -62,8 +56,14 @@ public class AudioSetting : MonoBehaviour
 
     public void Save()
     {
-        JsonManager<AudioSet>.SaveJson(set, fileName);
-        previousSet = set;
+        if(JsonManager<AudioSet>.SaveJson(set, fileName))
+        {
+            Debug.Log("Audio Setting Save Successed");
+        }
+        else
+        {
+            Debug.LogError("Audio Setting Save Failed");
+        }
 
         //notSaved = false;
     }
@@ -75,7 +75,9 @@ public class AudioSetting : MonoBehaviour
             MasterVolume = set.MasterVolume;
             SFXVolume = set.SFXVolume;
             BGMVolume = set.BGMVolume;
+            Debug.Log("Audio Setting Load Successed");
         }
+        else Debug.LogError("Audio Setting Load Failed");
     }
 
     public float MasterVolume
