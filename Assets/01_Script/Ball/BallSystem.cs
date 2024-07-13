@@ -368,14 +368,10 @@ public class BallSystem : ObjectSystem
         }
     }
 
-    public AudioClip _clip;
-
     public void NormalRule(Collider col)
     {
         if(col.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
-
-            SoundManager.Instance.PlayGlobal(_clip);
             Vector3 closestPoint = col.ClosestPoint(transform.position);
             Vector3 positionDifference = (closestPoint - transform.position);
 
