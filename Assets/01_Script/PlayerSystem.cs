@@ -167,7 +167,7 @@ public class PlayerSystem : ObjectSystem, HitModule
     {
 
         yield return new WaitUntil(() => forceDir.sqrMagnitude < 0.15f);
-        GameObject.FindObjectOfType<BallSystem>().ResetCollision();
+        GameObject.FindObjectOfType<BallSystem>()?.ResetCollision();
     }
 
 
@@ -179,23 +179,23 @@ public class PlayerSystem : ObjectSystem, HitModule
         if (Input.GetMouseButton(1) && Input.GetKeyDown(KeyCode.LeftShift) && _curDashTime > _dachCooTime)
         {
             _curDashTime = 0;
-            Vector3 mousePosition = Input.mousePosition;
-
-            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-
-            Plane plane = new Plane(Vector3.up, Vector3.zero);
-            if (plane.Raycast(ray, out float enter))
+            //Vector3 mousePosition = Input.mousePosition;
+            //
+            //Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+            //
+            //Plane plane = new Plane(Vector3.up, Vector3.zero);
+            //if (plane.Raycast(ray, out float enter))
             {
-                hitPoint = ray.GetPoint(enter);
-                hitPoint.y = 0;
-                Vector3 tls = transform.position;
-                tls.y = 0;
-                //transform.LookAt(hitPoint);
-                hitPoint = (hitPoint - tls ).normalized;
-
-                forceDir = hitPoint * 128;
-                Debug.Log($"Force {forceDir}");
-                StartCoroutine(WaiterHit());
+                //hitPoint = ray.GetPoint(enter);
+                //hitPoint.y = 0;
+                //Vector3 tls = transform.position;
+                //tls.y = 0;
+                ////transform.LookAt(hitPoint);
+                //hitPoint = (hitPoint - tls ).normalized;
+                //
+                //forceDir = hitPoint * 128;
+                //Debug.Log($"Force {forceDir}");
+                //StartCoroutine(WaiterHit());
                 if (isSuperArmor != null)
                     isSuperArmor = null;
                 isSuperArmor = StartCoroutine(SuperMod(0.3f));
