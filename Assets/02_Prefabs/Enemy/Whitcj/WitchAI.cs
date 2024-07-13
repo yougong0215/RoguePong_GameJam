@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class WitchAI : AISetter
 {
+
+
+    public float _shootSpeed = 10f;
     protected override void AISetting()
     {
 
@@ -48,7 +51,7 @@ public class WitchAI : AISetter
                 Vector3 forward = transform.forward;
                 Quaternion rotation = Quaternion.Euler(0, to[j], 0);
                 Vector3 dir = rotation * forward;
-                bs.Shoot(dir, self);
+                bs.Shoot(dir, self, _shootSpeed);
 
                 yield return null;
 

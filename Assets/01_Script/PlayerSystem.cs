@@ -32,6 +32,9 @@ public class PlayerSystem : ObjectSystem, HitModule
     [SerializeField] List<SkillAbility> _ballColisionSkill = new();
     [SerializeField] List<SkillAbility> _ballUpdateSkill = new();
 
+
+    [SerializeField] public float _dachCooTime = 2f;
+    float _curDashTime = 0;
     [SerializeField] public float _lastMaxHP = 10;
     [SerializeField] public float _currentHP =10;
 
@@ -171,10 +174,11 @@ public class PlayerSystem : ObjectSystem, HitModule
     void Movement()
     {
         Vector3 vec = Vector3.zero;
+        _curDashTime += Time.deltaTime;
 
-
-        if (Input.GetMouseButton(1) && Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetMouseButton(1) && Input.GetKeyDown(KeyCode.LeftShift) && _curDashTime > _dachCooTime)
         {
+            _curDashTime = 0;
             Vector3 mousePosition = Input.mousePosition;
 
             Ray ray = Camera.main.ScreenPointToRay(mousePosition);
@@ -192,7 +196,9 @@ public class PlayerSystem : ObjectSystem, HitModule
                 forceDir = hitPoint * 128;
                 Debug.Log($"Force {forceDir}");
                 StartCoroutine(WaiterHit());
-
+                if (isSuperArmor != null)
+                    isSuperArmor = null;
+                isSuperArmor = StartCoroutine(SuperMod(0.3f));
             }
 
 
@@ -253,7 +259,7 @@ public class PlayerSystem : ObjectSystem, HitModule
         _char.enabled = true;
 
     }
-    IEnumerator SuperMod()
+    IEnumerator SuperMod(float t = 0.7f)
     {
         yield return new WaitForSeconds(0.7f);
         isSuperArmor = null;
