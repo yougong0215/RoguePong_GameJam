@@ -13,8 +13,19 @@ public class TankBossAIPhaseOne : AISetter
     public Transform _sommonPos3;
     public string _sommonName3;
 
+    public Transform _start;
+
+    public Transform _end;
     protected override void AISetting()
     {
+        Sequence Lazer = new();
+        AttackNode Lazeratk = new AttackNode(transform, SummonLazer);
+        WaitNode LazerWait = new WaitNode(5f, () => { Lazeratk.StartInvoke(); StopExamine(); });
+
+        Lazer.AddNode(LazerWait);
+        Lazer.AddNode(Lazeratk);
+
+
 
         Sequence SummonPatton = new();
         AttackNode _summonEnemy = new AttackNode(transform, SummonEnemy);
@@ -38,10 +49,40 @@ public class TankBossAIPhaseOne : AISetter
         NormalAttackSeq.AddNode(ShootAwayWait);
         NormalAttackSeq.AddNode(ShootAway);
 
+        rootNode.AddNode(Lazer);
         rootNode.AddNode(SummonPatton);
         rootNode.AddNode(NormalAttackSeq);
 
         StartExamine();
+    }
+
+    IEnumerator SummonLazer()
+    {
+
+        ColliderObjPooler cos = PoolManager.Instance.Pop("Lazer") as ColliderObjPooler;
+        cos.CollCac.Now(transform, (pl) =>
+        {
+            if(pl.TryGetComponent<PlayerSystem>(out PlayerSystem ps))
+            {
+                ps.HitEvent(1);
+            }
+        });
+
+        cos.transform.position = _start.position;
+
+        float time = 0;
+        while(time/2 < 1f)
+        {
+            yield return null;
+            time += Time.deltaTime;
+            cos.transform.position = Vector3.Lerp(_start.position, _end.position, time/2);
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        StartExamine();
+
+
     }
 
     IEnumerator SummonEnemy()

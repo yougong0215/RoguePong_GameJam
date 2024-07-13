@@ -1084,6 +1084,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 127051771}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &139379984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 139379985}
+  m_Layer: 0
+  m_Name: Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &139379985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139379984}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.99994344, z: -0, w: -0.010638911}
+  m_LocalPosition: {x: 1.76, y: 1.64, z: -11.69}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 664244460}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &141258337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7310,6 +7341,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 981374452}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1017047458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1017047459}
+  m_Layer: 0
+  m_Name: End
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1017047459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017047458}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.99994344, z: -0, w: -0.010638911}
+  m_LocalPosition: {x: 3.5106628, y: 1.64, z: 70.438965}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 664244460}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1023448881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9312,6 +9374,8 @@ MonoBehaviour:
   _sommonName2: SkeletonShilder
   _sommonPos3: {fileID: 1658029500}
   _sommonName3: GhostSword
+  _start: {fileID: 139379985}
+  _end: {fileID: 1017047459}
 --- !u!1001 &1226389527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9645,6 +9709,8 @@ MonoBehaviour:
   _sommonName2: SkeletonArcher
   _sommonPos3: {fileID: 587734775}
   _sommonName3: witch
+  _start: {fileID: 1017047459}
+  _end: {fileID: 139379985}
 --- !u!1001 &1248331104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11679,6 +11745,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1163358444}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1b7bce0241e03d246b8582baa6f2ded8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1017047459}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1b7bce0241e03d246b8582baa6f2ded8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 139379985}
     - targetCorrespondingSourceObject: {fileID: 2551279391899227251, guid: 1b7bce0241e03d246b8582baa6f2ded8,
         type: 3}
       insertIndex: -1
