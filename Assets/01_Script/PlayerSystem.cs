@@ -89,17 +89,17 @@ public class PlayerSystem : ObjectSystem, HitModule
                     _ballHitSkill.Add(_ability as SkillAbility);
                 }
                 break;
-            case BallSkillEnum.BallUpdate:
+            case AbilityEnums.BallUpdate:
                 {
                     _ballUpdateSkill.Add(_ability as SkillAbility);
                 }
                 break;
-            case BallSkillEnum.Parring:
+            case AbilityEnums.Parring:
                 {
                     _ballUpdateSkill.Add(_ability as SkillAbility);
                 }
                 break;
-            case BallSkillEnum.BallType:
+            case AbilityEnums.BallType:
                 {
                 }
                 break;
