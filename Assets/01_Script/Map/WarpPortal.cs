@@ -5,7 +5,7 @@ using UnityEngine;
 public class WarpPortal : MonoBehaviour
 {
     [SerializeField]
-    MapData mapData;
+    protected MapData mapData;
 
     private BoxColliderCast colliderCast;
 
@@ -28,7 +28,7 @@ public class WarpPortal : MonoBehaviour
         }
     }
 
-    private void ChangeMap()
+    protected virtual void ChangeMap()
     {
         print("ASDF");
         if(GameManager.Instance.isCleared)
