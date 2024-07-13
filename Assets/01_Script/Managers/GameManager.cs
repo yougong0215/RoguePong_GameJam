@@ -12,7 +12,7 @@ public class GameManager : Singleton<GameManager>
     public bool isCleared;
     public MapData mapData;
 
-    public float _gold = 0;
+    public int _gold = 0;
 
     private HUD _hud;
     public HUD HUDCanvas

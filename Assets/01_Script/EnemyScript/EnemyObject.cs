@@ -7,7 +7,7 @@ public class EnemyObject : ObjectSystem, HitModule
 {
     [Header("Info")]
     [SerializeField] protected float _currentHP;
-    [SerializeField] protected float _dropGold;
+    [SerializeField] protected int _dropGold;
 
     public float GetCurrentHP => _currentHP;
 
