@@ -34,11 +34,6 @@ public class TankBossAIPhaseOne : AISetter
         SummonPatton.AddNode(SommonWait);
         SummonPatton.AddNode(_summonEnemy);
 
-        //Sequence BoombShot = new();
-        //AttackNode BombATK = new AttackNode(transform, ShootBigShot);
-        //WaitNode BombWait = new WaitNode(3f, () => { BombATK.StartInvoke(); StopExamine(); });
-        //BoombShot.AddNode(BombWait);
-        //BoombShot.AddNode(BombATK);
 
 
         Sequence NormalAttackSeq = new();
@@ -71,11 +66,11 @@ public class TankBossAIPhaseOne : AISetter
         cos.transform.position = _start.position;
 
         float time = 0;
-        while(time/2 < 1f)
+        while(time/4 < 1f)
         {
             yield return null;
             time += Time.deltaTime;
-            cos.transform.position = Vector3.Lerp(_start.position, _end.position, time/2);
+            cos.transform.position = Vector3.Lerp(_start.position, _end.position, time/4);
         }
 
         yield return new WaitForSeconds(2f);
@@ -97,41 +92,7 @@ public class TankBossAIPhaseOne : AISetter
         EnemyObject eo3 = PoolManager.Instance.Pop(_sommonName3) as EnemyObject;
         eo3.transform.position = _sommonPos3.position;
     }
-    /*
-    public IEnumerator ShootBigShot()
-    {
-        BulletBase bs = PoolManager.Instance.Pop("BigBullet") as BulletBase;
-        bs.transform.position = pos3.transform.position;
-        yield return new WaitForSeconds(1.2f);
-
-        Vector3 forward = pos3.transform.forward;
-        bs.Shoot(-forward, self, 0.2f, 100,true, () =>
-        {
-            StartCoroutine(SHootBigShotSide(bs));
-
-        });
-
-        yield return new WaitForSeconds(10f);
-        StartExamine();
-    }
-
-    IEnumerator SHootBigShotSide(BulletBase bs)
-    {
-        for (int j = 0; j < 5; j++)
-        {
-            for (int i = 0; i < 36; i++)
-            {
-                BulletBase v2 = PoolManager.Instance.Pop("TempBullet") as BulletBase;
-                v2.transform.position = bs.transform.position;
-                Vector3 dir = Quaternion.Euler(0, 10 * i, 0) * bs.transform.forward;
-                dir.y = 1;
-
-                v2.Shoot(dir, self); 
-                yield return null;
-            }
-
-        }
-    }*/
+   
 
 
     public IEnumerator TempAttackOne()

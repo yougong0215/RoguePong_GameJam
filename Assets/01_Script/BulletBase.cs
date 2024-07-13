@@ -44,6 +44,10 @@ public class BulletBase : ObjectSystem, HitModule
                 {
                     ps.HitEvent(1);
                 }
+                if(module.TryGetComponent<PlayerLacketHit>(out PlayerLacketHit l))
+                {
+                    l.HitEvent(1, gameObject);
+                }
 
                 t?.Invoke();
             });

@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] AudioClip _audio;
+    private void OnEnable()
+    {
+        SoundManager.Instance.PlayGlobal(_audio, true, EAudioType.BGM);
+    }
+
+
     public void StartBtnClicked()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
