@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     {
         StartCoroutine(doWork());
     }
-
+        
     private IEnumerator doWork()
     {
         for (int i = 0; i < Spawns.Length; ++i)
@@ -25,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
             }
             yield return new WaitForSeconds(SpawnTerm);
         }
+        print("ASDf");
         Destroy(gameObject);
     }
 
