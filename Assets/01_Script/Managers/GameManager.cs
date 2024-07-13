@@ -147,6 +147,26 @@ public class GameManager : Singleton<GameManager>
         navMeshSurface.BuildNavMesh();
     }
 
+
+    public void TimSetting(float t, float wait =0.2f, float curTime = 0.6f)
+    {
+        Time.timeScale = t;
+        StartCoroutine(SlowOne(t, wait, curTime));
+    }
+
+    IEnumerator SlowOne(float a, float b, float c)
+    {
+        yield return new WaitForSeconds(b);
+        float t = 0;
+        while(t < b)
+        {
+            t += Time.deltaTime;
+            Time.timeScale = Mathf.Lerp(c, 1, t / a);
+            yield return null;
+        }
+
+        Time.timeScale = 1;
+
     private void Update()
     {
         currentTime += Time.deltaTime;
