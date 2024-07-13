@@ -15,7 +15,7 @@ MonoBehaviour:
   ItemName: "\uC2AC\uB77C\uC784\uACF5"
   Description: "\uC774\uB3D9\uC18D\uB3C4 \uB300\uD3ED \uAC10\uC18C\n\uACF5 \uD06C\uAE30
     \uC99D\uAC00\n\uCDA9\uB3CC\uD558\uB294 \uB300\uC0C1\uC5D0\uAC8C \uC77C\uC815\uC2DC\uAC04
-    \uB3D9\uC548 \uB454\uD654 \uBD80\uC5EC"
+    \n\uB3D9\uC548 \uB454\uD654 \uBD80\uC5EC"
   IconImg: {fileID: 0}
   OutlineColor: {r: 0.49411768, g: 0.6, b: 0.46274513, a: 1}
   BallType: 1
