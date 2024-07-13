@@ -120,8 +120,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
                     CameraManager.Instance.Shake(7, 0.12f);
                 }
             }
-            else
-                CameraManager.Instance.Shake(1, 0.09f);
+            
 
 
 
