@@ -17,7 +17,7 @@ public class TempEnemyAI : AISetter
         Sequence MoveSeq = new();
 
         MoveNode moveNode = new MoveNode(NavmeshAgent);
-        WaitNode waitTime = new WaitNode(1f, () => { moveNode.Move(transform, new Vector3(Random.Range(-1f,1f),0, Random.Range(-1f, 1f)) * Random.Range(2f,6f)); });
+        WaitNode waitTime = new WaitNode(1f, () => { moveNode.Move(transform, new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)) * Random.Range(2f, 6f)); });
 
 
         NormalAttackSeq.AddNode(waitAttack);
@@ -25,14 +25,13 @@ public class TempEnemyAI : AISetter
 
         MoveSeq.AddNode(waitTime);
         MoveSeq.AddNode(moveNode);
-        
-        
+
+
         rootNode.AddNode(NormalAttackSeq);
         rootNode.AddNode(MoveSeq);
 
         StartExamine();
     }
-
 
     public IEnumerator TempAttackOne()
     {

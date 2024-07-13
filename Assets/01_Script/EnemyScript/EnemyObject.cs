@@ -33,8 +33,9 @@ public class EnemyObject : ObjectSystem, HitModule
         }
     }
 
-    public void HitEvent(Action<EnemyObject> act)
+    public void HitEvent(float dmg, Action<EnemyObject> act=null)
     {
-        act.Invoke(this);
+        _currentHP -= dmg;
+        act?.Invoke(this);
     }
 }

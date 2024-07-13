@@ -42,7 +42,7 @@ public class BulletBase : ObjectSystem, HitModule
             {
                 if(module.TryGetComponent<PlayerSystem>(out PlayerSystem ps))
                 {
-                    ps.HitEvent(GetATKValue());
+                    ps.HitEvent(1);
                 }
 
                 t?.Invoke();
