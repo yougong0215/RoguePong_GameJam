@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: a7400b279896d9b44bf254014495bc12, type: 3}
   m_Name: DiceBall
-  m_EditorClassIdentifier: Assembly-CSharp::BallAsset
+  m_EditorClassIdentifier: 
   ItemName: "\uC8FC\uC0AC\uC704\uACF5"
-  Description: "\uC774 \uACF5\uC740 \uC544\uBB34\uAC83\uB3C4 \uC54C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.\n\uADF8\uC800
-    6\uC774 \uB098\uC624\uAE38 \uBC14\uB784 \uBFD0\uC785\uB2C8\uB2E4."
+  Description: "\uC5B4\uB5A4 \uB2A5\uB825\uC774 \uC801\uC6A9\uB420\uC9C0 \uC54C \uC218
+    \uC5C6\uC2B5\uB2C8\uB2E4.\n6\uC774 \uB098\uC624\uAE38 \uBE4C\uC5B4\uC57C\uACA0\uC8E0."
   IconImg: {fileID: 0}
   OutlineColor: {r: 1, g: 1, b: 1, a: 1}
-  BallType: 0
+  BallType: 10
   BallMesh: {fileID: 6661990177290479497, guid: f9dd92be42be7264e9ec58391a91d3be,
     type: 3}
   MultySpeed: 2

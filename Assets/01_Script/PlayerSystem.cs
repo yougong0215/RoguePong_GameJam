@@ -197,6 +197,9 @@ public class PlayerSystem : ObjectSystem, HitModule
                 //forceDir = hitPoint * 128;
                 //Debug.Log($"Force {forceDir}");
                 //StartCoroutine(WaiterHit());
+
+                Vector3 vid = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+                forceDir = vid * 92;
                 if (isSuperArmor != null)
                     isSuperArmor = null;
                 isSuperArmor = StartCoroutine(SuperMod(0.3f));
@@ -211,7 +214,7 @@ public class PlayerSystem : ObjectSystem, HitModule
         }
         else
         {
-            forceDir = Vector3.Lerp(forceDir, Vector3.zero, Time.deltaTime * 10);
+            forceDir = Vector3.Lerp(forceDir, Vector3.zero, Time.deltaTime * 14);
         }
 
 
