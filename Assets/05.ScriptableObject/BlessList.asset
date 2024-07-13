@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 450b9474b724bd54e88d4fe50b3efbac, type: 3}
+  m_Script: {fileID: 0}
   m_Name: BlessList
   m_EditorClassIdentifier: Assembly-CSharp::BlessList
   GoldBlessList:
+  - {fileID: 11400000, guid: 218ebe2f8e0033048bf60915329a1eb9, type: 2}
   - {fileID: 11400000, guid: 66ed43761bfe40a47ba9ffe3bb93fa17, type: 2}
   - {fileID: 11400000, guid: d8e515a830632c54dbfe3b71868d9355, type: 2}
   - {fileID: 11400000, guid: d520178563db92246bfac9dd52b6732a, type: 2}
   - {fileID: 11400000, guid: 899c4284996f7c249aebc2f60c2e0e9f, type: 2}
   - {fileID: 11400000, guid: 466756e228172b6448c388278a512007, type: 2}
-  - {fileID: 11400000, guid: 218ebe2f8e0033048bf60915329a1eb9, type: 2}
   HPBlessList:
   - {fileID: 11400000, guid: c1b5bd20f0926bc4fb61edc112788724, type: 2}
   PlayerBuffList:
