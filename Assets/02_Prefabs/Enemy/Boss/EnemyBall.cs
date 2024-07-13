@@ -68,7 +68,7 @@ public class EnemyBall : ObjectSystem, HitModule
             else if (obj is PlayerLacketHit)
             {
                 dir = obj.gameObject.transform.forward;
-                (obj as PlayerLacketHit).HitEvent(1);
+                (obj as PlayerLacketHit).HitEvent(1, gameObject);
             }
             else if (obj is EnemyStandardLacket)
             {
