@@ -25,4 +25,5 @@ MonoBehaviour:
   - {fileID: 2979185712942690454, guid: 553cfd8c287d5da4393a6af9faf13beb, type: 3}
   - {fileID: 2602958591232377568, guid: d42bb99b3e313ca4fb693eb70cc3b0ea, type: 3}
   - {fileID: 964837571807872591, guid: 5c919c837f5595b4d989916357858e92, type: 3}
-  SpecialMapList: []
+  SpecialMapList:
+  - {fileID: 8065603436790893430, guid: 1c3944e7cd5a7e14c865ba54329ab8eb, type: 3}

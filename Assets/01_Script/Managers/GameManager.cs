@@ -33,6 +33,8 @@ public class GameManager : Singleton<GameManager>
     private int CurCnt;
 
     private GameObject warpPortal;
+    private GameObject specialWarpPortal;
+    public bool isInSpeicalRoom;
 
     public PlayerSystem Player
     {
@@ -57,9 +59,21 @@ public class GameManager : Singleton<GameManager>
 
     public void AssignPortal(GameObject o)
     {
-        warpPortal = o;
+        if (!isInSpeicalRoom)
+        {
+            warpPortal = o;
+            o.SetActive(false);
+        }
+        else
+            isCleared = true;
+    }
+
+    public void AssignSpeicalPortal(GameObject o)
+    {
+        specialWarpPortal = o;
         o.SetActive(false);
     }
+
 
     public void AssignSpawner(int cnt)
     {

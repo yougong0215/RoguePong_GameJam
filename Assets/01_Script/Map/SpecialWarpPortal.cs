@@ -4,26 +4,17 @@ using UnityEngine;
 
 public class SpecialWarpPortal : WarpPortal
 {
-
+    protected override void Start()
+    {
+        colliderCast = GetComponent<BoxColliderCast>();
+        GameManager.Instance.AssignSpeicalPortal(gameObject);
+        Debug.LogError("½ºÆä¼È Æ÷Å» µî·ÏµÊ");
+    }
     protected override void ChangeMap()
     {
-        print("ASDF");
         if (GameManager.Instance.isCleared)
         {
-            var stage = GameManager.Instance.currentStage;
-            if (mapData.SpecialMapList.Count > stage)
-            {
-                print("Next Stage: " + stage);
-                var map = Instantiate(mapData.SpecialMapList[stage - 1]);
-                map.name = "Map";
-                Destroy(GameObject.Find("Map"));
-                gameObject.gameObject.SetActive(false);
-                GameManager.Instance.isCleared = false;
-            }
-            else
-            {
-                print("Mapdata not exists (out of range)");
-            }
+
         }
     }
 

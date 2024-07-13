@@ -8,10 +8,10 @@ public class WarpPortal : MonoBehaviour
     [SerializeField]
     protected MapData mapData;
 
-    private BoxColliderCast colliderCast;
+    public BoxColliderCast colliderCast;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         colliderCast = GetComponent<BoxColliderCast>();
         GameManager.Instance.AssignPortal(gameObject);
