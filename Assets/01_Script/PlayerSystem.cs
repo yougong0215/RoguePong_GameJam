@@ -1,3 +1,4 @@
+using Cinemachine.Utility;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -189,6 +190,7 @@ public class PlayerSystem : ObjectSystem, HitModule
                 hitPoint = (hitPoint - tls ).normalized;
 
                 forceDir = hitPoint * 128;
+                Debug.Log($"Force {forceDir}");
                 StartCoroutine(WaiterHit());
 
             }
@@ -212,6 +214,12 @@ public class PlayerSystem : ObjectSystem, HitModule
         else
             vec = forceDir * Time.deltaTime;
 
+        if(transform.position.y != 1)
+        { 
+            _char.enabled = false;
+            transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+                _char.enabled = true;
+        }
 
 
         _char.Move(vec);

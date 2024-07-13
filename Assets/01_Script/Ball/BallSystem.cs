@@ -20,11 +20,20 @@ public enum BallEnum
     Dice = 10,
 }
 
+public enum BallOwner
+{
+    Player =0,
+    Enemy = 1,
+    Natural = 2,
+
+}
 
 public class BallSystem : ObjectSystem
 {
     public bool _isStart = false;
     public bool _isReal = false;
+
+    public Material _matGlow;
 
 
     [SerializeField]
@@ -70,13 +79,17 @@ public class BallSystem : ObjectSystem
     public BallData ballData;
 
     private GameObject ballMesh;
+
+    [Header("BallOwenr")]
+    public BallOwner _ownerEnum = BallOwner.Natural;
+
     private void Awake()
     {
         _cols = GetComponent<ColliderCast>();
         if(_isStart )
         {
             _isReal = true;
-            Input(new Vector3(UnityEngine.Random.Range(-1f,1f),0, UnityEngine.Random.Range(-1f, 1f)));
+            Input(new Vector3(UnityEngine.Random.Range(-1f,1f),0, UnityEngine.Random.Range(-1f, 1f)), BallOwner.Natural);
         }
     }
 
@@ -259,8 +272,17 @@ public class BallSystem : ObjectSystem
         return false;
     }
 
-    public void Input(Vector3 dir, Action<Collider> Collision = null, Action<Collider> First = null, Action<BallSystem> _udpateAct=null, bool b = false, float timeLate = 0)
+    public void Input(Vector3 dir, BallOwner ball, Action<Collider> Collision = null, Action<Collider> First = null, Action<BallSystem> _udpateAct=null, bool b = false, float timeLate = 0)
     {
+        _ownerEnum = ball;
+
+        Color color = Color.blue;
+        if(ball == BallOwner.Enemy)
+        {
+            color = Color.red;
+        }
+        _matGlow.SetColor("_Color", color);
+
         Collision += NormalRule;
         First += this.First;
         _updateInvoke = _udpateAct;

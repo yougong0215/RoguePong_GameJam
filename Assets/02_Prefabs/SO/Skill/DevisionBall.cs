@@ -22,7 +22,7 @@ public class DevisionBall : SkillAbility
 
                 ballsys._abilityStat = hit._abilityStat;
                 dir = rotation * dir;
-                ballsys.Input(dir, default, default, default, true, 0.2f);
+                ballsys.Input(dir, BallOwner.Player, default, default, default, true, 0.2f);
                 ballsys.TimeLimit(_durationTime);
             }
 
