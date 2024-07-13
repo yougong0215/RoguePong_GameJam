@@ -51,7 +51,6 @@ public class PlayerLacketHit : ObjectSystem, HitModule
         _currentParringCooldown = _parringTime;
         _isParring = true;
 
-        float ct = 0.0f;
         yield return new WaitForSeconds(t);
 
         Debug.Log("√Îº“");
@@ -89,7 +88,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
                     }
                     else
                     {
-                        _lacketCurHP -= 2;
+                        //_lacketCurHP -= 2;
                     }
 
                     //Debug.Log(ball.BallDamage());
@@ -108,7 +107,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
                     //dir = (enemies[0].transform.position - transform.position).normalized;
                     //dir.y = 0;
                     //Debug.Log(dir);
-                    //ball.Debuff(StatEnum.SPEED, MathType.Plus, -30, 0.9f);
+                    ball.Debuff(StatEnum.SPEED, MathType.Plus, -30, 0.9f);
                     Action<BallSystem> parring = null;
 
                     foreach (var item in _parringSkillAbility)
@@ -118,11 +117,18 @@ public class PlayerLacketHit : ObjectSystem, HitModule
 
                     parring?.Invoke(ball);
 
-                    
+                    GameManager.Instance.Player.HitEvent(-2);
 
                     _currentParringCooldown = 0f;
                     ScreenEffectManager.Instance.SetChromaticAberration(6, 0.12f);
                     CameraManager.Instance.Shake(7, 0.12f);
+
+                    _lacketCurHP += 2;
+
+                    if (_lacketCurHP > _lacketMaxHP)
+                    {
+                        _lacketCurHP = _lacketMaxHP;
+                    }
                 }
             }
             
@@ -163,7 +169,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
         }
 
 
-        if (_originHP < 0)
+        if (_lacketCurHP < 0)
         {
             if (_hpCoroutine == null)
                 _hpCoroutine = StartCoroutine(LacketHPReturn());
@@ -171,10 +177,23 @@ public class PlayerLacketHit : ObjectSystem, HitModule
         GameManager.Instance.HUDCanvas.UpdateShieldUI();
     }
 
-    public void HitEvent(float dmg)
+    public void HitEvent(float dmg, GameObject hit)
     {
-        _lacketCurHP -= dmg;
-        GameManager.Instance.HUDCanvas.UpdateShieldUI();
+        if(_lacketCurHP > 0)
+        {
+            if (hit.TryGetComponent<BulletBase>(out BulletBase bs))
+            {
+                PoolManager.Instance.Push(bs);
+            }
+        }
+
+
+        if (_isParring == false)
+        {
+            _lacketCurHP -= dmg;
+            GameManager.Instance.HUDCanvas.UpdateShieldUI();
+        }
+
     }
 
     public void RefreshStat(ObjectSystem obj, ObjectSystem _ballStat, List<SkillAbility> Hiting, List<SkillAbility> ball, List<SkillAbility> update, List<SkillAbility> parring)

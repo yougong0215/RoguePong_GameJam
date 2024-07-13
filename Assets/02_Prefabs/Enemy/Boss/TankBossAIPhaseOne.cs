@@ -71,11 +71,11 @@ public class TankBossAIPhaseOne : AISetter
         cos.transform.position = _start.position;
 
         float time = 0;
-        while(time/2 < 1f)
+        while(time/4 < 1f)
         {
             yield return null;
             time += Time.deltaTime;
-            cos.transform.position = Vector3.Lerp(_start.position, _end.position, time/2);
+            cos.transform.position = Vector3.Lerp(_start.position, _end.position, time/4);
         }
 
         yield return new WaitForSeconds(2f);

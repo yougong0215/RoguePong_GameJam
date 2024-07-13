@@ -12,6 +12,7 @@ public enum BallSkillEnum
     BallHit = 3,
     BallUpdate =4,
     Parring = 5,
+    BallType =6
 }
 
 
@@ -86,6 +87,21 @@ public class PlayerSystem : ObjectSystem, HitModule
             case BallSkillEnum.BallHit:
                 {
                     _ballHitSkill.Add(_ability as SkillAbility);
+                }
+                break;
+            case BallSkillEnum.BallUpdate:
+                {
+                    _ballUpdateSkill.Add(_ability as SkillAbility);
+                }
+                break;
+            case BallSkillEnum.Parring:
+                {
+                    _ballUpdateSkill.Add(_ability as SkillAbility);
+                }
+                break;
+            case BallSkillEnum.BallType:
+                {
+
                 }
                 break;
         }
