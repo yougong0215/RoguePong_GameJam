@@ -41,6 +41,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
         else
         {
             _currentParringCooldown -= Time.deltaTime;
+            GameManager.Instance.HUDCanvas.UpdateParyingCoolUI(_currentParringCooldown / _parringTime); 
         }
     }
 
@@ -51,13 +52,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
         _isParring = true;
 
         float ct = 0.0f;
-        while(ct <= t)
-        {   
-            ct += Time.deltaTime;
-            GameManager.Instance.HUDCanvas.UpdateParyingCoolUI(ct / t);
-            yield return null;
-        }
-        GameManager.Instance.HUDCanvas.UpdateParyingCoolUI(1.0f);
+        yield return new WaitForSeconds(t);
 
         Debug.Log("Ãë¼Ò");
         _isParring = false;

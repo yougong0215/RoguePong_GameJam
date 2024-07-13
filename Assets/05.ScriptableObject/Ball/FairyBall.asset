@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: a7400b279896d9b44bf254014495bc12, type: 3}
   m_Name: FairyBall
-  m_EditorClassIdentifier: Assembly-CSharp::BallAsset
-  ItemName: "\uC694\uC815\uC758 \uACF5"
-  Description: "\uACF5 \uD06C\uAE30 \uB300\uD3ED\uAC10\uC18C\n\uACF5 \uD53C\uD574\uB7C9
-    \uB300\uD3ED \uC99D\uAC00\n\uACF5 \uC774\uB3D9\uC18D\uB3C4 \uB300\uD3ED \uC99D\uAC00"
+  m_EditorClassIdentifier: 
+  ItemName: "\uC694\uC815\uACF5"
+  Description: "\uACF5\uC758 \uD06C\uAE30 \uB300\uD3ED \uAC10\uC18C\n\uACF5\uC758
+    \uD53C\uD574\uB7C9 \uC99D\uAC00\n\uACF5\uC758 \uC774\uB3D9\uC18D\uB3C4 \uC99D\uAC00"
   IconImg: {fileID: 0}
   OutlineColor: {r: 1, g: 1, b: 1, a: 1}
-  BallType: 0
+  BallType: 7
   BallMesh: {fileID: 1907464554242016612, guid: badb9a472ae8ac1488ba7af3563d0935,
     type: 3}
-  MultySpeed: 1.8
+  MultySpeed: 1.7
   MultySize: 0.2
-  MultyATK: 1.9
+  MultyATK: 1.7

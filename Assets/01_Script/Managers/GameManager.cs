@@ -158,7 +158,7 @@ public class GameManager : Singleton<GameManager>
     {
         yield return new WaitForSeconds(b);
         float t = 0;
-        while(t < b)
+        while (t < b)
         {
             t += Time.deltaTime;
             Time.timeScale = Mathf.Lerp(c, 1, t / a);
@@ -166,7 +166,7 @@ public class GameManager : Singleton<GameManager>
         }
 
         Time.timeScale = 1;
-
+    }
     private void Update()
     {
         currentTime += Time.deltaTime;
