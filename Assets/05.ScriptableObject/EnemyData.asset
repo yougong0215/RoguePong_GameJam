@@ -31,6 +31,3 @@ MonoBehaviour:
   - EnemyName: Zombie
     EnemyPrefab: {fileID: 4103187202365290759, guid: db530be1c34ad724c9c69ea65402f625,
       type: 3}
-  - EnemyName: GhostWizzard
-    EnemyPrefab: {fileID: 7567131726185690800, guid: a7dd4110609089a44ab76ff320e1fadf,
-      type: 3}

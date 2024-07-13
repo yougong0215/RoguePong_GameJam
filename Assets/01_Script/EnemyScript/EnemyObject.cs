@@ -18,10 +18,17 @@ public class EnemyObject : ObjectSystem, HitModule
     public virtual void HitBall(BallSystem ball)
     {
         if(ball.IsCanBind() && ball._ownerEnum != BallOwner.Enemy)
-            _currentHP -= ball.BallDamage();
+        {
+
+            DamageText tm = PoolManager.Instance.Pop("DamageText") as DamageText;
+            tm.Show($"{(int)(ball.BallDamage())}", transform.position + new Vector3(0, 0, 2), Color.white);
+            _currentHP -= ball.BallDamage();    
+        }
+
         if(_currentHP <= 0)
         {
             Destroy(this.gameObject);
+            GameManager.Instance.AddDeath();
             //PoolManager.Instance.Pop("Explosion 1 FX")
         }
     }

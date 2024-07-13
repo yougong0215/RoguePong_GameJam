@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb9e2d71b5d4b924c8123aeab7fe4c65, type: 3}
-  m_Name: DivisionBall
+  m_Name: DivisionBallParring
   m_EditorClassIdentifier: 
   ItemName: "\uC30D\uB465\uC774 \uAC70\uC6B8"
   Description: "\uACF5\uC774 \uD50C\uB808\uC774\uC5B4\uC758 \uBC29\uD328\uC640 \uCDA9\uB3CC\uD558\uBA74,
