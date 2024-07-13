@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056954eb14802c04fbab6a96ab773123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Spawns: []
+  Spawns:
+  - Witch
   SpawnTerm: 0
   enemyData: {fileID: 11400000, guid: 441d15e6adf1d224a97eea111851a801, type: 2}

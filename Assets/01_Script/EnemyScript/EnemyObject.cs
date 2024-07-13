@@ -27,8 +27,8 @@ public class EnemyObject : ObjectSystem, HitModule
 
         if(_currentHP <= 0)
         {
-            Destroy(this.gameObject);
             GameManager.Instance.AddDeath();
+            Destroy(this.gameObject);
             //PoolManager.Instance.Pop("Explosion 1 FX")
         }
     }
