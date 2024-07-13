@@ -6,9 +6,10 @@ public class SettingUI : MonoBehaviour
 {
     private AudioSetting audioSetting;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         audioSetting = GetComponentInChildren<AudioSetting>();
+        gameObject.SetActive(false);
     }
     
     public void Open()
