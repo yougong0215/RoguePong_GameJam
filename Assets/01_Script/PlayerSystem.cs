@@ -49,7 +49,7 @@ public class PlayerSystem : ObjectSystem, HitModule
     public Vector3 MousePos => hitPoint;
 
     [Header("Lacket")]
-    [SerializeField] PlayerLacketHit _lacket;
+    [SerializeField] public PlayerLacketHit _lacket;
 
     Coroutine isSuperArmor = null;
 
