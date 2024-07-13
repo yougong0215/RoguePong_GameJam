@@ -35,6 +35,20 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    private ThreeCardReward _reward;
+    public ThreeCardReward Reward
+    {
+        get
+        {
+            if(_reward == null)
+            {
+                _reward = HUDCanvas.transform.parent.GetComponentInChildren<ThreeCardReward>();
+            }
+
+            return _reward;
+        }
+    }
+
     private HUD _hud;
     public HUD HUDCanvas
     {
@@ -131,6 +145,8 @@ public class GameManager : Singleton<GameManager>
             warpPortal.SetActive(true);
             if(specialWarpPortal)
                 specialWarpPortal.SetActive(true);
+
+            Reward.gameObject.SetActive(true);
         }
     }
 

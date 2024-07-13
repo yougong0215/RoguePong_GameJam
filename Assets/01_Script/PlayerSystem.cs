@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BallSkillEnum
+public enum AbilityEnums
 {
     PlayerStat = 0,
     LacketStat = 1,
@@ -64,26 +64,26 @@ public class PlayerSystem : ObjectSystem, HitModule
         RefreshStat();
     }
 
-    public void AddAbility(BallSkillEnum _enum, Ability _ability)
+    public void AddAbility(AbilityEnums _enum, Ability _ability)
     {
         switch (_enum)
         {
-            case BallSkillEnum.PlayerStat:
+            case AbilityEnums.PlayerStat:
                 {
                     _statAbility.Add(_ability);
                 }
                 break;
-            case BallSkillEnum.LacketStat:
+            case AbilityEnums.LacketStat:
                 {
                     _lacketAbility.Add(_ability);
                 }
                 break;
-            case BallSkillEnum.BallStat:
+            case AbilityEnums.BallStat:
                 {
                     _lacketHitStatAbility.Add(_ability);
                 }
                 break;
-            case BallSkillEnum.BallHit:
+            case AbilityEnums.BallHit:
                 {
                     _ballHitSkill.Add(_ability as SkillAbility);
                 }
