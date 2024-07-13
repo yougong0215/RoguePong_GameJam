@@ -21,5 +21,5 @@ MonoBehaviour:
   BallMesh: {fileID: 1907464554242016612, guid: badb9a472ae8ac1488ba7af3563d0935,
     type: 3}
   MultySpeed: 1.7
-  MultySize: 0.55
+  MultySize: 0.2
   MultyATK: 1.7

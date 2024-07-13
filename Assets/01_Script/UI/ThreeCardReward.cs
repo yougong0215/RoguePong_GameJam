@@ -17,6 +17,8 @@ public class ThreeCardReward : MonoBehaviour
         cardUI1.InitCard(storeData.saleItems[randomIdx].ability, storeData.saleItems[randomIdx].ballSkillEnum);
         cardUI2.InitCard(storeData.saleItems[randomIdx2].ability, storeData.saleItems[randomIdx2].ballSkillEnum);
         cardUI3.InitCard(storeData.saleItems[randomIdx3].ability, storeData.saleItems[randomIdx3].ballSkillEnum);
+
+        Time.timeScale = 0;
     }
 
     public void ChooseCard(CardUI cardUI)
@@ -33,6 +35,7 @@ public class ThreeCardReward : MonoBehaviour
         {
             GameManager.Instance.Player.AddAbility(cardUI._skillEnum, cardUI.ablity);
         }
+        Time.timeScale = 1;
         gameObject.SetActive(false);
 
     }

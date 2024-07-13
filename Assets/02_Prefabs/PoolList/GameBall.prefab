@@ -298,3 +298,4 @@ MonoBehaviour:
     type: 3}
   ballData: {fileID: 11400000, guid: 2e4e03a6acd120442b454db9eb67c5ac, type: 2}
   _ownerEnum: 2
+  _clip: {fileID: 8300000, guid: e280b345f56a4b3409862faf79fa6dc0, type: 3}

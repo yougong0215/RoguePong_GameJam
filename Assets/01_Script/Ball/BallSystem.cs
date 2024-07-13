@@ -368,10 +368,14 @@ public class BallSystem : ObjectSystem
         }
     }
 
+    public AudioClip _clip;
+
     public void NormalRule(Collider col)
     {
         if(col.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
+
+            SoundManager.Instance.PlayGlobal(_clip);
             Vector3 closestPoint = col.ClosestPoint(transform.position);
             Vector3 positionDifference = (closestPoint - transform.position);
 
@@ -437,7 +441,7 @@ public class BallSystem : ObjectSystem
 
         if (null != col.gameObject.GetComponent<HitModule>())
         {
-            col.gameObject.GetComponent<HitModule>().HitBall(this);
+            col?.gameObject?.GetComponent<HitModule>()?.HitBall(this);
         }
 
         //else if(col.gameObject.layer == LayerMask.NameToLayer("Lacket"))

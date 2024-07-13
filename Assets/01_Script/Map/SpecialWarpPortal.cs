@@ -18,13 +18,13 @@ public class SpecialWarpPortal : WarpPortal
             Destroy(GameObject.Find("Map"));
             var map = Instantiate(mapData.SpecialMapList[Random.Range(0, mapData.SpecialMapList.Count)]);
             print("Ω∫∆‰º» ∆˜≈ª ¿‘¿Â: " + map.name);
-            var spw = GameObject.Find(map.name + "/SpawnPoint");
+            map.name = "Map";
+            var spw = GameObject.Find("SpawnPoint");
             StartCoroutine(GameManager.Instance.Player.FrameCharacterConoff());
             GameManager.Instance.Player.gameObject.transform.position = spw.transform.position;
             GameManager.Instance.isCleared = false;
             GameManager.Instance.ResetCnt();
             GameManager.Instance.isInSpeicalRoom = true;
-            map.name = "Map";
         }
     }
 
