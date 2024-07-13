@@ -33,6 +33,12 @@ public class EnemyObject : ObjectSystem, HitModule
             Destroy(this.gameObject);
             //PoolManager.Instance.Pop("Explosion 1 FX")
         }
+
+        Vector3 effectDir = ball.transform.forward * -1;
+
+        var eff = PoolManager.Instance.Pop("Explosion_2_FX");
+        eff.transform.position = ball.transform.position;
+        eff.transform.eulerAngles = effectDir;
     }
 
     public void HitEvent(float dmg, Action<EnemyObject> act=null)

@@ -239,6 +239,11 @@ public class PlayerSystem : ObjectSystem, HitModule
         isSuperArmor = StartCoroutine(SuperMod());
         _currentHP -= 1;
         GameManager.Instance.HUDCanvas.UpdateHeartUI();
+        Vector3 effectDir = ball.transform.forward * -1;
+
+        var eff = PoolManager.Instance.Pop("Explosion_2_FX");
+        eff.transform.position = ball.transform.position;
+        eff.transform.eulerAngles = effectDir;
     }
 
     public void HitEvent(float dmg, Action<PlayerSystem> act = null)
@@ -249,6 +254,7 @@ public class PlayerSystem : ObjectSystem, HitModule
         //_currentHP -= dmg;
         _currentHP = Mathf.Clamp(_currentHP-dmg, 0, GetHPValue());
         GameManager.Instance.HUDCanvas.UpdateHeartUI();
+
         act?.Invoke(this);
     }
 
