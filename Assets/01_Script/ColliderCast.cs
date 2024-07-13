@@ -93,6 +93,11 @@ public abstract class ColliderCast : MonoBehaviour
 
 	}
 
+	public void ClearDic()
+	{
+		CheckDic.Clear();
+	}
+
 	private void OnDisable()
 	{
 		StopAllCoroutines();

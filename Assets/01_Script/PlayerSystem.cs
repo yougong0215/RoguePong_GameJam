@@ -90,7 +90,8 @@ public class PlayerSystem : ObjectSystem, HitModule
         ObjectSystem obj = new();
         foreach (var ability in _statAbility)
         {
-            ability.GetAbility(ref obj);
+            if(null != ability)
+                ability.GetAbility(ref obj);
         }
 
         _abilityStat = obj._abilityStat;
@@ -112,11 +113,13 @@ public class PlayerSystem : ObjectSystem, HitModule
         ObjectSystem obj2 = new();
         foreach (var ability in _lacketAbility)
         {
-            ability.GetAbility(ref obj1);
+            if (null != ability)
+                ability.GetAbility(ref obj1);
         }
         foreach (var ability in _lacketHitStatAbility)
         {
-            ability.GetAbility(ref obj2);
+            if (null != ability)
+                ability.GetAbility(ref obj2);
         }
         _lacket.RefreshStat(obj1, obj2, _ballHitSkill, _ballColisionSkill, _ballUpdateSkill);
 
