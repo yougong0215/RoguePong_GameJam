@@ -336,6 +336,8 @@ MonoBehaviour:
     _multyHP: 1
     _multyReflect: 0
   _currentHP: 0
+  _dropGold: 0
+  pos: {fileID: 0}
 --- !u!195 &8516197037223208604
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -371,6 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isRunning: 0
+  _shootSpeed: 10
 --- !u!1001 &947366040764932284
 PrefabInstance:
   m_ObjectHideFlags: 0
