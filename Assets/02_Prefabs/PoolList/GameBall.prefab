@@ -87,7 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _originHP: 0
   _originATK: 10
-  _originSize: 1
+  _originSize: 2
   _originSpeed: 10
   _originDurationTime: 4
   _originReflectRange: 15
