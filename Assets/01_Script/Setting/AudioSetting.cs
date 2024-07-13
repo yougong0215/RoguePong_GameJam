@@ -34,14 +34,18 @@ public class AudioSetting : MonoBehaviour
     private readonly string fileName = "AudioSetting";
 
     //UI
-    private Slider masterSlider;
-    private Slider sfxSlider;
-    private Slider bgmSlider;
+    public Slider masterSlider;
+    public Slider sfxSlider;
+    public Slider bgmSlider;
 
     private bool notSaved;
     private void Awake()
     {
         Load();
+
+        masterSlider.onValueChanged.AddListener(x=>MasterVolume = x);
+        sfxSlider.onValueChanged.AddListener(x=>SFXVolume = x);
+        bgmSlider.onValueChanged.AddListener(x=>BGMVolume = x);
     }
 
     private void OnEnable()
@@ -61,7 +65,7 @@ public class AudioSetting : MonoBehaviour
         JsonManager<AudioSet>.SaveJson(set, fileName);
         previousSet = set;
 
-        notSaved = false;
+        //notSaved = false;
     }
 
     public void Load()
@@ -87,7 +91,7 @@ public class AudioSetting : MonoBehaviour
             }
 
             ApplyMixer("Master", value);
-            notSaved = true;
+            //notSaved = true;
         }
     }
 
@@ -104,7 +108,7 @@ public class AudioSetting : MonoBehaviour
             }
 
             ApplyMixer("SFX", value);
-            notSaved = true;
+            //notSaved = true;
         }
     }
 
@@ -121,7 +125,7 @@ public class AudioSetting : MonoBehaviour
             }
 
             ApplyMixer("BGM", value);
-            notSaved = true;
+            //notSaved = true;
         }
     }
 
