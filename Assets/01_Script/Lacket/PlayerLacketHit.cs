@@ -78,7 +78,15 @@ public class PlayerLacketHit : ObjectSystem, HitModule
             {
                 if (_isParring == false)
                 {
-                    _lacketCurHP -= 1;
+                    if(ball._ownerEnum == BallOwner.Player)
+                    {
+                        _lacketCurHP -= 1;
+                    }
+                    else
+                    {
+                        _lacketCurHP -= 2;
+                    }
+
                     //Debug.Log(ball.BallDamage());
                     CameraManager.Instance.Shake(12, 0.12f);
                     ScreenEffectManager.Instance.SetChromaticAberration(1, 0.12f);
@@ -144,7 +152,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
             }
 
             StartCoroutine(WaiterHit());
-            ball.Input(dir, (tls) =>
+            ball.Input(dir, BallOwner.Player, (tls) =>
             {
                 bss1?.Invoke(ball);
             }, default, updateBall);
