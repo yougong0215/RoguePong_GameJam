@@ -23,8 +23,9 @@ public class EnemyStandardLacket : ObjectSystem, HitModule
 
             if(_lacketCurHP <0)
             {
-                Debug.LogError($"이팩트 추가하렴");
-                // 대충 추하고 오브젝트 삭제도 하렴
+                EffectObject e = PoolManager.Instance.Pop("Explosion_1_FX") as EffectObject;
+                e.transform.position = transform.position;
+                Destroy(e, 2f);
                 Destroy(gameObject);
             }
             else

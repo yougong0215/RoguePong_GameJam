@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2273235606892137641}
   - component: {fileID: 6177533999090428606}
   - component: {fileID: 5575899138279238072}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3207250345906388746}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Bad Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

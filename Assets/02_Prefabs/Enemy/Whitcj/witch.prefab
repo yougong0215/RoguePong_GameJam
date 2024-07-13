@@ -508,6 +508,8 @@ MonoBehaviour:
     _multyHP: 1
     _multyReflect: 0
   _currentHP: 0
+  deathEffect: {fileID: 6656154812330177880, guid: f7da4487cf5c4e6449cef35ffbec039b,
+    type: 3}
 --- !u!195 &2132804317884872556
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -217,6 +217,7 @@ MonoBehaviour:
     _multyReflect: 1
   _lacketMaxHP: 1000
   _lacketCurHP: 1000
+  deathEffect: {fileID: 0}
 --- !u!1 &7567131726185690800
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +337,8 @@ MonoBehaviour:
     _multyHP: 1
     _multyReflect: 0
   _currentHP: 0
+  deathEffect: {fileID: 6656154812330177880, guid: f7da4487cf5c4e6449cef35ffbec039b,
+    type: 3}
 --- !u!195 &8516197037223208604
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.AssignSpawner(Spawns.Length);
         StartCoroutine(doWork());
     }
         
@@ -25,13 +26,6 @@ public class EnemySpawner : MonoBehaviour
             }
             yield return new WaitForSeconds(SpawnTerm);
         }
-        print("ASDf");
         Destroy(gameObject);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
