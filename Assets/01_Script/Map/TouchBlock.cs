@@ -31,12 +31,6 @@ public class TouchBlock : ObjectSystem,HitModule
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void HitBall(BallSystem ball)
     {
         if (count > 0)
