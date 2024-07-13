@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.AI.Navigation;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -209,5 +210,13 @@ public class GameManager : Singleton<GameManager>
             bs.transform.position = spw.transform.position;
             bs.Input(bs.transform.forward, BallOwner.Natural);
         }
+    }
+
+    public void Dead()
+    {
+        // Do Something
+
+        PlayerPrefs.SetFloat("RunTime", currentTime);
+        SceneManager.LoadScene("GameOver");
     }
 }

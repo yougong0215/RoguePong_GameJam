@@ -289,4 +289,12 @@ public class PlayerSystem : ObjectSystem, HitModule
         yield return new WaitForSeconds(0.7f);
         isSuperArmor = null;
     }
+
+    public void CheckDead()
+    {
+        if(_currentHP <= 0)
+        {
+
+        }
+    }
 }
