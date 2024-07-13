@@ -21,7 +21,7 @@ public class CardUI : MonoBehaviour
         DescTxt = transform.Find("Contents/Desc/DescTxt").GetComponent<TextMeshProUGUI>();
     }
 
-    public void InitCard(Ability newAblity)
+    public void InitCard(Ability newAblity) 
     {
         ablity = newAblity;
 

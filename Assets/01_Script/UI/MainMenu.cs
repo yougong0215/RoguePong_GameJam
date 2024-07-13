@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void StartBtnClicked()
     {
-        SceneManager.LoadScene("yougongScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 
     // Start is called before the first frame update
