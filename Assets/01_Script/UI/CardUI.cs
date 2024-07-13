@@ -15,10 +15,9 @@ public class CardUI : MonoBehaviour
     public Image OutlineImg;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         OutlineImg = transform.Find("BG/Outline").GetComponent<Image>();
-        IconImg = transform.Find("Contents/Icon/IconImg").GetComponent<Image>();
         NameTxt = transform.Find("Contents/Name/NameTxt").GetComponent<TextMeshProUGUI>();
         DescTxt = transform.Find("Contents/Desc/DescTxt").GetComponent<TextMeshProUGUI>();
     }
@@ -28,7 +27,6 @@ public class CardUI : MonoBehaviour
         ablity = newAblity;
         _skillEnum = abenum;
         OutlineImg.color = ablity.OutlineColor;
-        IconImg.sprite = ablity.IconImg;
         NameTxt.text = ablity.ItemName;
         DescTxt.text = ablity.Description;
     }

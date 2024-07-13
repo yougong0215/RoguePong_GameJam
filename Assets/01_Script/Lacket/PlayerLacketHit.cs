@@ -118,7 +118,9 @@ public class PlayerLacketHit : ObjectSystem, HitModule
 
                     parring?.Invoke(ball);
 
-                    
+                    var eff = PoolManager.Instance.Pop("Mack_FX");
+                    eff.transform.position = transform.position;
+                    eff.transform.forward = transform.forward;
 
                     _currentParringCooldown = 0f;
                     ScreenEffectManager.Instance.SetChromaticAberration(6, 0.12f);

@@ -8,11 +8,6 @@ public class ThreeCardReward : MonoBehaviour
     
     public CardUI cardUI1, cardUI2, cardUI3;
 
-    private void OnEnable()
-    {
-        ShowReward();
-    }
-
     public void ShowReward()
     {
         int randomIdx = Random.Range(0, storeData.saleItems.Count-1);
@@ -26,8 +21,19 @@ public class ThreeCardReward : MonoBehaviour
 
     public void ChooseCard(CardUI cardUI)
     {
-        GameManager.Instance.Player.AddAbility(cardUI._skillEnum, cardUI.ablity);
-
+        if(cardUI._skillEnum == AbilityEnums.BallUpdate)
+        {
+            BallSystem sys = GameObject.FindObjectOfType<BallSystem>();
+            if (sys)
+            {
+                sys.SettingBallType(((BallAsset)(cardUI.ablity)).BallType);
+            }
+        }
+        else
+        {
+            GameManager.Instance.Player.AddAbility(cardUI._skillEnum, cardUI.ablity);
+        }
         gameObject.SetActive(false);
+
     }
 }
