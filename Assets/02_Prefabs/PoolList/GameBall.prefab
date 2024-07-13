@@ -89,8 +89,8 @@ MonoBehaviour:
   _originATK: 10
   _originSize: 1
   _originSpeed: 10
-  _originDurationTime: 3
-  _originReflectRange: 30
+  _originDurationTime: 4
+  _originReflectRange: 15
   _originStat:
     _addATK: 0
     _addSize: 0
