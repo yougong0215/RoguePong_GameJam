@@ -164,12 +164,13 @@ public class PlayerLacketHit : ObjectSystem, HitModule
             if (_hpCoroutine == null)
                 _hpCoroutine = StartCoroutine(LacketHPReturn());
         }
-
+        GameManager.Instance.HUDCanvas.UpdateShieldUI();
     }
 
     public void HitEvent(float dmg)
     {
         _lacketCurHP -= dmg;
+        GameManager.Instance.HUDCanvas.UpdateShieldUI();
     }
 
     public void RefreshStat(ObjectSystem obj, ObjectSystem _ballStat, List<SkillAbility> Hiting, List<SkillAbility> ball, List<SkillAbility> update, List<SkillAbility> parring)

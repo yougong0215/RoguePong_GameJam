@@ -12,7 +12,16 @@ public class GameManager : Singleton<GameManager>
     public bool isCleared;
     public MapData mapData;
 
-    public int _gold = 0;
+    private int _gold = 0;
+    public int Gold
+    {
+        get => _gold;
+        set
+        {
+            _gold = value;
+            HUDCanvas.UpdateGoldText(Gold);
+        }
+    }
 
     private HUD _hud;
     public HUD HUDCanvas

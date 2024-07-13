@@ -31,13 +31,10 @@ public class HUD : MonoBehaviour
         currentTimeTxt = transform.Find("Contents/CurrentTime").GetComponentInChildren<TextMeshProUGUI>();
 
         UpdateHeartUI();
+        UpdateShieldUI();
+        UpdateGoldText(0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void UpdateHeartUI()
     {
@@ -60,5 +57,59 @@ public class HUD : MonoBehaviour
             hearts[i].fillAmount = 0.5f;
         }
         else hearts[i].fillAmount = 1.0f;
+    }
+
+    public void UpdateShieldUI()
+    {
+        float currentShieldHP = GameManager.Instance.Player._lacket._lacketCurHP;
+        float maxShieldHP = GameManager.Instance.Player._lacket._lacketMaxHP;
+
+        int i = 0;
+
+        for (i = 0; i < shileds.Count; i++)
+        {
+            shileds[i].fillAmount = 0.0f;
+        }
+
+        for (i = 0; i < currentShieldHP / 2 - 1; i++)
+        {
+            shileds[i].fillAmount = 1.0f;
+        }
+
+        if (currentShieldHP % 2 == 1)
+        {
+            shileds[i].fillAmount = 0.5f;
+        }
+        else shileds[i].fillAmount = 1.0f;
+    }
+
+    public void UpdateGoldText(int newValue)
+    {
+        goldTxt.text = ": " + newValue.ToString();
+    }
+
+    public void UpdateShiledText(string newValue)
+    {
+        shieldTxt.text = newValue;
+    }
+
+    public void UpdateSwordText(string newValue)
+    {
+        swordTxt.text = newValue;
+    }
+
+    public void UpdateLastEnemyText(int newValue)
+    {
+        lastTxt.text = ": " + newValue.ToString();
+    }
+
+    public void UpdateCurrentStageText(int newValue)
+    {
+        currentStageTxt.text = ": " + newValue.ToString();
+    }
+
+    public void UpdateCurrentTimeText(int newValue)
+    {
+        currentTimeTxt.text = ": " + string.Format("{0:D2}:{1:D2}", newValue/60, newValue%60); ;
     }
 }
