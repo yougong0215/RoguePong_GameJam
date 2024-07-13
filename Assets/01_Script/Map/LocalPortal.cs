@@ -30,7 +30,7 @@ public class LocalPortal : MonoBehaviour
         Debug.LogError($"{other.gameObject.transform.position} / {oppositePortal.transform.position}");
         
         StartCoroutine(other.GetComponent<PlayerSystem>().FrameCharacterConoff());
-        other.gameObject.transform.position = oppositePortal.transform.position;
+        other.gameObject.transform.position = new Vector3(oppositePortal.transform.position.x, other.gameObject.transform.position.y, oppositePortal.transform.position.z);
 
     }
 
