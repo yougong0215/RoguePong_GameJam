@@ -5,6 +5,8 @@ using UnityEngine;
 public class StoreSystem : SpecialMap
 {
 
+
+
     public override void Init()
     {
 
