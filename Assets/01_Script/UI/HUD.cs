@@ -116,7 +116,7 @@ public class HUD : MonoBehaviour
 
     public void UpdateCurrentTimeText(float newValue)
     {
-        currentTimeTxt.text = ": " + string.Format("{0:D2}:{1:D2}", (int)newValue/60, (int)newValue%60); ;
+        currentTimeTxt.text = ": " + string.Format("{0:D2}:{1:D2}", (int)newValue/60, (int)newValue%60);
     }
 
     public void UpdateDashCoolUI(float newValue)
