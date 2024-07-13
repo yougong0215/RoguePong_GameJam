@@ -41,7 +41,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
         else
         {
             _currentParringCooldown -= Time.deltaTime;
-            GameManager.Instance.HUDCanvas.UpdateParyingCoolUI(_currentParringCooldown / _parringTime); 
+            GameManager.Instance.HUDCanvas.UpdateParyingCoolUI(1 -(_currentParringCooldown / _parringTime)); 
         }
     }
 
