@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 774cb3db116cf9f4a8553c346f303cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _originHP: 2500
+  _originHP: 3000
   _originATK: 1
   _originSize: 1
   _originSpeed: 2
@@ -276,6 +276,8 @@ MonoBehaviour:
     _multyHP: 1
     _multyReflect: 0
   _currentHP: 0
+  _dropGold: 50
+  pos: {fileID: 0}
 --- !u!195 &7110539735237216949
 NavMeshAgent:
   m_ObjectHideFlags: 0

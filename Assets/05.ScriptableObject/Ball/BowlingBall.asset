@@ -16,7 +16,7 @@ MonoBehaviour:
   Description: "\uACF5 \uC774\uB3D9\uC18D\uB3C4 \uB300\uD3ED \uAC10\uC18C\n\uACF5
     \uD53C\uD574\uB7C9 \uB300\uD3ED \uC99D\uAC00"
   IconImg: {fileID: 0}
-  OutlineColor: {r: 1, g: 1, b: 1, a: 1}
+  OutlineColor: {r: 0.41176474, g: 0.3254902, b: 0.34117648, a: 1}
   BallType: 3
   BallMesh: {fileID: 3185843347157893302, guid: 2bc35fae2b73e0548af17279fdf44911,
     type: 3}

@@ -22,7 +22,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
     bool _isParring =false;
     float _currentParringCooldown = 0;
     float _parringTime = 3f;
-    float _parringContinusTime = 0.2f;
+    float _parringContinusTime = 0.4f;
 
     Coroutine _hpCoroutine;
     Coroutine _parringCoroutine;
@@ -47,13 +47,13 @@ public class PlayerLacketHit : ObjectSystem, HitModule
 
     IEnumerator ParringTime(float t)
     {
-        Debug.Log("ÆÐ¸µ!!");
+        Debug.Log("ï¿½Ð¸ï¿½!!");
         _currentParringCooldown = _parringTime;
         _isParring = true;
 
         yield return new WaitForSeconds(t);
 
-        Debug.Log("Ãë¼Ò");
+        Debug.Log("ï¿½ï¿½ï¿½");
         _isParring = false;
         _parringCoroutine = null;
     }
@@ -98,10 +98,10 @@ public class PlayerLacketHit : ObjectSystem, HitModule
                 }
                 else
                 {
-                    //// 1. ³» À§Ä¡ °¡Á®¿À±â
+                    //// 1. ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     //Vector3 myPosition = transform.position;
                     //
-                    //// 2. ¸ðµç EnemyObject °¡Á®¿À±â
+                    //// 2. ï¿½ï¿½ï¿½ EnemyObject ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     //List<EnemyObject> enemies = FindObjectsByType<EnemyObject>(FindObjectsSortMode.None).OrderBy(enemy => Vector3.Distance(myPosition, enemy.transform.position)).ToList();
                     //
                     //dir = (enemies[0].transform.position - transform.position).normalized;
@@ -118,6 +118,9 @@ public class PlayerLacketHit : ObjectSystem, HitModule
                     parring?.Invoke(ball);
 
                     GameManager.Instance.Player.HitEvent(-2);
+                    var eff = PoolManager.Instance.Pop("Mack_FX");
+                    eff.transform.position = transform.position;
+                    eff.transform.forward = transform.forward;
 
                     _currentParringCooldown = 0f;
                     ScreenEffectManager.Instance.SetChromaticAberration(6, 0.12f);
@@ -208,7 +211,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
         _ballHitSkillAbility = ball;
         _ballUpdateSkillAbility = update;
         _parringSkillAbility = parring;
-        // °ªº¯È¯ ¾ë ±âº»°ª ³Ö¾îÁà¾ßµÊ
+        // ï¿½ï¿½ï¿½ï¿½È¯ ï¿½ï¿½ ï¿½âº»ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ßµï¿½
         transform.localScale = new Vector3(GetSizeValue(),1f, 1);
         //GetComponent<BoxColliderCast>()._box.size = transform.localScale;
     }

@@ -8,7 +8,7 @@ using UnityEngine;
 public class SaleItem
 {
     public Ability ability;
-    public BallSkillEnum ballSkillEnum;
+    public AbilityEnums ballSkillEnum;
     public float minPrice;
     public float maxPrice;
 }
