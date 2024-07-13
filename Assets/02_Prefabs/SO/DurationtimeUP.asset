@@ -15,7 +15,7 @@ MonoBehaviour:
   ItemName: "\uC9C0\uC18D\uC2DC\uAC04 \uC99D\uAC00"
   Description: "\uC9C0\uC18D\uC2DC\uAC04\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4.\n"
   IconImg: {fileID: 0}
-  OutlineColor: {r: 1, g: 1, b: 1, a: 1}
+  OutlineColor: {r: 1, g: 0.94259137, b: 0, a: 1}
   Ability:
   - AbilityID: 3
     MathType: 0

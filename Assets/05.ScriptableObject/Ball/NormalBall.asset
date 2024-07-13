@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7400b279896d9b44bf254014495bc12, type: 3}
-  m_Name: BowlingBall
+  m_Name: NormalBall
   m_EditorClassIdentifier: 
-  ItemName: "\uBCFC\uB9C1\uACF5"
-  Description: "\uACF5 \uC774\uB3D9\uC18D\uB3C4 \uB300\uD3ED \uAC10\uC18C\n\uACF5
-    \uD53C\uD574\uB7C9 \uB300\uD3ED \uC99D\uAC00"
+  ItemName: "\uAE30\uBCF8\uACF5"
+  Description: "\uBB34\uC0C9\uBB34\uCDE8\uC758 \uAE30\uBCF8 \uACF5\uC785\uB2C8\uB2E4.\n\uBAA8\uB4E0
+    \uAC83\uC774 \uD3C9\uBC94\uD558\uC8E0."
   IconImg: {fileID: 0}
-  OutlineColor: {r: 0.41176474, g: 0.3254902, b: 0.34117648, a: 1}
-  BallType: 3
-  BallMesh: {fileID: 3185843347157893302, guid: 2bc35fae2b73e0548af17279fdf44911,
+  OutlineColor: {r: 1, g: 1, b: 1, a: 1}
+  BallType: 0
+  BallMesh: {fileID: 5542122256634368527, guid: 5ba7f14cd21f214418887540244b0287,
     type: 3}
-  MultySpeed: 0.3
-  MultySize: 1.15
-  MultyATK: 1.8
+  MultySpeed: 1
+  MultySize: 1
+  MultyATK: 1

@@ -17,7 +17,7 @@ MonoBehaviour:
     \uC99D\uAC00\n\uCDA9\uB3CC\uD558\uB294 \uB300\uC0C1\uC5D0\uAC8C \uC77C\uC815\uC2DC\uAC04
     \uB3D9\uC548 \uB454\uD654 \uBD80\uC5EC"
   IconImg: {fileID: 0}
-  OutlineColor: {r: 1, g: 1, b: 1, a: 1}
+  OutlineColor: {r: 0.49411768, g: 0.6, b: 0.46274513, a: 1}
   BallType: 1
   BallMesh: {fileID: 327565080102696244, guid: 5f0ffe3e0a2addb469fd558ab2ecd3ae, type: 3}
   MultySpeed: 0.5
