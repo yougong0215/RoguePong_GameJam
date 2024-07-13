@@ -12,7 +12,7 @@ public class RangeOfSpeed : SkillAbility
     {
         bss += (ab) =>
         {
-            ab._abilityStat._multySpeed += UnityEngine.Random.Range(-0.15f, 0.15f) * t;
+            ab._abilityStat._multySpeed = 1 + ab._abilityStat._multySpeed * UnityEngine.Random.Range(-0.15f, 0.15f) * t;
             t++;
             if (t > 3)
             {
