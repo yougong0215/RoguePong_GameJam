@@ -24,6 +24,7 @@ public class SpecialWarpPortal : WarpPortal
             GameManager.Instance.Player.gameObject.transform.position = spw.transform.position;
             GameManager.Instance.isCleared = false;
             GameManager.Instance.ResetCnt();
+            GameManager.Instance.isInSpeicalRoom = true;
         }
     }
 
