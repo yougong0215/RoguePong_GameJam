@@ -232,7 +232,8 @@ public class PlayerSystem : ObjectSystem, HitModule
 
     public void HitEvent(float dmg, Action<PlayerSystem> act = null)
     {
-        _currentHP -= 1;
+        //_currentHP -= dmg;
+        _currentHP = Mathf.Clamp(_currentHP-dmg, 0, GetHPValue());
         act?.Invoke(this);
     }
 

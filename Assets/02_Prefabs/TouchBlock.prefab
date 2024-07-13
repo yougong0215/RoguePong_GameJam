@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5918047763955495459}
   - component: {fileID: 9114720873739450539}
-  - component: {fileID: 5716527277225173892}
   - component: {fileID: 4486895362333270469}
   m_Layer: 12
   m_Name: TouchBlock
@@ -28,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1053981770953302460}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.975, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -57,24 +56,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5716527277225173892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1053981770953302460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a1da8325119bd46a2316ad5d2e084c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _layer:
-    serializedVersion: 2
-    m_Bits: 2048
-  Owner: {fileID: 0}
-  _box: {fileID: 0}
-  _useScale: 1
 --- !u!114 &4486895362333270469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +68,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22333827f81d44438eb2e9dba3b3330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _originHP: 0
+  _originATK: 10
+  _originSize: 1
+  _originSpeed: 10
+  _originDurationTime: 3
+  _originReflectRange: 15
+  _originStat:
+    _addATK: 0
+    _addSize: 0
+    _addSpeed: 0
+    _addDurationTime: 0
+    _addHP: 0
+    _addReflect: 0
+    _multyATK: 1
+    _multySize: 1
+    _multySpeed: 1
+    _multyDurationTime: 1
+    _multyHP: 1
+    _multyReflect: 0
+  _abilityStat:
+    _addATK: 0
+    _addSize: 0
+    _addSpeed: 0
+    _addDurationTime: 0
+    _addHP: 0
+    _addReflect: 0
+    _multyATK: 1
+    _multySize: 1
+    _multySpeed: 1
+    _multyDurationTime: 1
+    _multyHP: 1
+    _multyReflect: 0
+  _DebuffStat:
+    _addATK: 0
+    _addSize: 0
+    _addSpeed: 0
+    _addDurationTime: 0
+    _addHP: 0
+    _addReflect: 0
+    _multyATK: 1
+    _multySize: 1
+    _multySpeed: 1
+    _multyDurationTime: 1
+    _multyHP: 1
+    _multyReflect: 0
   countText: {fileID: 7399123788813001741}
+  cube: {fileID: 2064260904500198006}
   count: 5
   moveTo: {x: 0, y: 0, z: 0}
 --- !u!1 &2064260904500198006

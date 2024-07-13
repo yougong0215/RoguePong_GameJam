@@ -27,10 +27,6 @@ public class ScreenEffectManager : Singleton<ScreenEffectManager>
 
     }
 
-    private void Update()
-    {
-    }
-
     public void SetChromaticAberration(float Intensity, float Duration)
     {
         if(chromaticAberration != null)

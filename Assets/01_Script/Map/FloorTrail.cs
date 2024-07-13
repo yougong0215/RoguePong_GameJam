@@ -31,7 +31,9 @@ public class FloorTrail : MonoBehaviour
 
         StartCoroutine(other.GetComponent<PlayerSystem>().FrameCharacterConoff());
         if (trailType == FloorTrailType.Lava)
-            other.GetComponent<ObjectSystem>()._DebuffStat._addHP -= 10;
+        {
+            other.GetComponent<PlayerSystem>().HitEvent(10f);
+        }
         else if (trailType == FloorTrailType.Ice)
             throw new NotImplementedException(); //PlayerSystem에서 뭐 isOnIce??같은거 켜면 될려나
     }
