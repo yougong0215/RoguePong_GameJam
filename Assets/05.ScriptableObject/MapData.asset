@@ -15,7 +15,6 @@ MonoBehaviour:
   mapList:
   - {fileID: 8065603436790893430, guid: 738e27b044c7b714b9ea5ebe152b06d2, type: 3}
   - {fileID: 6003282693741240325, guid: cc8f6b2d8b0a90f4d9cb9b7c516213d1, type: 3}
-  - {fileID: 3060638318778921286, guid: 7447590a7a60ef540ae54cdbf88edb7c, type: 3}
   - {fileID: 2602958591232377568, guid: d42bb99b3e313ca4fb693eb70cc3b0ea, type: 3}
   - {fileID: 964837571807872591, guid: 5c919c837f5595b4d989916357858e92, type: 3}
   - {fileID: 4176779572241253209, guid: d11e6a34bee433e4981fe9729f29afdb, type: 3}

@@ -276,7 +276,8 @@ MonoBehaviour:
     _multyHP: 1
     _multyReflect: 0
   _currentHP: 0
-  _dropGold: 0
+  _dropGold: 50
+  pos: {fileID: 0}
 --- !u!195 &7110539735237216949
 NavMeshAgent:
   m_ObjectHideFlags: 0

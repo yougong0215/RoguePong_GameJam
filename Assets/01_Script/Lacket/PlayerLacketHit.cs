@@ -22,7 +22,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
     bool _isParring =false;
     float _currentParringCooldown = 0;
     float _parringTime = 3f;
-    float _parringContinusTime = 0.2f;
+    float _parringContinusTime = 0.4f;
 
     Coroutine _hpCoroutine;
     Coroutine _parringCoroutine;

@@ -15,10 +15,10 @@ public class SpecialWarpPortal : WarpPortal
     {
         if (GameManager.Instance.isCleared)
         {
+            Destroy(GameObject.Find("Map"));
             var map = Instantiate(mapData.SpecialMapList[Random.Range(0, mapData.SpecialMapList.Count)]);
             print("Ω∫∆‰º» ∆˜≈ª ¿‘¿Â: " + map.name);
             map.name = "Map";
-            Destroy(GameObject.Find("Map"));
             var spw = GameObject.Find("SpawnPoint");
             StartCoroutine(GameManager.Instance.Player.FrameCharacterConoff());
             GameManager.Instance.Player.gameObject.transform.position = spw.transform.position;

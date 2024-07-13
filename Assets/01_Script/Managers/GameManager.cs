@@ -110,6 +110,14 @@ public class GameManager : Singleton<GameManager>
         CurCnt = 0;
         warpPortal = null;
         specialWarpPortal = null;
+
+        StartCoroutine(BakeNavMesh());
+    }
+
+    IEnumerator BakeNavMesh()
+    {
+        yield return null;
+        yield return null;
         navMeshSurface.BuildNavMesh();
     }
 
