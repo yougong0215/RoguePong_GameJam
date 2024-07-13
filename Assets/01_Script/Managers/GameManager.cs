@@ -74,6 +74,8 @@ public class GameManager : Singleton<GameManager>
 
 
     private GameObject warpPortal;
+    private GameObject specialWarpPortal;
+    public bool isInSpeicalRoom;
 
     public PlayerSystem Player
     {
@@ -93,14 +95,27 @@ public class GameManager : Singleton<GameManager>
         AllCnt = 0;
         CurCnt = 0;
         warpPortal = null;
+        specialWarpPortal = null;
         navMeshSurface.BuildNavMesh();
     }
 
     public void AssignPortal(GameObject o)
     {
-        warpPortal = o;
+        if (!isInSpeicalRoom)
+        {
+            warpPortal = o;
+            o.SetActive(false);
+        }
+        else
+            isCleared = true;
+    }
+
+    public void AssignSpeicalPortal(GameObject o)
+    {
+        specialWarpPortal = o;
         o.SetActive(false);
     }
+
 
     public void AssignSpawner(int cnt)
     {
@@ -114,6 +129,8 @@ public class GameManager : Singleton<GameManager>
         {
             isCleared = true;
             warpPortal.SetActive(true);
+            if(specialWarpPortal)
+                specialWarpPortal.SetActive(true);
         }
     }
 
@@ -130,6 +147,26 @@ public class GameManager : Singleton<GameManager>
         navMeshSurface.BuildNavMesh();
     }
 
+
+    public void TimSetting(float t, float wait =0.2f, float curTime = 0.6f)
+    {
+        Time.timeScale = t;
+        StartCoroutine(SlowOne(t, wait, curTime));
+    }
+
+    IEnumerator SlowOne(float a, float b, float c)
+    {
+        yield return new WaitForSeconds(b);
+        float t = 0;
+        while (t < b)
+        {
+            t += Time.deltaTime;
+            Time.timeScale = Mathf.Lerp(c, 1, t / a);
+            yield return null;
+        }
+
+        Time.timeScale = 1;
+    }
     private void Update()
     {
         currentTime += Time.deltaTime;

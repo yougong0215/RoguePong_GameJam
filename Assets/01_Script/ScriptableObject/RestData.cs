@@ -8,7 +8,7 @@ using UnityEngine;
 [Serializable]
 public class RestAsset
 {
-    public int recoveryRatio;
+    public float recoveryRatio;
     public float Probability;
 }
 

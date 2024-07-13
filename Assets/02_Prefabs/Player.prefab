@@ -98,10 +98,9 @@ MonoBehaviour:
   _statAbility: []
   _parringAbility: []
   _ballHitSkill: []
-  _ballColisionSkill:
-  - {fileID: 11400000, guid: aec7cc02efe7c4f468302971f1c719f5, type: 2}
-  _ballUpdateSkill:
-  - {fileID: 11400000, guid: e7dc22d1de135d84a9fa85f63c7d41ba, type: 2}
+  _ballColisionSkill: []
+  _ballUpdateSkill: []
+  _dachCooTime: 2
   _lastMaxHP: 10
   _currentHP: 10
   _isCanMove: 0

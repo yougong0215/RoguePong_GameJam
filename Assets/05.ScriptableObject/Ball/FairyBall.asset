@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: FairyBall
+  m_EditorClassIdentifier: Assembly-CSharp::BallAsset
+  ItemName: "\uC694\uC815\uC758 \uACF5"
+  Description: "\uACF5 \uD06C\uAE30 \uB300\uD3ED\uAC10\uC18C\n\uACF5 \uD53C\uD574\uB7C9
+    \uB300\uD3ED \uC99D\uAC00\n\uACF5 \uC774\uB3D9\uC18D\uB3C4 \uB300\uD3ED \uC99D\uAC00"
+  IconImg: {fileID: 0}
+  OutlineColor: {r: 1, g: 1, b: 1, a: 1}
+  BallType: 0
+  BallMesh: {fileID: 1907464554242016612, guid: badb9a472ae8ac1488ba7af3563d0935,
+    type: 3}
+  MultySpeed: 1.8
+  MultySize: 0.2
+  MultyATK: 1.9
