@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     private PlayerSystem _player;
-    private int _currentStage = 1;
+    public int _currentStage = 1;
     public int CurrentStage
     {
         get => _currentStage;
@@ -161,7 +161,6 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        CurrentStage = 0;
         var map = Instantiate(mapData.mapList[CurrentStage]);
         map.name = "Map";
         var spw = GameObject.Find("SpawnPoint");
