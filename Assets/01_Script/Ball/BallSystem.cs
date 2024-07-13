@@ -67,7 +67,9 @@ public class BallSystem : ObjectSystem
     public GameObject lavaFloorTrail;
     public GameObject iceFloorTrail;
 
+    public BallData ballData;
 
+    private GameObject ballMesh;
     private void Awake()
     {
         _cols = GetComponent<ColliderCast>();
@@ -87,6 +89,20 @@ public class BallSystem : ObjectSystem
     {
         _ballEnum = b;
         _originStat = new();
+
+        BallAsset asset = ballData.BallAssets.Find(x=>x.BallType == b);
+
+        _originStat._multySize = asset.MultySize;
+        _originStat._multySpeed = asset.MultySpeed;
+        _originStat._multyATK = asset.MultyATK;
+
+        if(ballMesh != null )
+        {
+            Destroy( ballMesh );
+            ballMesh = null;
+        }
+        ballMesh = Instantiate(asset.BallMesh, transform.position, Quaternion.identity, transform);
+        /*
         switch (_ballEnum)
         {
             case BallEnum.Normal:
@@ -149,6 +165,7 @@ public class BallSystem : ObjectSystem
             case BallEnum.Dice:
                 break;
         }
+        */
     }
 
     public override void ResetPool()
@@ -382,7 +399,7 @@ public class BallSystem : ObjectSystem
                 {
                     if (col.TryGetComponent<ObjectSystem>(out ObjectSystem os))
                     {
-                        // 메테오 넣어라 알아서 ?? 이펙트 구현을 유초루가 안함
+                        // 메테오 넣어라 알아서 ?? 이펙트 구현을 유초루가 안함 / 넣었는데 쓰라고
                         var eff = Instantiate(methoEffect);
                         eff.transform.position = gameObject.transform.position;
                         Destroy(eff, 2f);
