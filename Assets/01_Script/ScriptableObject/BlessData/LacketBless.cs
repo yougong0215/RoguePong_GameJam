@@ -8,6 +8,6 @@ public class LacketBless : BlessData
     public Ability _ability;
     public override void BlessDoing(float val)
     {
-        GameManager.Instance.Player.AddAbility(BallSkillEnum.LacketStat, _ability);
+        GameManager.Instance.Player.AddAbility(AbilityEnums.LacketStat, _ability);
     }
 }
