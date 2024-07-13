@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _originHP: 10
-  _originATK: 10
+  _originATK: 0
   _originSize: 1
   _originSpeed: 8
   _originDurationTime: 0
@@ -578,8 +578,7 @@ MonoBehaviour:
     _multyDurationTime: 1
     _multyHP: 1
     _multyReflect: 1
-  _lacketAbility:
-  - {fileID: 11400000, guid: 804061a006f099c4d981a5d7da8c636c, type: 2}
+  _lacketAbility: []
   _lacketHitStatAbility:
   - {fileID: 11400000, guid: 3305930f61e8e484d89f343878c729a6, type: 2}
   _statAbility:

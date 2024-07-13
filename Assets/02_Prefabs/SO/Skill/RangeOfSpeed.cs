@@ -23,8 +23,6 @@ public class RangeOfSpeed : SkillAbility
                 ab.StopCoroutine(_co);
             }
             _co = ab.StartCoroutine(TimeStop());
-
-            Debug.Log($"이걸보면 지우시오 {t}");
             ab.RefreshTime();
         };
     }
