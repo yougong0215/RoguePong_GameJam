@@ -19,6 +19,11 @@ public class EnemyObject : ObjectSystem, HitModule
     {
         if(ball.IsCanBind() && ball._ownerEnum != BallOwner.Enemy)
             _currentHP -= ball.BallDamage();
+        if(_currentHP <= 0)
+        {
+            Destroy(this.gameObject);
+            //PoolManager.Instance.Pop("Explosion 1 FX")
+        }
     }
 
     public void HitEvent(Action<EnemyObject> act)
