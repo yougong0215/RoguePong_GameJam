@@ -22,7 +22,7 @@ MonoBehaviour:
     Value: 10
   - AbilityID: 1
     MathType: 0
-    Value: 10
+    Value: 5
   - AbilityID: 2
     MathType: 0
     Value: 1

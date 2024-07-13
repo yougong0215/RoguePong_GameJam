@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 774cb3db116cf9f4a8553c346f303cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _originHP: 3000
+  _originHP: 2500
   _originATK: 1
   _originSize: 1
   _originSpeed: 2
@@ -341,7 +341,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.181}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2244, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8296567832416397536}
