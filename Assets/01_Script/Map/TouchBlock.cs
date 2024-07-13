@@ -16,7 +16,7 @@ public class TouchBlock : ObjectSystem,HitModule
     {
         origin = gameObject.transform.position;
         countText.text = count.ToString();
-        cube.transform.localScale = transform.parent.gameObject.GetComponent<BoxCollider>().size;
+        transform.GetComponent<BoxCollider>().size = cube.transform.localScale;
     }
 
     public IEnumerator moveObject()
