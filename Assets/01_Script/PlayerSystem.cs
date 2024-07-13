@@ -7,10 +7,12 @@ using UnityEngine;
 
 public enum BallSkillEnum
 {
-    Player = 0,
-    Lacket = 1,
-    Ball =2,
+    PlayerStat = 0,
+    LacketStat = 1,
+    BallStat =2,
     BallHit = 3,
+    BallUpdate =4,
+    Parring = 5,
 }
 
 
@@ -22,7 +24,9 @@ public class PlayerSystem : ObjectSystem, HitModule
     [SerializeField] List<Ability> _lacketHitStatAbility = new();
 
     [Header("PlayerAbility")]
-    [SerializeField] List<Ability> _statAbility = new();
+    [SerializeField] List<Ability> _statAbility = new(); 
+    [SerializeField] List<SkillAbility> _parringAbility = new();
+
 
     [Header("BallSkill")]
     [SerializeField] List<SkillAbility> _ballHitSkill = new();
@@ -60,17 +64,17 @@ public class PlayerSystem : ObjectSystem, HitModule
     {
         switch (_enum)
         {
-            case BallSkillEnum.Player:
+            case BallSkillEnum.PlayerStat:
                 {
                     _statAbility.Add(_ability);
                 }
                 break;
-            case BallSkillEnum.Lacket:
+            case BallSkillEnum.LacketStat:
                 {
                     _lacketAbility.Add(_ability);
                 }
                 break;
-            case BallSkillEnum.Ball:
+            case BallSkillEnum.BallStat:
                 {
                     _lacketHitStatAbility.Add(_ability);
                 }
@@ -121,7 +125,7 @@ public class PlayerSystem : ObjectSystem, HitModule
             if (null != ability)
                 ability.GetAbility(ref obj2);
         }
-        _lacket.RefreshStat(obj1, obj2, _ballHitSkill, _ballColisionSkill, _ballUpdateSkill);
+        _lacket.RefreshStat(obj1, obj2, _ballHitSkill, _ballColisionSkill, _ballUpdateSkill, _parringAbility);
 
         
 

@@ -42,7 +42,7 @@ public class ObjectSystem : PoolAble
     IEnumerator DebuffCoroutine(StatEnum st, MathType math, float Value, float Time)
     {
         OperatedStat(ref _DebuffStat, st, math, -Value);
-        yield return new WaitForSeconds(Value);
+        yield return new WaitForSeconds(Time);
         OperatedStat(ref _DebuffStat, st, math, +Value);
     }
 

@@ -26,31 +26,28 @@ public class CameraManager : Singleton<CameraManager>
             VirtualCamera.LookAt = target.transform;
 
             m_MultiChannelPerlin = VirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-            Shake(false);
+            StartCoroutine(ShakeCO(0, 0));
         }
     }
 
-    public bool Shake(bool Enable, float Intensity = 1.0f)
+    public void Shake(float Intensity = 1.0f, float duration = 0.2f)
     {
-        if(m_MultiChannelPerlin)
+        StartCoroutine(ShakeCO(Intensity, duration));
+    }
+
+    IEnumerator ShakeCO(float Intensity = 1.0f, float duration = 0.2f)
+    {
+        if (m_MultiChannelPerlin)
         {
-            if(Enable)
-            {
-                m_MultiChannelPerlin.m_AmplitudeGain = Intensity;
-                m_MultiChannelPerlin.m_FrequencyGain = Intensity;
-            }
-            else
-            {
+            m_MultiChannelPerlin.m_AmplitudeGain = Intensity;
+            m_MultiChannelPerlin.m_FrequencyGain = Intensity;
+            yield return new WaitForSeconds(duration);
+            
                 m_MultiChannelPerlin.m_AmplitudeGain = 0.0f;
                 m_MultiChannelPerlin.m_FrequencyGain = 0.0f;
-            }
-        }
-        else
-        {
-            return false;
+            
         }
 
-        return true;
     }
 
 }
