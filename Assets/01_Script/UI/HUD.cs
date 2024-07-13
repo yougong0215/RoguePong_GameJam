@@ -42,41 +42,32 @@ public class HUD : MonoBehaviour
         int currentHP = (int)GameManager.Instance.Player._currentHP;
         int maxHP = (int)GameManager.Instance.Player.GetHPValue();
 
-
-
         for (int i = 0; i < hearts.Count; i++)
         {
-            if (i > maxHP - 1)
+            if (i >= maxHP)
             {
-                // 최대 HP를 넘는 하트는 비활성화
                 hearts[i].color = new Color(1, 1, 1, 0);
+                hearts[i].fillAmount = 0f;
             }
             else
             {
-                // 최대 HP 이하의 하트는 활성화
                 hearts[i].color = Color.white;
 
-                // 현재 HP에 따라 하트 채우기
                 if (i < currentHP / 2)
                 {
-                    hearts[i].fillAmount = 1f; // 가득 채운 하트
+                    hearts[i].fillAmount = 1f;
                 }
                 else if (i == currentHP / 2)
                 {
-                    if (currentHP % 2 == 0)
-                    {
-                        hearts[i].fillAmount = 1f; // 가득 채운 하트
-                    }
-                    else
-                    {
-                        hearts[i].fillAmount = 0.5f; // 반 채운 하트
-                    }
+                    hearts[i].fillAmount = (currentHP % 2 == 0) ? 1f : 0.5f;
                 }
                 else
                 {
-                    hearts[i].fillAmount = 0f; // 빈 하트
+                    hearts[i].fillAmount = 0f;
                 }
             }
+
+            Debug.Log($"Heart {i}: color = {hearts[i].color}, fillAmount = {hearts[i].fillAmount}");
         }
     }
 }
