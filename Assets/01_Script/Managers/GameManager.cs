@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
     private PlayerSystem _player;
-    public int currentStage;
+    public int currentStage = 1;
     public int currentFloor;
-    public bool isCleared = true;
+    public bool isCleared;
+    public MapData mapData;
 
     private NavMeshSurface navMeshSurface;
 
@@ -30,6 +32,13 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public void ResetCnt()
+    {
+        AllCnt = 0;
+        CurCnt = 0;
+        navMeshSurface.BuildNavMesh();
+    }
+
     public void AssignPortal(GameObject o)
     {
         warpPortalList.Add(o);
@@ -46,6 +55,7 @@ public class GameManager : Singleton<GameManager>
         CurCnt++;
         if(CurCnt >= AllCnt)
         {
+            isCleared = true;
             print("COMPLETE");
             foreach(var w in warpPortalList)
             {
@@ -56,10 +66,12 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        currentStage = 1;
+        currentStage = 0;
+        var map = Instantiate(mapData.mapList[currentStage]);
+        map.name = "Map";
+        var spw = GameObject.Find("SpawnPoint");
+        StartCoroutine(Player.FrameCharacterConoff());
+        Player.gameObject.transform.position = spw.transform.position;
         navMeshSurface = GetComponent<NavMeshSurface>();
-
-        navMeshSurface.BuildNavMesh();
-
     }
 }
