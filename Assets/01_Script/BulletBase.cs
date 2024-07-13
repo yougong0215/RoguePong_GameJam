@@ -30,7 +30,7 @@ public class BulletBase : ObjectSystem, HitModule
         }
     }
 
-    public void Shoot(Vector3 dir, ObjectSystem obj, float Speed =1, float HP = 10, Action t = null,Action DieEvent = null)
+    public void Shoot(Vector3 dir, ObjectSystem obj, float Speed =10, float HP = 10, bool isAutoDie = true, Action t = null,Action DieEvent = null)
     {
         _dir = dir * Speed;
         _dieEvent = DieEvent;
@@ -48,12 +48,18 @@ public class BulletBase : ObjectSystem, HitModule
                 t?.Invoke();
             });
         }
+
+        if(isAutoDie)
+        {
+            StartCoroutine(DieObject());
+        }
     }
+   
 
 
     void Update()
     {
-        transform.position += _dir * Time.deltaTime * 12;
+        transform.position += _dir * Time.deltaTime;
     }
 
     public virtual IEnumerator DieObject()

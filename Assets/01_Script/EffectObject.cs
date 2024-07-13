@@ -9,6 +9,7 @@ public class EffectObject : PoolAble
     private void Awake()
     {
         _particleSystem = GetComponent<ParticleSystem>();
+        
     }
 
     public override void ResetPool()

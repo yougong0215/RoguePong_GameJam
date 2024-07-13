@@ -344,8 +344,7 @@ public class BallSystem : ObjectSystem
     {
 
         //CameraManager.Instance.Shake(_curATK * _curSpeed/10, 0.2f);
-        DamageText tm = PoolManager.Instance.Pop("DamageText") as DamageText;
-        tm.Show($"{(int)(_curATK * _curSpeed)}", transform.position + new Vector3(0, 0, 2), Color.white);
+
         return _curATK * _curSpeed;
     }
 
@@ -415,7 +414,8 @@ public class BallSystem : ObjectSystem
                     if (col.TryGetComponent<ObjectSystem>(out ObjectSystem os))
                     {
                         // 폭발 넣어라 알아서 / 냉
-                        var eff = Instantiate(explodeEffect);
+                        var eff = PoolManager.Instance.Pop("Explosion_1_FX");
+
                         eff.transform.position = gameObject.transform.position;
                         Destroy(eff, 2f);
                     }
@@ -426,7 +426,7 @@ public class BallSystem : ObjectSystem
                     if (col.TryGetComponent<ObjectSystem>(out ObjectSystem os))
                     {
                         // 메테오 넣어라 알아서 ?? 이펙트 구현을 유초루가 안함 / 넣었는데 쓰라고
-                        var eff = Instantiate(methoEffect);
+                        var eff = PoolManager.Instance.Pop("Explosion_3_FX");
                         eff.transform.position = gameObject.transform.position;
                         Destroy(eff, 2f);
                     }

@@ -12,6 +12,19 @@ public class GameManager : Singleton<GameManager>
     public bool isCleared;
     public MapData mapData;
 
+    private HUD _hud;
+    public HUD HUDCanvas
+    {
+        get
+        {
+            if(_hud == null)
+            {
+                _hud = GameObject.FindObjectOfType<HUD>();
+            }
+
+            return _hud;
+        }
+    }
     private NavMeshSurface navMeshSurface;
 
     private int AllCnt;

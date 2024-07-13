@@ -50,6 +50,8 @@ public class PlayerSystem : ObjectSystem, HitModule
     [Header("Lacket")]
     [SerializeField] PlayerLacketHit _lacket;
 
+    Coroutine isSuperArmor = null;
+
 
     private void Awake()
     {
@@ -227,13 +229,21 @@ public class PlayerSystem : ObjectSystem, HitModule
 
     public void HitBall(BallSystem ball)
     {
+        if (isSuperArmor!=null)
+            return;
+        isSuperArmor = StartCoroutine(SuperMod());
         _currentHP -= 1;
+        GameManager.Instance.HUDCanvas.UpdateHeartUI();
     }
 
     public void HitEvent(float dmg, Action<PlayerSystem> act = null)
     {
+        if (isSuperArmor != null)
+            return;
+        isSuperArmor = StartCoroutine(SuperMod());
         //_currentHP -= dmg;
         _currentHP = Mathf.Clamp(_currentHP-dmg, 0, GetHPValue());
+        GameManager.Instance.HUDCanvas.UpdateHeartUI();
         act?.Invoke(this);
     }
 
@@ -244,5 +254,10 @@ public class PlayerSystem : ObjectSystem, HitModule
         yield return null;
         _char.enabled = true;
 
+    }
+    IEnumerator SuperMod()
+    {
+        yield return new WaitForSeconds(0.7f);
+        isSuperArmor = null;
     }
 }

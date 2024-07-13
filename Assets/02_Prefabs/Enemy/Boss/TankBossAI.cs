@@ -39,7 +39,7 @@ public class TankBossAI : AISetter
         yield return new WaitForSeconds(1.2f);
 
         Vector3 forward = pos3.transform.forward;
-        bs.Shoot(-forward, self, 0.2f, 100, () =>
+        bs.Shoot(-forward, self, 0.2f, 100,true, () =>
         {
             StartCoroutine(SHootBigShotSide(bs));
 
