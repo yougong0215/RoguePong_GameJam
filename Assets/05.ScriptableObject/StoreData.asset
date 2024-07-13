@@ -13,7 +13,107 @@ MonoBehaviour:
   m_Name: StoreData
   m_EditorClassIdentifier: 
   saleItems:
-  - ability: {fileID: 0}
+  - ability: {fileID: 11400000, guid: eb0100e559c8d824f8215be6c1eba975, type: 2}
     ballSkillEnum: 0
-    minPrice: 0
-    maxPrice: 0
+    minPrice: 50
+    maxPrice: 200
+  - ability: {fileID: 11400000, guid: eb0100e559c8d824f8215be6c1eba975, type: 2}
+    ballSkillEnum: 1
+    minPrice: 50
+    maxPrice: 200
+  - ability: {fileID: 11400000, guid: eb0100e559c8d824f8215be6c1eba975, type: 2}
+    ballSkillEnum: 2
+    minPrice: 50
+    maxPrice: 200
+  - ability: {fileID: 11400000, guid: eb0100e559c8d824f8215be6c1eba975, type: 2}
+    ballSkillEnum: 3
+    minPrice: 50
+    maxPrice: 200
+  - ability: {fileID: 11400000, guid: f9416288777884f46a0344177a05b5fc, type: 2}
+    ballSkillEnum: 3
+    minPrice: 100
+    maxPrice: 300
+  - ability: {fileID: 11400000, guid: e22034adfbcefb04891c03ee8f673f2d, type: 2}
+    ballSkillEnum: 5
+    minPrice: 100
+    maxPrice: 300
+  - ability: {fileID: 11400000, guid: b93891f8b49c8504d95523ffb4e2cb9e, type: 2}
+    ballSkillEnum: 0
+    minPrice: 50
+    maxPrice: 200
+  - ability: {fileID: 11400000, guid: b93891f8b49c8504d95523ffb4e2cb9e, type: 2}
+    ballSkillEnum: 1
+    minPrice: 50
+    maxPrice: 200
+  - ability: {fileID: 11400000, guid: b93891f8b49c8504d95523ffb4e2cb9e, type: 2}
+    ballSkillEnum: 2
+    minPrice: 50
+    maxPrice: 200
+  - ability: {fileID: 11400000, guid: b93891f8b49c8504d95523ffb4e2cb9e, type: 2}
+    ballSkillEnum: 3
+    minPrice: 50
+    maxPrice: 200
+  - ability: {fileID: 11400000, guid: b93891f8b49c8504d95523ffb4e2cb9e, type: 2}
+    ballSkillEnum: 5
+    minPrice: 50
+    maxPrice: 200
+  - ability: {fileID: 11400000, guid: 7f5300a35775bda48a23a6181a9c5990, type: 2}
+    ballSkillEnum: 0
+    minPrice: 50
+    maxPrice: 200
+  - ability: {fileID: 11400000, guid: e7dc22d1de135d84a9fa85f63c7d41ba, type: 2}
+    ballSkillEnum: 3
+    minPrice: 100
+    maxPrice: 300
+  - ability: {fileID: 11400000, guid: aec7cc02efe7c4f468302971f1c719f5, type: 2}
+    ballSkillEnum: 3
+    minPrice: 100
+    maxPrice: 300
+  - ability: {fileID: 11400000, guid: d6134b5888fc4ae42a9db91d66de7742, type: 2}
+    ballSkillEnum: 0
+    minPrice: 100
+    maxPrice: 300
+  - ability: {fileID: 11400000, guid: d6134b5888fc4ae42a9db91d66de7742, type: 2}
+    ballSkillEnum: 1
+    minPrice: 100
+    maxPrice: 300
+  - ability: {fileID: 11400000, guid: d6134b5888fc4ae42a9db91d66de7742, type: 2}
+    ballSkillEnum: 3
+    minPrice: 100
+    maxPrice: 300
+  - ability: {fileID: 11400000, guid: 425187e690191744cbc1c126a0bf4205, type: 2}
+    ballSkillEnum: 0
+    minPrice: 100
+    maxPrice: 300
+  - ability: {fileID: 11400000, guid: 425187e690191744cbc1c126a0bf4205, type: 2}
+    ballSkillEnum: 1
+    minPrice: 100
+    maxPrice: 300
+  - ability: {fileID: 11400000, guid: 425187e690191744cbc1c126a0bf4205, type: 2}
+    ballSkillEnum: 3
+    minPrice: 100
+    maxPrice: 300
+  - ability: {fileID: 11400000, guid: ed1b3019893b96a4aaa9fa4543823737, type: 2}
+    ballSkillEnum: 1
+    minPrice: 50
+    maxPrice: 200
+  - ability: {fileID: 11400000, guid: ed1b3019893b96a4aaa9fa4543823737, type: 2}
+    ballSkillEnum: 2
+    minPrice: 50
+    maxPrice: 200
+  - ability: {fileID: 11400000, guid: 520eb4bacc6dcc846b58b1c2649f29a2, type: 2}
+    ballSkillEnum: 0
+    minPrice: 50
+    maxPrice: 200
+  - ability: {fileID: 11400000, guid: 520eb4bacc6dcc846b58b1c2649f29a2, type: 2}
+    ballSkillEnum: 2
+    minPrice: 50
+    maxPrice: 200
+  - ability: {fileID: 11400000, guid: 520eb4bacc6dcc846b58b1c2649f29a2, type: 2}
+    ballSkillEnum: 3
+    minPrice: 50
+    maxPrice: 200
+  - ability: {fileID: 11400000, guid: 520eb4bacc6dcc846b58b1c2649f29a2, type: 2}
+    ballSkillEnum: 5
+    minPrice: 50
+    maxPrice: 200
