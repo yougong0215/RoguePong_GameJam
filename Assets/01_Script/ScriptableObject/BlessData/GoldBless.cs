@@ -8,6 +8,6 @@ public class GoldBless : BlessData
 {
     public override void BlessDoing(float val)
     {
-        GameManager.Instance._gold += (int)val;
+        GameManager.Instance.Gold += (int)val;
     }
 }

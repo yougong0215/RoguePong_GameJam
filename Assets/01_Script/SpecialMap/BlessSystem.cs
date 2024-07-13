@@ -13,7 +13,7 @@ public class BlessSystem : SpecialMap
         int result = 0;
 
         List<BlessData> list = null;
-        switch(Random.Range(0, 2))
+        switch(Random.Range(0, 3))
         {
             case 0:
                 list = blessData.GoldBlessList;
