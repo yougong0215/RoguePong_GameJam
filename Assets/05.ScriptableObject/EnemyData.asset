@@ -12,22 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9662158b87a68e0428c6bee8cd3da0b8, type: 3}
   m_Name: EnemyData
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  Data:
-  - EnemyName: GhostSword
-    EnemyPrefab: {fileID: 1050887317583982385, guid: 6f9982337c0239445b7e5d6f0b109e6c,
-      type: 3}
-  - EnemyName: GhostWizzard
-    EnemyPrefab: {fileID: 7567131726185690800, guid: a7dd4110609089a44ab76ff320e1fadf,
-      type: 3}
-  - EnemyName: SkeletonArcher
-    EnemyPrefab: {fileID: 4217174592486361355, guid: 2334627dd9fca9842a86fdea28436bf2,
-      type: 3}
-  - EnemyName: SkeletonShilder
-    EnemyPrefab: {fileID: 3571292034396271334, guid: c48c0dc8aafe3e94195df793e17f4f6d,
-      type: 3}
-  - EnemyName: Witch
-    EnemyPrefab: {fileID: 8279524215029540673, guid: f5cbdffc6aea2ad4688bef5b122354f1,
-      type: 3}
-  - EnemyName: Zombie
-    EnemyPrefab: {fileID: 4103187202365290759, guid: db530be1c34ad724c9c69ea65402f625,
-      type: 3}
+  Data: []
