@@ -585,10 +585,8 @@ MonoBehaviour:
   _statAbility: []
   _parringAbility: []
   _ballHitSkill: []
-  _ballColisionSkill:
-  - {fileID: 11400000, guid: aec7cc02efe7c4f468302971f1c719f5, type: 2}
-  _ballUpdateSkill:
-  - {fileID: 11400000, guid: e7dc22d1de135d84a9fa85f63c7d41ba, type: 2}
+  _ballColisionSkill: []
+  _ballUpdateSkill: []
   _lastMaxHP: 10
   _currentHP: 10
   _isCanMove: 0
@@ -5433,7 +5431,7 @@ PrefabInstance:
     - target: {fileID: 6044629011209997069, guid: 4cde7bfba57fc1d47838d0a342b561e0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6044629011209997069, guid: 4cde7bfba57fc1d47838d0a342b561e0,
         type: 3}

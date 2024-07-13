@@ -342,6 +342,9 @@ public class BallSystem : ObjectSystem
 
     public float BallDamage()
     {
+
+        CameraManager.Instance.Shake(_curATK * _curSpeed/10, 0.2f);
+
         return _curATK * _curSpeed;
     }
 
