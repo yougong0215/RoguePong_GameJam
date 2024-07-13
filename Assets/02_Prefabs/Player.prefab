@@ -92,12 +92,11 @@ MonoBehaviour:
     _multyDurationTime: 1
     _multyHP: 1
     _multyReflect: 1
-  _lacketAbility:
-  - {fileID: 11400000, guid: 804061a006f099c4d981a5d7da8c636c, type: 2}
+  _lacketAbility: []
   _lacketHitStatAbility:
   - {fileID: 11400000, guid: 3305930f61e8e484d89f343878c729a6, type: 2}
-  _statAbility:
-  - {fileID: 11400000, guid: d95060438106ede4a8adb8cf02c99a4f, type: 2}
+  _statAbility: []
+  _parringAbility: []
   _ballHitSkill: []
   _ballColisionSkill:
   - {fileID: 11400000, guid: aec7cc02efe7c4f468302971f1c719f5, type: 2}
@@ -302,6 +301,7 @@ MonoBehaviour:
   _lacketHitskillAbility: []
   _ballHitSkillAbility: []
   _ballUpdateSkillAbility: []
+  _parringSkillAbility: []
 --- !u!1001 &1846722945855530602
 PrefabInstance:
   m_ObjectHideFlags: 0
