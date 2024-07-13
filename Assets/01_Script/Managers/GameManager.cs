@@ -35,6 +35,20 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    private ThreeCardReward _reward;
+    public ThreeCardReward Reward
+    {
+        get
+        {
+            if(_reward == null)
+            {
+                _reward = HUDCanvas.transform.parent.GetChild(1).GetComponent<ThreeCardReward>();
+            }
+
+            return _reward;
+        }
+    }
+
     private HUD _hud;
     public HUD HUDCanvas
     {
@@ -131,6 +145,9 @@ public class GameManager : Singleton<GameManager>
             warpPortal.SetActive(true);
             if(specialWarpPortal)
                 specialWarpPortal.SetActive(true);
+
+            Reward.gameObject.SetActive(true);
+            Reward.ShowReward();
         }
     }
 
@@ -145,8 +162,8 @@ public class GameManager : Singleton<GameManager>
         navMeshSurface = GetComponent<NavMeshSurface>();
 
         navMeshSurface.BuildNavMesh();
-    }
 
+    }
 
     public void TimSetting(float t, float wait =0.2f, float curTime = 0.6f)
     {
