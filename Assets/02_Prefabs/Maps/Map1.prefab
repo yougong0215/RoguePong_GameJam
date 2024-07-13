@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 5182556880651920402}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: 1.5, z: -23}
+  m_LocalPosition: {x: -1, y: 1.5, z: -21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1376,7 +1376,7 @@ PrefabInstance:
     - target: {fileID: 3007179561468800177, guid: a41f1926d804b0c48b6501e0577979fe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3007179561468800177, guid: a41f1926d804b0c48b6501e0577979fe,
         type: 3}
@@ -1450,7 +1450,7 @@ PrefabInstance:
     - target: {fileID: 3007179561468800177, guid: a41f1926d804b0c48b6501e0577979fe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 3007179561468800177, guid: a41f1926d804b0c48b6501e0577979fe,
         type: 3}
@@ -2784,6 +2784,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5086321090997387075}
     m_Modifications:
+    - target: {fileID: -3353401777024532859, guid: b69ff9bb4099a004cb9deadae0200f13,
+        type: 3}
+      propertyPath: SpawnTerm
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -3353401777024532859, guid: b69ff9bb4099a004cb9deadae0200f13,
+        type: 3}
+      propertyPath: Spawns.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3353401777024532859, guid: b69ff9bb4099a004cb9deadae0200f13,
+        type: 3}
+      propertyPath: Spawns.Array.data[0]
+      value: SkeletonArcher
+      objectReference: {fileID: 0}
+    - target: {fileID: -3353401777024532859, guid: b69ff9bb4099a004cb9deadae0200f13,
+        type: 3}
+      propertyPath: Spawns.Array.data[1]
+      value: SkeletonShilder
+      objectReference: {fileID: 0}
     - target: {fileID: 2511081399543744933, guid: b69ff9bb4099a004cb9deadae0200f13,
         type: 3}
       propertyPath: m_LocalPosition.x
