@@ -8,7 +8,7 @@ public class Bomb : MonoBehaviour, HitModule
     public void HitBall(BallSystem bss)
     {
 
-        var effect = Instantiate(bombEffect);
+        var effect = PoolManager.Instance.Pop("Explosion_1_FX");
         effect.transform.position = gameObject.transform.position;
         effect.transform.localScale = new Vector3(2, 2, 2);
         bss._abilityStat._addSpeed += 10f;

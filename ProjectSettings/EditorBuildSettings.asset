@@ -9,45 +9,6 @@ EditorBuildSettings:
     path: Assets/00_Scenes/StartScene.unity
     guid: 5b00be10b958ba44f949beb2d9393f3f
   - enabled: 1
-    path: Assets/00_Scenes/yougongScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/00_Scenes/Stages/0_0.unity
-    guid: 2d627141c0963c84d8efe5178ae6f188
-  - enabled: 1
-    path: Assets/00_Scenes/Stages/0_1.unity
-    guid: 29b6d455f029bb34586f547fe854194a
-  - enabled: 1
-    path: Assets/00_Scenes/Stages/0_2.unity
-    guid: 9cc183ee3c02b2a4e8f80b1c1125fa15
-  - enabled: 1
-    path: Assets/00_Scenes/Stages/0_3.unity
-    guid: 86ff52e9eee56e54c8a15acb52a369a6
-  - enabled: 1
-    path: Assets/00_Scenes/Stages/0_4.unity
-    guid: 800d13098ba125b4ba19f806b4567eaf
-  - enabled: 1
-    path: Assets/00_Scenes/Stages/0_5.unity
-    guid: e8284e3f061e6e24cb5200ea7fc9980d
-  - enabled: 1
-    path: Assets/00_Scenes/Stages/0_6.unity
-    guid: 7ed68e48e4ce08e4c84da1985cd4c42a
-  - enabled: 1
-    path: Assets/00_Scenes/Stages/0_7.unity
-    guid: 07a64e5f1c83dc644951a5483170ce4e
-  - enabled: 1
-    path: Assets/00_Scenes/Stages/0_8.unity
-    guid: a845fa9ddb186b049b7c13c1fd851cc5
-  - enabled: 1
-    path: Assets/00_Scenes/Stages/0_9.unity
-    guid: 4014b1ea40179204f891ab141e53319b
-  - enabled: 1
-    path: Assets/00_Scenes/Stages/0_10.unity
-    guid: 7a0a1d57198f4cd418c1bdcf3f78e78c
-  - enabled: 1
-    path: Assets/00_Scenes/Stages/0_11.unity
-    guid: c4d2b0a68e0238b4c89b04a22b04f6e0
-  - enabled: 1
-    path: Assets/00_Scenes/Stages/0_12.unity
-    guid: f312219651dec1e4e96b3b4db926c2ba
+    path: Assets/00_Scenes/MainScene.unity
+    guid: b45142e58c43ca546ae53e9f14834dd1
   m_configObjects: {}
