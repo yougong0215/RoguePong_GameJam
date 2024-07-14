@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -371,6 +372,10 @@ public class BallSystem : ObjectSystem
         {
             dir.z *= -1;
         }
+
+        Quaternion quat = Quaternion.Euler(0, UnityEngine.Random.Range(-15f, 15f), 0);
+
+        dir = quat * dir;
     }
 
     public AudioClip _clip;
@@ -397,6 +402,10 @@ public class BallSystem : ObjectSystem
             {
                 dir.z *= -1;
             }
+
+            Quaternion quat = Quaternion.Euler(0, UnityEngine.Random.Range(-15f,15f), 0);
+
+            dir = quat * dir;
         }
         else if(_ballEnum == BallEnum.Dice)
         {
