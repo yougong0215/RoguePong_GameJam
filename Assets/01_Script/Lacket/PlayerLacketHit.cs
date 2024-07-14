@@ -109,7 +109,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
                     //dir = (enemies[0].transform.position - transform.position).normalized;
                     //dir.y = 0;
                     //Debug.Log(dir);
-                    ball.Debuff(StatEnum.SPEED, MathType.Plus, -30, 0.9f);
+                    ball.Debuff(StatEnum.SPEED, MathType.Plus, -30, 1.5f);
                     Action<BallSystem> parring = null;
 
                     foreach (var item in _parringSkillAbility)
