@@ -20,6 +20,7 @@ public class HUD : MonoBehaviour
     private Image DashCool;
     private Image ParyingCool;
 
+
     void Awake()
     {
         hearts = transform.Find("Under/Contents/Vertical Layout/HP").GetComponentsInChildren<Image>().ToList();
@@ -35,12 +36,19 @@ public class HUD : MonoBehaviour
         DashCool = transform.Find("Right/DashCool/Loading").GetComponent<Image>();
         ParyingCool = transform.Find("Right/ParyingCool/Loading").GetComponent<Image>();
 
+  
+
+
         UpdateHeartUI();
         UpdateShieldUI();
         UpdateGoldText(0);
         UpdateShieldText("Normal");
     }
 
+    private void Update()
+    {
+
+    }
 
     public void UpdateHeartUI()
     {

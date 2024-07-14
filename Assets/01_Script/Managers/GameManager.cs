@@ -218,6 +218,6 @@ public class GameManager : Singleton<GameManager>
         // Do Something
 
         PlayerPrefs.SetFloat("Run   Time", currentTime);
-        SceneManager.LoadScene("GameOver");
+        GameObject.FindObjectOfType<GameOver>().gameObject.SetActive(true);
     }
 }
