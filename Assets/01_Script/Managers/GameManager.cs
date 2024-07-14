@@ -217,7 +217,7 @@ public class GameManager : Singleton<GameManager>
     {
         // Do Something
 
-        PlayerPrefs.SetFloat("RunTime", currentTime);
-        SceneManager.LoadScene("GameOver");
+        PlayerPrefs.SetFloat("Run   Time", currentTime);
+        GameObject.FindObjectOfType<GameOver>().gameObject.SetActive(true);
     }
 }
