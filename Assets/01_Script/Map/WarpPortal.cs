@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WarpPortal : MonoBehaviour
 {
@@ -67,6 +68,8 @@ public class WarpPortal : MonoBehaviour
             else
             {
                 print("Mapdata not exists (out of range)");
+
+                SceneManager.LoadScene(2);
             }
         }
     }
