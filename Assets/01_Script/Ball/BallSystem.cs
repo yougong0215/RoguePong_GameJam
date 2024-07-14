@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -257,7 +258,12 @@ public class BallSystem : ObjectSystem
     IEnumerator LateTime()
     {
         yield return new WaitForEndOfFrame();
-        transform.position = hitPoint.point + -dir * GetSizeValue()/2;
+        transform.position = hitPoint.point + -dir * GetSizeValue();
+        
+        WallCollisionItem(hitPoint.collider);
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+
         _latePos = null;
 
     }
@@ -366,16 +372,20 @@ public class BallSystem : ObjectSystem
         {
             dir.z *= -1;
         }
+
+        Quaternion quat = Quaternion.Euler(0, UnityEngine.Random.Range(-15f, 15f), 0);
+
+        dir = quat * dir;
     }
 
     public AudioClip _clip;
 
     public void NormalRule(Collider col)
     {
-        if(col.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        if(col.gameObject.layer == LayerMask.NameToLayer("Wall") && _latePos == null)
         {
 
-            SoundManager.Instance.PlayGlobal(_clip);
+            SoundManager.Instance.PlayGlobal(_clip.ToString()); ;
             Vector3 closestPoint = col.ClosestPoint(transform.position);
             Vector3 positionDifference = (closestPoint - transform.position);
 
@@ -392,6 +402,10 @@ public class BallSystem : ObjectSystem
             {
                 dir.z *= -1;
             }
+
+            Quaternion quat = Quaternion.Euler(0, UnityEngine.Random.Range(-15f,15f), 0);
+
+            dir = quat * dir;
         }
         else if(_ballEnum == BallEnum.Dice)
         {

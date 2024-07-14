@@ -215,6 +215,8 @@ public class PlayerSystem : ObjectSystem, HitModule
 
                 Vector3 vid = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
                 forceDir = vid * 92;
+
+                SoundManager.Instance.PlayGlobal("SFX0815");
                 if (isSuperArmor != null)
                     isSuperArmor = null;
                 isSuperArmor = StartCoroutine(SuperMod(0.3f));
@@ -262,6 +264,7 @@ public class PlayerSystem : ObjectSystem, HitModule
         var eff = PoolManager.Instance.Pop("Explosion_2_FX");
         eff.transform.position = ball.transform.position;
         eff.transform.eulerAngles = effectDir;
+        DeadCheck();
     }
 
     public void HitEvent(float dmg, Action<PlayerSystem> act = null)
@@ -272,7 +275,7 @@ public class PlayerSystem : ObjectSystem, HitModule
         //_currentHP -= dmg;
         _currentHP = Mathf.Clamp(_currentHP-dmg, 0, GetHPValue());
         GameManager.Instance.HUDCanvas.UpdateHeartUI();
-
+        DeadCheck();
         act?.Invoke(this);
     }
 
@@ -284,17 +287,17 @@ public class PlayerSystem : ObjectSystem, HitModule
         _char.enabled = true;
 
     }
-    IEnumerator SuperMod(float t = 0.7f)
+    IEnumerator SuperMod(float t = 1.2f)
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(1.2f);
         isSuperArmor = null;
     }
 
-    public void CheckDead()
+    public void DeadCheck()
     {
         if(_currentHP <= 0)
         {
-
+            GameManager.Instance.Dead();
         }
     }
 }
