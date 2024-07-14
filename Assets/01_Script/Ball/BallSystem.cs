@@ -257,7 +257,8 @@ public class BallSystem : ObjectSystem
     IEnumerator LateTime()
     {
         yield return new WaitForEndOfFrame();
-        transform.position = hitPoint.point + -dir * GetSizeValue()/2;
+        transform.position = hitPoint.point + -dir * GetSizeValue();
+        WallCollisionItem(hitPoint.collider);
         _latePos = null;
 
     }
@@ -375,7 +376,7 @@ public class BallSystem : ObjectSystem
         if(col.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
 
-            SoundManager.Instance.PlayGlobal(_clip);
+            SoundManager.Instance.PlayGlobal(_clip.ToString()); ;
             Vector3 closestPoint = col.ClosestPoint(transform.position);
             Vector3 positionDifference = (closestPoint - transform.position);
 

@@ -47,12 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97d69d20c894a34cb09760485cad8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _originHP: 10
+  _originHP: 4
   _originATK: 10
   _originSize: 1
   _originSpeed: 8
   _originDurationTime: 0
-  _originReflectRange: 30
+  _originReflectRange: 20
   _originStat:
     _addATK: 0
     _addSize: 0
@@ -173,8 +173,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1192743919683507386}
   - component: {fileID: 3373014269262313368}
-  - component: {fileID: 2742737402806395550}
   - component: {fileID: 737570307623652961}
+  - component: {fileID: 7864561444377264186}
   m_Layer: 13
   m_Name: Lacket
   m_TagString: Untagged
@@ -213,30 +213,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 4.5, y: 1.3, z: 0.4}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2742737402806395550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3824251791542694074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a1da8325119bd46a2316ad5d2e084c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _layer:
-    serializedVersion: 2
-    m_Bits: 2048
-  Owner: {fileID: 5254069770797475115}
-  _box: {fileID: 0}
-  _useScale: 1
 --- !u!114 &737570307623652961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b93f2ed5764bba448fb54d8766fbd24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _originHP: 1000
+  _originHP: 14
   _originATK: 10
   _originSize: 1
   _originSpeed: 10
@@ -294,13 +276,31 @@ MonoBehaviour:
     _multyDurationTime: 1
     _multyHP: 1
     _multyReflect: 0
-  _lacketMaxHP: 10
-  _lacketCurHP: 10
-  _laketReviveTime: 0.1
+  _lacketMaxHP: 4
+  _lacketCurHP: 4
+  _laketReviveTime: 4
   _lacketHitskillAbility: []
   _ballHitSkillAbility: []
   _ballUpdateSkillAbility: []
   _parringSkillAbility: []
+--- !u!114 &7864561444377264186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3824251791542694074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a1da8325119bd46a2316ad5d2e084c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 2048
+  Owner: {fileID: 0}
+  _box: {fileID: 0}
+  _useScale: 0
 --- !u!1001 &1846722945855530602
 PrefabInstance:
   m_ObjectHideFlags: 0

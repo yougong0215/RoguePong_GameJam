@@ -7,6 +7,6 @@ public class OnLoadSound : MonoBehaviour
     [SerializeField] public AudioClip _audio;
     private void OnEnable()
     {
-        SoundManager.Instance.PlayGlobal(_audio, true, EAudioType.BGM);    
+        SoundManager.Instance.PlayGlobal(_audio.ToString(), true, EAudioType.BGM);    
     }
 }

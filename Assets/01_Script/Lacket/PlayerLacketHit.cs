@@ -47,8 +47,8 @@ public class PlayerLacketHit : ObjectSystem, HitModule
 
     IEnumerator ParringTime(float t)
     {
-        Debug.Log("�и�!!");
         _currentParringCooldown = _parringTime;
+        SoundManager.Instance.PlayGlobal("SFX0747");
         _isParring = true;
 
         yield return new WaitForSeconds(t);
@@ -60,8 +60,10 @@ public class PlayerLacketHit : ObjectSystem, HitModule
 
     IEnumerator LacketHPReturn()
     {
+        transform.localPosition = new Vector3(0, -5, 1);
         yield return new WaitForSeconds(_laketReviveTime);
         _lacketCurHP = _lacketMaxHP;
+        transform.localPosition = new Vector3(0, 0, 1);
         _hpCoroutine = null;
     }
 
@@ -84,12 +86,12 @@ public class PlayerLacketHit : ObjectSystem, HitModule
                 {
                     if(ball._ownerEnum == BallOwner.Player)
                     {
-                        _lacketCurHP -= 1;
                     }
                     else
                     {
-                        //_lacketCurHP -= 2;
+                        _lacketCurHP -= 1;
                     }
+                    SoundManager.Instance.PlayGlobal("Cartoon_car_hit");
 
                     //Debug.Log(ball.BallDamage());
                     CameraManager.Instance.Shake(12, 0.12f);
@@ -125,7 +127,7 @@ public class PlayerLacketHit : ObjectSystem, HitModule
                     _currentParringCooldown = 0f;
                     ScreenEffectManager.Instance.SetChromaticAberration(6, 0.12f);
                     CameraManager.Instance.Shake(7, 0.12f);
-
+                    SoundManager.Instance.PlayGlobal("SFX2580");
                     _lacketCurHP += 2;
 
                     if (_lacketCurHP > _lacketMaxHP)
@@ -223,6 +225,6 @@ public class PlayerLacketHit : ObjectSystem, HitModule
     {
     
         yield return new WaitForSeconds(0.3f);
-        GameObject.FindObjectOfType<BallSystem>().ResetCollision();
+        GameObject.FindObjectOfType<BallSystem>()?.ResetCollision();
     }
 }

@@ -26,7 +26,8 @@ public class EnemyObject : ObjectSystem, HitModule
 
             DamageText tm = PoolManager.Instance.Pop("DamageText") as DamageText;
             tm.Show($"{(int)(ball.BallDamage())}", pos.transform.position, Color.white);
-            _currentHP -= ball.BallDamage();    
+            _currentHP -= ball.BallDamage();
+            SoundManager.Instance.PlayGlobal("AFG2517");
         }
 
         if(_currentHP <= 0)
