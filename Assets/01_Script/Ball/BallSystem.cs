@@ -372,6 +372,9 @@ public class BallSystem : ObjectSystem
         {
             dir.z *= -1;
         }
+        EffectObject ef = PoolManager.Instance.Pop("Explosion_4_FX") as EffectObject;
+
+
 
         Quaternion quat = Quaternion.Euler(0, UnityEngine.Random.Range(-15f, 15f), 0);
 
