@@ -39,9 +39,10 @@ public class SoundManager : Singleton<SoundManager>
                 GameObject obj = new GameObject();
                 AudioSource so = obj.AddComponent < AudioSource>();
                 so.playOnAwake = false;
+                so.outputAudioMixerGroup = AudioMixer.FindMatchingGroups(audioType.ToString())[0];
                 so.clip = asset;
                 so.Play();
-
+                StartCoroutine(CO(so));
             }
 
         }
