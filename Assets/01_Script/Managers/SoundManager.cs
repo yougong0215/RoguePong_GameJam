@@ -7,6 +7,7 @@ public class SoundManager : Singleton<SoundManager>
 {
 
     public AudioSource Source;
+    public SoundData _sound;
     public AudioMixer AudioMixer;
 
     private void Start()
@@ -19,14 +20,16 @@ public class SoundManager : Singleton<SoundManager>
 
     }
 
-    public void PlayGlobal(AudioClip clipName, bool Loop = false, EAudioType audioType = EAudioType.SFX)
+    public void PlayGlobal(string clipName, bool Loop = false, EAudioType audioType = EAudioType.SFX)
     {
-        if(clipName != null)
+
+        AudioClip asset = _sound.soundAssets.Find(x => x.ToString() == clipName);
+        if (asset != null)
         {
             
             if(audioType == EAudioType.BGM)
             {
-                Source.clip = clipName;
+                Source.clip = asset;
                 Source.outputAudioMixerGroup = AudioMixer.FindMatchingGroups(audioType.ToString())[0];
                 Source.loop = Loop;
                 Source.Play();
@@ -36,7 +39,7 @@ public class SoundManager : Singleton<SoundManager>
                 GameObject obj = new GameObject();
                 AudioSource so = obj.AddComponent < AudioSource>();
                 so.playOnAwake = false;
-                so.clip = clipName;
+                so.clip = asset;
                 so.Play();
 
             }
