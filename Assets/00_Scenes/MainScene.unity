@@ -560,13 +560,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4540448872803747419, guid: e058136bf903de44286b8f7e9db9d398,
         type: 3}
+      propertyPath: _originReflectRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540448872803747419, guid: e058136bf903de44286b8f7e9db9d398,
+        type: 3}
       propertyPath: _ballHitSkill.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4540448872803747419, guid: e058136bf903de44286b8f7e9db9d398,
         type: 3}
       propertyPath: _parringAbility.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4540448872803747419, guid: e058136bf903de44286b8f7e9db9d398,
         type: 3}

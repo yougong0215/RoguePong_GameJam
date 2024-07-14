@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97d69d20c894a34cb09760485cad8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _originHP: 4
+  _originHP: 8
   _originATK: 10
   _originSize: 1
   _originSpeed: 8
