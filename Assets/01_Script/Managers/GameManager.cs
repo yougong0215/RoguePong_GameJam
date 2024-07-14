@@ -207,6 +207,7 @@ public class GameManager : Singleton<GameManager>
 
             var spw = GameObject.Find("SpawnPoint");
             BallSystem bs = PoolManager.Instance.Pop("GameBall") as BallSystem;
+            bs.ResetCollision();
             bs.transform.position = spw.transform.position;
             bs.Input(bs.transform.forward, BallOwner.Natural);
         }
