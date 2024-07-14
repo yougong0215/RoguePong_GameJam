@@ -215,6 +215,8 @@ public class PlayerSystem : ObjectSystem, HitModule
 
                 Vector3 vid = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
                 forceDir = vid * 92;
+
+                SoundManager.Instance.PlayGlobal("SFX0815");
                 if (isSuperArmor != null)
                     isSuperArmor = null;
                 isSuperArmor = StartCoroutine(SuperMod(0.3f));

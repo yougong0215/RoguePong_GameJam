@@ -83,7 +83,8 @@ public abstract class ColliderCast : MonoBehaviour
 		if(CheckDic.Count >0)
         foreach (var col in CheckDic)
 		{
-			if(col.Key.TryGetComponent<PlayerLacketHit>(out PlayerLacketHit hit))
+
+			if(null != col.Key && col.Key.TryGetComponent<PlayerLacketHit>(out PlayerLacketHit hit))
 			{
                 CheckDic.Clear();
 				break;

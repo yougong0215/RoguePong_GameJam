@@ -43,6 +43,7 @@ public class EnemyStandardLacket : ObjectSystem, HitModule
             }
             else
             {
+                SoundManager.Instance.PlayGlobal("AFG2528");
                 Vector3 dir = transform.forward;
                 Quaternion quat = Quaternion.Euler(0, UnityEngine.Random.Range(-GetReflectValue(), GetReflectValue()), 0);
                 dir.y = 0;
