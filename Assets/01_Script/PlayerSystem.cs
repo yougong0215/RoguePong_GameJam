@@ -286,9 +286,9 @@ public class PlayerSystem : ObjectSystem, HitModule
         _char.enabled = true;
 
     }
-    IEnumerator SuperMod(float t = 0.7f)
+    IEnumerator SuperMod(float t = 1.2f)
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(1.2f);
         isSuperArmor = null;
     }
 

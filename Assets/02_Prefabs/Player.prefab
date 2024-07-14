@@ -276,9 +276,9 @@ MonoBehaviour:
     _multyDurationTime: 1
     _multyHP: 1
     _multyReflect: 0
-  _lacketMaxHP: 4
-  _lacketCurHP: 4
-  _laketReviveTime: 4
+  _lacketMaxHP: 8
+  _lacketCurHP: 8
+  _laketReviveTime: 3
   _lacketHitskillAbility: []
   _ballHitSkillAbility: []
   _ballUpdateSkillAbility: []
