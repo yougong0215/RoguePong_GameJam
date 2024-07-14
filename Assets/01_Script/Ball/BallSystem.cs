@@ -258,7 +258,11 @@ public class BallSystem : ObjectSystem
     {
         yield return new WaitForEndOfFrame();
         transform.position = hitPoint.point + -dir * GetSizeValue();
+        
         WallCollisionItem(hitPoint.collider);
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+
         _latePos = null;
 
     }
@@ -373,7 +377,7 @@ public class BallSystem : ObjectSystem
 
     public void NormalRule(Collider col)
     {
-        if(col.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        if(col.gameObject.layer == LayerMask.NameToLayer("Wall") && _latePos == null)
         {
 
             SoundManager.Instance.PlayGlobal(_clip.ToString()); ;
