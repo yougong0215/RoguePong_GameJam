@@ -216,7 +216,7 @@ public class GameManager : Singleton<GameManager>
     {
         // Do Something
 
-        PlayerPrefs.SetFloat("RunTime", currentTime);
+        PlayerPrefs.SetFloat("Run   Time", currentTime);
         SceneManager.LoadScene("GameOver");
     }
 }

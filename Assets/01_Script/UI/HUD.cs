@@ -20,7 +20,7 @@ public class HUD : MonoBehaviour
     private Image DashCool;
     private Image ParyingCool;
 
-    void Start()
+    void Awake()
     {
         hearts = transform.Find("Under/Contents/Vertical Layout/HP").GetComponentsInChildren<Image>().ToList();
         shileds = transform.Find("Under/Contents/Vertical Layout/Shield").GetComponentsInChildren<Image>().ToList();

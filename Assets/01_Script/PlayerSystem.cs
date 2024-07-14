@@ -262,6 +262,7 @@ public class PlayerSystem : ObjectSystem, HitModule
         var eff = PoolManager.Instance.Pop("Explosion_2_FX");
         eff.transform.position = ball.transform.position;
         eff.transform.eulerAngles = effectDir;
+        DeadCheck();
     }
 
     public void HitEvent(float dmg, Action<PlayerSystem> act = null)
@@ -272,7 +273,7 @@ public class PlayerSystem : ObjectSystem, HitModule
         //_currentHP -= dmg;
         _currentHP = Mathf.Clamp(_currentHP-dmg, 0, GetHPValue());
         GameManager.Instance.HUDCanvas.UpdateHeartUI();
-
+        DeadCheck();
         act?.Invoke(this);
     }
 
@@ -290,11 +291,11 @@ public class PlayerSystem : ObjectSystem, HitModule
         isSuperArmor = null;
     }
 
-    public void CheckDead()
+    public void DeadCheck()
     {
         if(_currentHP <= 0)
         {
-
+            GameManager.Instance.Dead();
         }
     }
 }
