@@ -60,8 +60,10 @@ public class PlayerLacketHit : ObjectSystem, HitModule
 
     IEnumerator LacketHPReturn()
     {
+        transform.localPosition = new Vector3(0, -5, 1);
         yield return new WaitForSeconds(_laketReviveTime);
         _lacketCurHP = _lacketMaxHP;
+        transform.localPosition = new Vector3(0, 0, 1);
         _hpCoroutine = null;
     }
 
