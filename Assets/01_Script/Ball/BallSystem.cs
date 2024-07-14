@@ -256,8 +256,9 @@ public class BallSystem : ObjectSystem
 
     IEnumerator LateTime()
     {
+        Vector3 vec = hitPoint.point + -dir * GetSizeValue();
         yield return new WaitForEndOfFrame();
-        transform.position = hitPoint.point + -dir * GetSizeValue()/2;
+        transform.position = vec;
         _latePos = null;
 
     }
